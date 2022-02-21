@@ -3,12 +3,10 @@ DROP TABLE IF EXISTS habits;
 DROP TABLE IF EXISTS frequency;
 DROP TABLE IF EXISTS subhabits;
 
-
-
 CREATE TABLE users (
   id serial PRIMARY KEY,
   username varchar NOT NULL,
-    email varchar NOT NULL,
+  email varchar NOT NULL,
   password_digest varchar NOT NULL
 );
 
@@ -19,8 +17,7 @@ CREATE TABLE habits (
     complete boolean NOT NULL,
     streak int NOT NULL,
     user_id int NOT NULL
-)           
-
+);
 
 CREATE TABLE frequency (
   id serial PRIMARY KEY,
@@ -31,11 +28,11 @@ CREATE TABLE frequency (
   friday boolean NOT NULL,
   saturday boolean NOT NULL,
   sunday boolean NOT NULL
-)
+);
 
 CREATE TABLE subhabits (
   id serial PRIMARY KEY,
   name varchar NOT NULL,
   complete boolean NOT NULL,
-  habbit_id int NOT NULL
-)
+  habit_id int NOT NULL
+);

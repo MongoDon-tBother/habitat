@@ -25,24 +25,22 @@
     "vueIndentScriptAndStyle": false
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "docker compose -f docker-compose.yml -f docker-compose.dev.yml up",
+    "stop": "docker compose down --volumes --remove-orphans"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "jest": "^27.5.1",
-    "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
     "supertest": "^6.2.2"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
-    "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
-    "pg": "^8.7.3",
     "sql-template-strings": "^2.2.2"
   }
 }
