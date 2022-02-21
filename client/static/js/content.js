@@ -15,6 +15,7 @@ function renderHomepage(){
   const shelf = document.createElement('div');
   shelf.id = 'shelf';
   main.appendChild(shelf)
+
 } 
 
 

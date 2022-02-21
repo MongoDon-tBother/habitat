@@ -33,3 +33,22 @@ top: 40%;
  
 }
 
+body.light {
+  background-color: black
+}
+
+/* Positioning the lightmode btn */
+#light-mode {
+  position: fixed;
+  background: pink;
+  border: none;
+  padding: 0.5em;
+  border-radius: 20%;
+  margin: 2em;
+  margin-left: 2em;
+  font-size: 1.25rem;
+  margin-left: 1em;
+  color: purple;
+}
+
+
