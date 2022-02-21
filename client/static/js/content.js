@@ -1,3 +1,11 @@
+function renderHomepage(){
+  const logo = document.createElement('img');
+  logo.id = 'logo';
+  logo.src ='https://images-platform.99static.com//n7liZzsSMdHX6uDJpYOA2QTUVeA=/163x13:1335x1185/fit-in/500x500/99designs-contests-attachments/116/116335/attachment_116335822'
+  logo.alt='habitat logo'
+  main.appendChild(logo)
+  const login_book = document.createElement('login_book');
+
 function renderLoginForm() {
   const deardiary = document.createElement("h1");
   deardiary.id = "deardiary";
@@ -18,4 +26,6 @@ function renderLoginForm() {
   });
   form.addEventListener("submit", requestLogin);
   main.appendChild(form);
+}
+
 }
