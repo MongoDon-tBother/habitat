@@ -8,6 +8,7 @@ module.exports = class Habit {
     this.complete = data.complete;
     this.streak = data.streak;
     this.subhabits = data.subhabits;
+    this.habitId = data.id;
   }
 
   static findByUser(id) {
@@ -101,6 +102,17 @@ module.exports = class Habit {
         resolve(this.findByUser(user_id));
       } catch (err) {
         reject(err);
+      }
+    });
+  }
+
+  static destroyHabit(id) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        await db.query("DELETE FROM habits WHERE id = $1", [id]);
+        resolve("Habit was deleted");
+      } catch (err) {
+        reject("Habit could not be deleted");
       }
     });
   }
