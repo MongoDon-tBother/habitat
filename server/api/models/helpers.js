@@ -18,10 +18,21 @@ const findFrequency = (id) => {
   return new Promise(async (resolve, reject) => {
     try {
       let frequencyData = await db.query(
-        `SELECT * FROM frequency WHERE id = $1;`,
+        `SELECT monday, tuesday, wednesday, thursday, friday, saturday, sunday
+          FROM frequency
+          WHERE id = $1;`,
         [id]
       );
-      resolve(frequencyData.rows);
+      let soloData = frequencyData.rows[0];
+      const frequencyArr = [];
+      for (day in soloData) {
+        if (soloData[day]) {
+          frequencyArr.push(1);
+        } else {
+          frequencyArr.push(0);
+        }
+      }
+      resolve(frequencyArr);
     } catch (err) {
       reject("frequency not found");
     }

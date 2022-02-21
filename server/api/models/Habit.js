@@ -22,7 +22,7 @@ module.exports = class Habit {
           const subData = await findSubhabits(data.id);
           if (subData.length) data.subhabits = subData;
           const frequencyData = await findFrequency(data.frequency_id);
-          if (frequencyData.length) data.frequency = frequencyData[0];
+          if (frequencyData.length) data.frequency = frequencyData;
         }
         let habits = habitData.map((h) => {
           return new Habit(h);
