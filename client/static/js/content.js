@@ -14,7 +14,7 @@ function renderHomepage(){
 
 } 
 
-}
+
 
 function renderLoginForm() {
   const deardiary = document.createElement("h1");
@@ -43,7 +43,8 @@ function renderLoginForm() {
 
   main.appendChild(loginform)
 
-  
+}
+
   /*
   const fields = [
     { tag: "label", attributes: { type: "text", name: "username" } },
@@ -63,9 +64,5 @@ function renderLoginForm() {
   form.addEventListener("submit", requestLogin);
   main.appendChild(form);
   */
-}
 
-<<<<<<< HEAD
 
-=======
->>>>>>> f026176e3cbd6e7e87309e411b9cdbb06398266d
