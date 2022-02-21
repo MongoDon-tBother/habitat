@@ -9,4 +9,13 @@ async function show(req, res) {
   }
 }
 
-module.exports = { show };
+async function create(req, res) {
+  try {
+    const habits = await Habit.newHabit(req.body);
+    res.status(201).json(habits);
+  } catch (err) {
+    res.status(422).json({ err });
+  }
+}
+
+module.exports = { show, create };
