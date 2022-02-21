@@ -38,6 +38,28 @@ module.exports = class Habit {
     });
   }
 
+  static findByHabit(id) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        // get all habit data matching that user id
+        let habitData = await db.query(`SELECT * FROM habits WHERE id = $1;`, [
+          id
+        ]);
+        habitData = habitData.rows[0];
+        // get the subhabits that match the habit id
+        const subData = await findSubhabits(habitData.id);
+        if (subData.length) habitData.subhabits = subData;
+        // get the frequency that match the habit id
+        const frequencyData = await findFrequency(habitData.frequency_id);
+        if (frequencyData.length) habitData.frequency = frequencyData;
+        const habit = new Habit(habitData);
+        resolve(habit);
+      } catch (err) {
+        reject("Habit not found");
+      }
+    });
+  }
+
   static async newHabit(habitData) {
     return new Promise(async (resolve, reject) => {
       try {
@@ -113,6 +135,78 @@ module.exports = class Habit {
         resolve("Habit was deleted");
       } catch (err) {
         reject("Habit could not be deleted");
+      }
+    });
+  }
+
+  updateHabit(data) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const { name, frequency, subhabits, complete, streak } = data;
+        if (name) this.name = name;
+        if (streak) this.streak = streak;
+        if (complete) this.complete = complete;
+        if (frequency) this.frequency = frequency;
+        console.log(this);
+
+        // Check if frequency already exists to get its id
+        let duplicate = false;
+        let frequency_id;
+        let previousFrequency = await db.query(`SELECT id FROM frequency`);
+        for (let row of previousFrequency.rows) {
+          const allFrequencyArr = await findFrequency(row.id);
+          if (`${allFrequencyArr}` === `${this.frequency}`) {
+            duplicate = true;
+            frequency_id = row.id;
+            break;
+          }
+        }
+        // If that frequency doesn't already exist add it to the DB
+        if (!duplicate) {
+          const frequencyBool = this.frequency.map((m) => {
+            if (m === 1) {
+              return "TRUE";
+            } else if (m === 0) {
+              return "FALSE";
+            } else {
+              throw new Error("unexpected value in array");
+            }
+          });
+          frequency_id = await db.query(
+            `INSERT INTO frequency (monday, tuesday, wednesday, thursday, friday, saturday, sunday)
+           VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id;`,
+            frequencyBool
+          );
+          frequency_id = frequency_id.rows[0].id;
+        }
+
+        // Delete any existing subhabits then create new ones
+
+        if (subhabits) {
+          await db.query(`DELETE FROM subhabits WHERE habit_id = $1;`, [
+            this.habitId
+          ]);
+          for (let subhabit of subhabits) {
+            await db.query(
+              `INSERT INTO subhabits (name, complete, habit_id)
+             VALUES ($1, $2, $3);`,
+              [subhabit.name, subhabit.complete, habit_id]
+            );
+          }
+        }
+        // update the habits
+        db.query(
+          `UPDATE habits
+            SET name = $1,
+                frequency_id = $2,
+                complete = $3,
+                streak = $4
+            WHERE id = $5;`,
+          [this.name, frequency_id, this.complete, this.streak, this.habitId]
+        );
+        resolve("Habit updated");
+      } catch (err) {
+        reject("Habit cannot be updated");
       }
     });
   }
