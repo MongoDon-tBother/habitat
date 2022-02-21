@@ -99,6 +99,31 @@ function renderHabitPage() {
   wrapperDiv.classList = 'wrapper'
   wrapperDiv.textContent = 'this is the wrapper of wraps rap rap'
   main.appendChild(wrapperDiv)
+  const modalsection = document.createElement('section')
+  modalsection.id = 'modal'
+  modalsection.style = 'display: none;'
+  main.appendChild(modalsection)
+  const modali = document.createElement("i")
+  modalsection.appendChild(modali)
+  const modala = document.createElement("a")
+  modala.href = "#"
+  modala.textContent = 'x'
+  modali.appendChild(modala)
+  const modalh2 = document.createElement("h2")
+  modalsection.appendChild(modalh2)
+  const modalarticle = document.createElement('article')
+  modalsection.appendChild(modalarticle);
+
+  
+  
+
+
+
+
+
+
+
+
 }
 
 
