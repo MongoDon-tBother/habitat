@@ -4,5 +4,6 @@ const habitsController = require("../controllers/habits");
 
 router.get("/:user_id", habitsController.show);
 router.post("/", habitsController.create);
+router.delete("/:habit_id", habitsController.destroy);
 
 module.exports = router;
