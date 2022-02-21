@@ -4,7 +4,15 @@ function renderHomepage(){
   logo.src ='https://images-platform.99static.com//n7liZzsSMdHX6uDJpYOA2QTUVeA=/163x13:1335x1185/fit-in/500x500/99designs-contests-attachments/116/116335/attachment_116335822'
   logo.alt='habitat logo'
   main.appendChild(logo)
-  const login_book = document.createElement('login_book');
+  const login_book = document.createElement('div');
+  login_book.id = 'login_book';
+  main.appendChild(login_book)
+
+  const signup_book = document.createElement('div');
+  signup_book.id = 'signup_book';
+  main.appendChild(signup_book)
+
+} 
 
 }
 
@@ -57,4 +65,7 @@ function renderLoginForm() {
   */
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f026176e3cbd6e7e87309e411b9cdbb06398266d
