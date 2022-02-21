@@ -22,7 +22,7 @@ function renderLoginForm() {
   deardiary.textContent = "Dear Diary";
   main.appendChild(deardiary);
 
-  const loginform = document.createElement("form");
+  const loginform = document.createElement('form');
   loginform.id = "loginform";
 
   const usernamelabel = document.createElement("label");
@@ -39,32 +39,18 @@ function renderLoginForm() {
   const passwordinput = document.createElement("input");
   passwordinput.type = "password";
   passwordinput.id = "passwordinput";
-  loginform.appendChild(usernameinput);
+  loginform.appendChild(passwordinput);
 
+  loginform.addEventListener("submit", requestLogin);
   main.appendChild(loginform)
 
 
 }
 
-  /*
-  const fields = [
-    { tag: "label", attributes: { type: "text", name: "username" } },
-    { tag: "input", attributes: { type: "text", name: "username" } },
-    { tag: "label", attributes: { type: "text", name: "username" } },
-    { tag: "input", attributes: { type: "password", name: "password" } },
-    { tag: "input", attributes: { type: "submit", value: "Login" } }
-  ];
-  const form = document.createElement("form");
-  fields.forEach((f) => {
-    let field = document.createElement(f.tag);
-    Object.entries(f.attributes).forEach(([a, v]) => {
-      field.setAttribute(a, v);
-      form.appendChild(field);
-    });
-  });
-  form.addEventListener("submit", requestLogin);
-  main.appendChild(form);
-  */
 
-
+function render404() {
+  const error = document.createElement("h2");
+  error.textContent = "Oops, we can't find that page sorry!";
+  main.appendChild(error);
+}
 
