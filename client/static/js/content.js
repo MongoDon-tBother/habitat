@@ -1,17 +1,11 @@
 function renderLoginForm() {
+  const deardiary = document.createElement("h1");
+  deardiary.id = "deardiary";
+  deardiary.textContent = "Dear Diary";
+  main.appendChild(deardiary);
   const fields = [
-    {
-      tag: "input",
-      attributes: { type: "email", name: "email", placeholder: "Email" }
-    },
-    {
-      tag: "input",
-      attributes: {
-        type: "password",
-        name: "password",
-        placeholder: "Password"
-      }
-    },
+    { tag: "input", attributes: { type: "text", name: "username" } },
+    { tag: "input", attributes: { type: "password", name: "password" } },
     { tag: "input", attributes: { type: "submit", value: "Login" } }
   ];
   const form = document.createElement("form");
