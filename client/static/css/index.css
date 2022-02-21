@@ -50,5 +50,14 @@ body.light {
   margin-left: 1em;
   color: purple;
 }
-
+.wrapper {
+  width: fit-content;
+  margin: 0 auto;
+  display: grid;
+  --column_number: 4;
+  grid-template-columns: repeat(var(--column_number), auto);
+  margin-bottom: 4rem;
+  min-height: 100vh;
+  background-color: orange ;
+}
 

@@ -88,10 +88,20 @@ function renderSignupForm() {
 }
 
 function renderHabitPage() {
-  const wip = document.createElement('h1')
-  wip.textContent = 'Work in Progress'
-  main.appendChild(wip)
+  const newHabit = document.createElement('div')
+  newHabit.textContent = 'newHabit'
+  main.appendChild(newHabit)
+  const welcomeMessage = document.createElement('h2')
+  welcomeMessage.textContent = 'YO BITCHESSSSSSSSSSS THIS IS YO MFING PAGE WHERRE YOU KEEP TRACCK OF YO HABITS '
+  main.appendChild(welcomeMessage)
+  const wrapperDiv = document.createElement('div')
+  wrapperDiv.id = 'wrapper'
+  wrapperDiv.classList = 'wrapper'
+  wrapperDiv.textContent = 'this is the wrapper of wraps rap rap'
+  main.appendChild(wrapperDiv)
 }
+
+
 
 /*
 
