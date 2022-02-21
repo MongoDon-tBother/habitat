@@ -1,11 +1,10 @@
 const db = require("../dbConfig/init");
+const { findSubhabits, findFrequency } = require("./helpers");
 
 module.exports = class Habit {
   constructor(data) {
-    this.id = data.id;
     this.name = data.name;
     this.frequency = data.frequency;
-    this.complete = data.complete;
     this.complete = data.complete;
     this.streak = data.streak;
     this.subhabits = data.subhabits;
@@ -18,7 +17,16 @@ module.exports = class Habit {
           `SELECT * FROM habits WHERE user_id = $1;`,
           [id]
         );
-        let habits = habitData.rows.map((h) => new Habit(h));
+        habitData = habitData.rows;
+        for (let data of habitData) {
+          const subData = await findSubhabits(data.id);
+          if (subData.length) data.subhabits = subData;
+          const frequencyData = await findFrequency(data.frequency_id);
+          if (frequencyData.length) data.frequency = frequencyData[0];
+        }
+        let habits = habitData.map((h) => {
+          return new Habit(h);
+        });
         resolve(habits);
       } catch (err) {
         reject("User not found");
