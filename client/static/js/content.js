@@ -22,7 +22,7 @@ function renderLoginForm() {
   deardiary.textContent = "Dear Diary";
   main.appendChild(deardiary);
 
-  const loginform = document.createElement("form");
+  const loginform = document.createElement('form');
   loginform.id = "loginform";
 
   const usernamelabel = document.createElement("label");
@@ -39,9 +39,17 @@ function renderLoginForm() {
   const passwordinput = document.createElement("input");
   passwordinput.type = "password";
   passwordinput.id = "passwordinput";
-  loginform.appendChild(usernameinput);
+  loginform.appendChild(passwordinput);
 
+  loginform.addEventListener("submit", requestLogin);
   main.appendChild(loginform)
 
 
+}
+
+
+function render404() {
+  const error = document.createElement("h2");
+  error.textContent = "Oops, we can't find that page sorry!";
+  main.appendChild(error);
 }
