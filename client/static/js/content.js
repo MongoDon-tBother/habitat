@@ -43,6 +43,7 @@ function renderLoginForm() {
 
   main.appendChild(loginform)
 
+
 }
 
   /*
@@ -64,5 +65,6 @@ function renderLoginForm() {
   form.addEventListener("submit", requestLogin);
   main.appendChild(form);
   */
+
 
 
