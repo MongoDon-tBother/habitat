@@ -15,7 +15,8 @@ VALUES
 (TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE),
 (TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE);
 
-INSERT INTO subhabits (name, complete, habbit_id)
+INSERT INTO subhabits (name, complete, habit_id)
 VALUES
 ('9am', FALSE, 1),
+('10am', FALSE, 1),
 ('9am', FALSE, 2);
