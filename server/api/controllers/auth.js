@@ -1,25 +1,12 @@
 require("dotenv").config();
 
-const express = require("express");
-const router = express.Router();
-
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const User = require("../models/user");
 
-router.post("/register", async (req, res) => {
-  try {
-    const salt = await bcrypt.genSalt();
-    const hashed = await bcrypt.hash(req.body.password, salt);
-    await User.create({ ...req.body, password: hashed });
-    res.status(201).json({ msg: "User created" });
-  } catch (err) {
-    res.status(500).json({ err });
-  }
-});
 
-router.post("/login", async (req, res) => {
+async function create(req, res) {
   try {
     const user = await User.findByEmail(req.body.email);
     if (!user) {
@@ -45,6 +32,21 @@ router.post("/login", async (req, res) => {
     console.log(err);
     res.status(401).json({ err });
   }
-});
+}
 
-module.exports = router;
+
+async function show(req, res) {
+  try {
+    const salt = await bcrypt.genSalt();
+    const hashed = await bcrypt.hash(req.body.password, salt);
+    await User.create({ ...req.body, password: hashed });
+    res.status(201).json({ msg: "User created" });
+  } catch (err) {
+    res.status(500).json({ err });
+  }
+}
+
+
+
+
+module.exports = { show, create };
