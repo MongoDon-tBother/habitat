@@ -34,5 +34,5 @@ CREATE TABLE subhabits (
   id serial PRIMARY KEY,
   name varchar NOT NULL,
   complete boolean NOT NULL,
-  habbit_id int NOT NULL
+  habit_id int NOT NULL
 );
