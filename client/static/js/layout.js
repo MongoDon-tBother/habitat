@@ -1,7 +1,7 @@
 const main = document.querySelector("main");
 const nav = document.querySelector("nav");
 
-const publicRoutes = ["#", "#login", "#signup"];
+const publicRoutes = ["#", "#login", "#register"];
 const privateRoutes = ["#habit"];
 
 window.addEventListener("hashchange", updateContent);
@@ -30,7 +30,7 @@ function updateMain(path) {
       case "#login":
         renderLoginForm();
         break;
-      case "#signup":
+      case "#register":
         renderSignupForm();
         break;
       case "#habit":
