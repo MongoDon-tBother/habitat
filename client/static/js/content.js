@@ -41,10 +41,66 @@ function renderLoginForm() {
   passwordinput.id = "passwordinput";
   loginform.appendChild(passwordinput);
 
+  const submitinput = document.createElement("input");
+  submitinput.type = 'submit'
+  submitinput.value = "Login"
+  loginform.appendChild(submitinput)
+
   loginform.addEventListener("submit", requestLogin);
   main.appendChild(loginform)
 
 
+}
+
+function renderSignupForm() {
+  const signup = document.createElement("h1");
+  signup.id = "signup";
+  signup.textContent = "Create Account";
+  main.appendChild(signup);
+
+  const signupform = document.createElement("form");
+  signupform.id = "signupform";
+
+  const createusernamelabel = document.createElement("label");
+  createusernamelabel.textContent = "Username";
+  signupform.appendChild(createusernamelabel);
+
+    const createusernameinput = document.createElement("input");
+    createusernameinput.type = "text";
+    createusernameinput.id = "createusernameinput";
+    signupform.appendChild(createusernameinput);
+
+   const createemaillabel = document.createElement("label");
+   createemaillabel.textContent = "Email";
+   signupform.appendChild(createemaillabel);
+   const createemailinput = document.createElement("input");
+   createemailinput.type = "email";
+   createemailinput.id = "createemailinput";
+   signupform.appendChild(createemailinput);
+
+  const createpasswordlabel = document.createElement("label");
+  createpasswordlabel.textContent = "Password";
+  signupform.appendChild(createpasswordlabel);
+  const createpasswordinput = document.createElement("input");
+  createpasswordinput.type = "password";
+  createpasswordinput.id = "passwordinput";
+  signupform.appendChild(createpasswordinput);
+
+   const confirmpasswordlabel = document.createElement("label");
+   confirmpasswordlabel.textContent = "Confirm Password";
+   signupform.appendChild(confirmpasswordlabel);
+   const confirmpasswordinput = document.createElement("input");
+   confirmpasswordinput.type = "password";
+   confirmpasswordinput.id = "passwordinput";
+   signupform.appendChild(confirmpasswordinput);
+
+  const createsubmitinput = document.createElement("input");
+  createsubmitinput.type = "submit";
+  createsubmitinput.value = "Login";
+  signupform.appendChild(createsubmitinput);
+
+  signupform.addEventListener("submit", requestLogin);
+  main.appendChild(signupform);
 }
 
 
