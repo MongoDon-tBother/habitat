@@ -99,6 +99,50 @@ function renderHabitPage() {
   wrapperDiv.classList = 'wrapper'
   wrapperDiv.textContent = 'this is the wrapper of wraps rap rap'
   main.appendChild(wrapperDiv)
+  const createCard = document.createElement('div')
+  createCard.textContent = 'creating Card'
+  wrapperDiv.appendChild(createCard)
+
+  const habitDropdown = document.createElement('div')
+  habitDropdown.textContent = 'habitDropdown'
+  wrapperDiv.appendChild(habitDropdown)
+
+  const habitOptions = document.createElement('h2')
+  habitOptions.textContent = 'habitOptions'
+  wrapperDiv.appendChild(habitOptions)
+
+  const periodToggle = document.createElement('div')
+  periodToggle.textContent = 'periodToggle - day or weekly'
+  wrapperDiv.appendChild(periodToggle)
+
+  const timeChecklist = document.createElement('div')
+  timeChecklist.textContent = 'timeChecklist - day or weekly'
+  wrapperDiv.appendChild(timeChecklist)
+
+  const dayChecklist = document.createElement('div')
+  dayChecklist.textContent = 'dayChecklist '
+  wrapperDiv.appendChild(dayChecklist)
+  // this will be if day is selected, then div will drop with tasks to do throughout day
+
+  const dayCheck = document.createElement('h2')
+  dayCheck.textContent = 'dayCheck '
+  wrapperDiv.appendChild(dayCheck)
+  // the actual list of activties of habits they wish to for the day - the habit option would be hidden along side the week checklist
+  
+  const weekChecklist = document.createElement('div')
+  weekChecklist.textContent = 'weekChecklist'
+  wrapperDiv.appendChild(weekChecklist)
+  // radio buttons so when clicked, it will filter which days the habit are for through the week
+
+  
+  const notesDiv = document.createElement('div')
+  notesDiv.textContent = 'notesDiv'
+  wrapperDiv.appendChild(notesDiv)
+
+  const updateButton = document.createElement('div ')
+  updateButton.textContent = 'updateButton'
+  wrapperDiv.appendChild(updateButton)
+}
 }
 
 
