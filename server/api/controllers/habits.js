@@ -18,4 +18,13 @@ async function create(req, res) {
   }
 }
 
-module.exports = { show, create };
+async function destroy(req, res) {
+  try {
+    const habit = await Habit.destroyHabit(req.params.habit_id);
+    res.status(204).end();
+  } catch (err) {
+    res.status(404).json({ err });
+  }
+}
+
+module.exports = { show, create, destroy };
