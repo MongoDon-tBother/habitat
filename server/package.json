@@ -25,7 +25,8 @@
     "vueIndentScriptAndStyle": false
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "nodemon ./api/index.js"
   },
   "keywords": [],
   "author": "",
