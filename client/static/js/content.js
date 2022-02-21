@@ -12,6 +12,9 @@ function renderHomepage(){
   signup_book.id = 'signup_book';
   main.appendChild(signup_book)
 
+  const shelf = document.createElement('div');
+  shelf.id = 'shelf';
+  main.appendChild(shelf)
 } 
 
 
