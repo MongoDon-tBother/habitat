@@ -36,6 +36,7 @@ async function requestRegistration(e) {
   }
 }
 
+
 function login(token) {
   const user = jwt_decode(token);
   localStorage.setItem("token", token);
