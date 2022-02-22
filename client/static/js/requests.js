@@ -1,3 +1,5 @@
+const { logout } = require("./auth");
+
 async function getAll(category) {
   try {
     const response = await fetch(`http://localhost:3000/${category}`);
@@ -22,7 +24,7 @@ async function getAllUserHabits() {
   try {
     const options = {
       headers: {
-        authorization: localStorage.getItem("token"),
+        "authorization": localStorage.getItem("token"),
         "Content-Type": "application/json"
       }
     };
@@ -47,29 +49,32 @@ async function postHabit(e) {
   try {
     const newHabitData = {
       name: document.getElementById("newHabitName").value,
-      frequency: document.getElementById("newHabitFrequency").value,
+      frequency: [0, 0, 0, 1, 1, 0, 0],
       username: localStorage.getItem("username"),
-      subhabits: document.getElementById("subhabits").value
+      subhabits: document.getElementById("newSubHabit").value
     };
     const options = {
       method: "POST",
       headers: {
-        authorization: localStorage.getItem("token"),
+        "authorization": localStorage.getItem("token"),
         "Content-Type": "application/json"
       },
       body: JSON.stringify(newHabitData)
     };
 
     const response = await fetch("http://localhost:3000/habits", options);
+    console.log(newHabitData);
     const data = await response.json();
+    console.log(data)
+    window.location.reload();
     if (data.err) {
       console.warn(data.err);
-      logout();
+      //logout();
     }
     return data;
   } catch (err) {
     console.warn(err);
-  }
+  };
 }
 
 async function deleteHabit(id) {
@@ -82,4 +87,4 @@ async function deleteHabit(id) {
   }
 }
 
-module.exports = { getAllUserHabits };
+module.exports = { getAllUserHabits, postHabit };

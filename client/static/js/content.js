@@ -1,6 +1,6 @@
 const { requestLogin, requestRegistration } = require("./auth");
 const { handleEdit, handleDone } = require("./btn_handlers");
-const { getAllUserHabits } = require("./requests");
+const { getAllUserHabits, postHabit } = require("./requests");
 
 function renderHomepage() {
   const main = document.querySelector("main");
@@ -175,8 +175,8 @@ async function renderHabitPage() {
   const main = document.querySelector("main");
   const book = createBook();
   book.append(createLeftPage(), await createRightPage());
-  main.appendChild(book);
-
+  main.appendChild(book); 
+  addCard()
   // const welcomeMessage = document.createElement("h2");
   // welcomeMessage.textContent =
   //   "YO BITCHESSSSSSSSSSS THIS IS YO MFING PAGE WHERRE YOU KEEP TRACCK OF YO HABITS ";
@@ -344,6 +344,34 @@ const createCard = (name, frequency, streakNum, subhabitsCont, habitId) => {
   return card;
 };
 
+
+
+function renderNewHabitForm() {
+  let lhWrapper = document.querySelector(".left_page");
+  const newHabitForm = document.createElement("form");
+  lhWrapper.appendChild(newHabitForm);
+  const newHabitName = document.createElement('input')
+  newHabitName.id = 'newHabitName'
+  newHabitName.placeholder = "Habit Name"
+  newHabitForm.appendChild(newHabitName)
+  const newHabitFreq = document.createElement("input");
+  newHabitFreq.placeholder = "Habit Frequency";
+  newHabitFreq.id = "newHabitFreq";
+  newHabitForm.appendChild(newHabitFreq);
+  const newSubHabit = document.createElement("input");
+  newSubHabit.placeholder = "Subhabit";
+  newSubHabit.id = "newSubHabit";
+  newHabitForm.appendChild(newSubHabit);
+  const newHabitSubmit = document.createElement("input");
+  newHabitSubmit.type = 'submit'
+  newHabitForm.appendChild(newHabitSubmit);
+  addEventListener(
+    "submit",
+    postHabit
+  );
+
+}
+
 // creating a new card for habits - the plus card
 const addCard = () => {
   let wrapper = document.querySelector(".habits_wrapper");
@@ -351,14 +379,12 @@ const addCard = () => {
   let addDiv = document.createElement("div");
   addDiv.classList.add("add_div", "card");
   addDiv.innerText = "+";
-  //addDiv.addEventListener("click", renderNewHabitForm);
+  addDiv.addEventListener("click", renderNewHabitForm)
+  
 
-  wrapper.append(addDiv);
+  wrapper.appendChild(addDiv);
 };
 
-function renderNewHabitForm() {
-  
-}
 
 
 function render404() {

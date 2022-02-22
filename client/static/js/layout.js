@@ -72,20 +72,5 @@ function updateContent() {
   }
 }
 
-async function loadIndexFor(category) {
-  modal.style.display = "none";
-  const data = await getAll(category);
-  data.forEach((a) => renderCard(a, category));
-}
-
-function renderCard(data, category) {
-  let link = document.createElement("a");
-  let card = document.createElement("div");
-  card.className = "card";
-  link.href = `#${category}/${data.id}`;
-  card.textContent = data.name || data.title;
-  link.appendChild(card);
-  main.appendChild(link);
-}
 
 module.exports = { updateContent };
