@@ -1,5 +1,5 @@
 const { updateContent } = require("./layout");
-
-const main = document.querySelector("main");
+const { lightDark } = require("./lightMode");
 
 updateContent();
+lightDark();
