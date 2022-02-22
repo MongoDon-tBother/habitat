@@ -3,7 +3,7 @@ const {
   displaySubhabits,
   createBtn
 } = require("./handler_helpers");
-const { getItem } = require("./requests");
+const { getItem, deleteHabit } = require("./requests");
 
 const handleEdit = async (e) => {
   const wrapper = document.querySelector(".edit_container");
@@ -32,5 +32,9 @@ const handleUpdate = () => {
 const handleDone = () => {
   console.log("Done");
 };
+const handleDelete = (e) => {
+  const habitId = e.target.parentNode.id.slice(-1);
+  deleteHabit(habitId);
+};
 
-module.exports = { handleEdit, handleDone };
+module.exports = { handleEdit, handleDone, handleDelete };

@@ -82,4 +82,4 @@ async function deleteHabit(id) {
   }
 }
 
-module.exports = { getAllUserHabits, getItem };
+module.exports = { getAllUserHabits, getItem, deleteHabit };

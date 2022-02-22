@@ -1,5 +1,5 @@
 const { requestLogin, requestRegistration } = require("./auth");
-const { handleEdit, handleDone } = require("./btn_handlers");
+const { handleEdit, handleDone, handleDelete } = require("./btn_handlers");
 const { getAllUserHabits } = require("./requests");
 
 function renderHomepage() {
@@ -221,6 +221,7 @@ const createCard = (name, frequency, streakNum, subhabitsCont, habitId) => {
   deleteBtn.classList.add("delete_btn", "btn");
   deleteBtn.innerText = "X";
   card.appendChild(deleteBtn);
+  deleteBtn.addEventListener("click", handleDelete);
 
   const cardContent = document.createElement("div");
   cardContent.classList.add("card_content");
