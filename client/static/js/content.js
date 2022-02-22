@@ -118,51 +118,87 @@ function renderHabitPage() {
   rightpage.textContent = "Right Page";
   main.appendChild(rightpage);
 
-  /*
+
   const today = new Date().toISOString().substring(0, 10);
   const todaysDate = document.createElement('div')
   todaysDate.innerHTML =
     '<input type="date" name="inputHabitsDate">';
   rightpage.append(todaysDate)
   todaysDate.querySelector(".inputHabitsDate").setAttribute("value", today);
-*/
+
  
 
   const wrapperDiv = document.createElement('div')
   wrapperDiv.id = 'wrapper'
   wrapperDiv.classList = 'wrapper'
   wrapperDiv.textContent = 'this is the wrapper of wraps rap rap'
+
   wrapperDiv.style.display = 'block'
   rightpage.appendChild(wrapperDiv)
   
   
 
+  main.appendChild(wrapperDiv)
+  const createCard = document.createElement('div')
+  createCard.textContent = 'creating Card'
+  wrapperDiv.appendChild(createCard)
 
+  const habitDropdown = document.createElement('div')
+  habitDropdown.textContent = 'habitDropdown'
+  wrapperDiv.appendChild(habitDropdown)
+
+  const habitOptions = document.createElement('h2')
+  habitOptions.textContent = 'habitOptions'
+  wrapperDiv.appendChild(habitOptions)
+
+  const periodToggle = document.createElement('div')
+  periodToggle.textContent = 'periodToggle - day or weekly'
+  wrapperDiv.appendChild(periodToggle)
+
+  const timeChecklist = document.createElement('div')
+  timeChecklist.textContent = 'timeChecklist - day or weekly'
+  wrapperDiv.appendChild(timeChecklist)
+
+  // const dayChecklist = document.createElement('div')
+  // dayChecklist.textContent = 'dayChecklist '
+  // wrapperDiv.appendChild(dayChecklist)
+  // // this will be if day is selected, then div will drop with tasks to do throughout day
+
+  // const dayCheck = document.createElement('h2')
+  // dayCheck.textContent = 'dayCheck '
+  // wrapperDiv.appendChild(dayCheck)
+  // // the actual list of activties of habits they wish to for the day - the habit option would be hidden along side the week checklist
+  
+
+
+  const weekChecklist = document.createElement('div')
+  weekChecklist.textContent = 'weekChecklist'
+  wrapperDiv.appendChild(weekChecklist)
+  // radio buttons so when clicked, it will filter which days the habit are for through the week
+
+  
+  const notesDiv = document.createElement('div')
+  notesDiv.textContent = 'notesDiv'
+  wrapperDiv.appendChild(notesDiv)
 
 /*
-  const modalsection = document.createElement('section')
-  modalsection.id = 'modal'
-  modalsection.style = 'display: none;'
-  leftpage.appendChild(modalsection)
-
-  const modali = document.createElement("i")
-  modalsection.appendChild(modali)
-  const modala = document.createElement("a")
-  modala.href = "#"
-  modala.addEventListener('click', () => {
-    window.location.reload();
-  })
-  modala.textContent = 'x'
-  modali.appendChild(modala)
-  const modalh2 = document.createElement("h2")
-  modalsection.appendChild(modalh2)
-  const modalarticle = document.createElement('article')
-  modalsection.appendChild(modalarticle);
-
+  const updateButton = document.createElement('div ')
+  updateButton.textContent = 'updateButton'
+  wrapperDiv.appendChild(updateButton)
+  wrapperDiv.appendChild(addhabit)
 */
+
+  async function renderHabits () {
+    const habits = await getAllUserHabits();
+    for (let habit of habits ) {
+     createCard(habit.name, habit.time, habit.frequencey, habit.streak, habit.subHabits)
+    } 
+  
+
+  }
 }
 
-/*
+
 
 function renderLoginForm() {
   const deardiary = document.createElement("h1");
@@ -199,59 +235,76 @@ function renderLoginForm() {
 
 
 }
+const subHabits = (subHabits) => {
+  let subHabits = document.createElement("div");
+  subHabits.classList.add("subHabits", "card_child");
+  return subHabits;
+};
 
-function renderSignupForm() {
-  const signup = document.createElement("h1");
-  signup.id = "signup";
-  signup.textContent = "Create Account";
-  main.appendChild(signup);
+// card section 
+const habitName = (habits) => {
+  let habitName = document.createElement("h2");
+  habitName.classList.add("habitName", "card_child");
+  return habitName;
+};
 
-  const signupform = document.createElement("form");
-  signupform.id = "signupform";
+const timeSection = (time) => {
+  let timeSection = document.createElement("div");
+  timeSection.classList.add("timeSection", "card_child");
+  return timeSection;
+};
 
-  const createusernamelabel = document.createElement("label");
-  createusernamelabel.textContent = "Username";
-  signupform.appendChild(createusernamelabel);
+const frequencySection = (frequency) => {
+  let frequencySection = document.createElement("div");
+  frequencySection.classList.add("frequencySection", "card_child");
+  return frequencySection;
+};
 
-    const createusernameinput = document.createElement("input");
-    createusernameinput.type = "text";
-    createusernameinput.id = "createusernameinput";
-    signupform.appendChild(createusernameinput);
+const streak = ( streak) => {
+  let  streak = document.createElement("div");
+   streak.classList.add(" streak", "card_child");
+  return  streak;
+};
 
-   const createemaillabel = document.createElement("label");
-   createemaillabel.textContent = "Email";
-   signupform.appendChild(createemaillabel);
-   const createemailinput = document.createElement("input");
-   createemailinput.type = "email";
-   createemailinput.id = "createemailinput";
-   signupform.appendChild(createemailinput);
+// Creates the message part on diary journal 
+const noteSection = (body) => {
+  
+  let notes = document.createElement("p");
+  notes.classList.add("notes_elem", "card_child");
+  notes.innerText = 'Notes:'
 
-  const createpasswordlabel = document.createElement("label");
-  createpasswordlabel.textContent = "Password";
-  signupform.appendChild(createpasswordlabel);
-  const createpasswordinput = document.createElement("input");
-  createpasswordinput.type = "password";
-  createpasswordinput.id = "createpasswordinput";
-  signupform.appendChild(createpasswordinput);
+  return notes;
+};
 
-   const confirmpasswordlabel = document.createElement("label");
-   confirmpasswordlabel.textContent = "Confirm Password";
-   signupform.appendChild(confirmpasswordlabel);
-   const confirmpasswordinput = document.createElement("input");
-   confirmpasswordinput.type = "password";
-   confirmpasswordinput.id = "confirmpasswordinput";
-   signupform.appendChild(confirmpasswordinput);
+const createCard = (habits, time, frequencey, body, streak, subHabits) => {
+  let wrapper = document.querySelector(".wrapper");
+  let card = document.createElement("div");
+  card.classList.add("card");
+  card.append(
+    habitName(habits),
+    timeSection(time),
+    frequencySection(frequency),
+    noteSection(body),
+    streak(streak),
+    subHabits(subHabits)
+  );
+  wrapper.appendChild(card);
 
-  const createsubmitinput = document.createElement("input");
-  createsubmitinput.type = "submit";
-  createsubmitinput.value = "Login";
-  signupform.appendChild(createsubmitinput);
+};
 
-  signupform.addEventListener("submit", requestRegistration);
-  main.appendChild(signupform);
-}
+// creating a new card for habits - the plus card
+const addCard = () => {
+  let wrapper = document.querySelector(".wrapper");
 
-*/
+  let addDiv = document.createElement("div");
+  addDiv.classList.add("add_div", "card", "no_tag");
+  addDiv.innerText = "+";
+  addDiv.addEventListener("click", showForm);
+
+
+  wrapper.prepend(addDiv);
+};
+
 
 function render404() {
   const error = document.createElement("h2");
@@ -259,9 +312,13 @@ function render404() {
   main.appendChild(error);
 }
 
+
 module.exports = {
   renderHomepage,
   renderLoginForm,
   renderSignupForm,
-  renderHabitPage
+  renderHabitPage,
+  addCard,
+  createCard
 };
+
