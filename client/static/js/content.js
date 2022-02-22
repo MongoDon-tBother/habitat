@@ -322,8 +322,8 @@ const createCard = (name, frequency, streakNum, subhabitsCont, habitId) => {
   cardBtns.append(createBtn("edit"), createBtn("done"));
 
   card.append(cardContent, cardBtns);
-  card.querySelector("#edit_btn").addEventListener("click", handleEdit);
-  card.querySelector("#done_btn").addEventListener("click", handleDone);
+  card.querySelector(".edit_btn").addEventListener("click", handleEdit);
+  card.querySelector(".done_btn").addEventListener("click", handleDone);
 
   return card;
 };
@@ -352,8 +352,7 @@ function render404() {
  */
 const createBtn = (text) => {
   const btn = document.createElement("btn");
-  btn.classList.add("habit_btn");
-  btn.id = `${text}_btn`;
+  btn.classList.add("habit_btn", `${text}_btn`);
   btn.innerText = text;
 
   return btn;
