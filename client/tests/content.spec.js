@@ -83,3 +83,49 @@ describe("signup form", () => {
   });
 
 });
+
+describe("creating book element", () => {
+  describe("creating the book", () => {
+    test("they will add the book element"), () => {
+      const book = document.querySelector("div");
+      expect(book).toBeTruthy();
+    }
+  });
+
+  
+
+  
+});
+
+describe("creating left page", () => {
+  describe("creating the div for left page", () => {
+    test("this will create the left page"), () => {
+      const lhWrapper = document.querySelector("div");
+      expect(lhWrapper).toBeTruthy();
+    }
+  });
+
+  describe("creating the title for the left page", () => {
+    test("this will create the title"), () => {
+      const title = document.querySelector("h1");
+      expect(title).innerText.toBe(`Welcome back ${localStorage.getItem("username")}!`)
+    }
+  });
+
+  describe("creating the editing container", () => {
+    test("this will create edit container"), () => {
+      const editContainer = document.querySelector("div");
+      expect(editContainer).toBeTruthy()
+    }
+  });
+
+  describe("returning the wrapper for left page", () => {
+    test("this will return lhwhapper"), () => {
+      const lhWrapper = document.querySelector("div");
+      expect(result).toBe("lhWrapper")
+    }
+  });
+
+
+  
+});
