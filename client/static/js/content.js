@@ -28,14 +28,16 @@ function renderLoginForm() {
   const fields = [
     {
       tag: "input",
-      attributes: { type: "email", name: "email", placeholder: "Email" }
+      attributes: { type: "email", name: "email", placeholder: "Email",  pattern:".+@gmail\.com", title: "Please insert your email you signed up with"}
     },
     {
       tag: "input",
       attributes: {
         type: "password",
         name: "password",
-        placeholder: "Password"
+        placeholder: "Password",
+        pattern: "[a-z]{5,12}", 
+        title:"Invalid password"
       }
     },
     { tag: "input", attributes: { type: "submit", value: "Login" } }
@@ -61,7 +63,7 @@ function renderSignupForm() {
     },
     {
       tag: "input",
-      attributes: { type: "email", name: "email", placeholder: "Email" ,   required: "true" }
+      attributes: { type: "email", name: "email", placeholder: "Email" ,   required: "true" ,   pattern:".+@gmail\.com",  title:"please input your gmail account"}
     },
     {
       tag: "input",
@@ -70,9 +72,9 @@ function renderSignupForm() {
         name: "password",
         placeholder: "Password",
         required: "true",
-        pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$", 
+        pattern: "[a-z]{5,12}", 
         // title:"Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-        title: "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+        title:"5 to 12 lowercase letters"
       }
     },
     {
