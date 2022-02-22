@@ -30,7 +30,7 @@ async function getAllHabits() {
       }
     };
 
-    const response = await fetch("http://localhost:3000/habits", options);
+    const response = await fetch(`http://localhost:3000/habits/${localStorage.getItem("userID")}`, options);
     const data = await response.json();
     if (data.err) {
       console.warn(data.err);
