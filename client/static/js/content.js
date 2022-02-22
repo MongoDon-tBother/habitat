@@ -1,5 +1,5 @@
 const { requestLogin, requestRegistration } = require("./auth");
-const { handleEdit, handleDone } = require("./btn_handlers");
+const { handleEdit, handleDone, handleDelete } = require("./btn_handlers");
 const { getAllUserHabits, postHabit } = require("./requests");
 
 function renderHomepage() {
@@ -119,6 +119,7 @@ const createLeftPage = () => {
   lhWrapper.classList.add("left_page", "book_page");
 
   const title = document.createElement("h1");
+  title.classList.add("title", "left_title");
   title.innerText = `Welcome back ${localStorage.getItem("username")}!`;
   lhWrapper.appendChild(title);
 
@@ -138,12 +139,12 @@ const createRightPage = async () => {
 
   const title = document.createElement("h2");
   title.innerText = `Habits:`;
+  title.classList.add("title", "right_title");
   rhWrapper.appendChild(title);
 
   const habitsWrapper = document.createElement("div");
   habitsWrapper.classList.add("habits_wrapper");
   rhWrapper.appendChild(habitsWrapper);
-
 
   const allHabits = await createHabitCards();
   allHabits.forEach((habit) => {
@@ -175,91 +176,9 @@ async function renderHabitPage() {
   const main = document.querySelector("main");
   const book = createBook();
   book.append(createLeftPage(), await createRightPage());
-  main.appendChild(book); 
+  main.appendChild(book);
   addCard()
-  // const welcomeMessage = document.createElement("h2");
-  // welcomeMessage.textContent =
-  //   "YO BITCHESSSSSSSSSSS THIS IS YO MFING PAGE WHERRE YOU KEEP TRACCK OF YO HABITS ";
-  // main.appendChild(welcomeMessage);
-
-  // const leftpage = document.createElement("div");
-  // leftpage.id = "leftpage";
-  // leftpage.textContent = "Left Page";
-  // book.appendChild(leftpage);
-
-
-  // const rightpage = document.createElement("div");
-  // rightpage.id = "rightpage";
-
-  // const rhWrapperDiv = document.createElement("div");
-  // rhWrapperDiv.classList.add("rh_wrapper");
-  // rightpage.appendChild(rhWrapperDiv);
-  // book.appendChild(rightpage);
-
-  // const today = new Date().toISOString().substring(0, 10);
-  // const todaysDate = document.createElement("div");
-  // todaysDate.innerHTML = '<input type="date" name="inputHabitsDate">';
-  // rightpage.append(todaysDate);
-  // todaysDate.querySelector(".inputHabitsDate").setAttribute("value", today);
-
-  // const wrapperDiv = document.createElement("div");
-  // wrapperDiv.id = "lh_wrapper";
-  // wrapperDiv.classList = "lh_wrapper";
-  // wrapperDiv.textContent = "this is the wrapper of wraps rap rap";
-
-  // leftpage.appendChild(wrapperDiv);
-  // const createCardDiv = document.createElement("div");
-  // createCardDiv.textContent = "creating Card";
-  // wrapperDiv.appendChild(createCardDiv);
-
-  // const habitDropdown = document.createElement("div");
-  // habitDropdown.textContent = "habitDropdown";
-  // wrapperDiv.appendChild(habitDropdown);
-
-  // const habitOptions = document.createElement("h2");
-  // habitOptions.textContent = "habitOptions";
-  // wrapperDiv.appendChild(habitOptions);
-
-  // const periodToggle = document.createElement("div");
-  // periodToggle.textContent = "periodToggle - day or weekly";
-  // wrapperDiv.appendChild(periodToggle);
-
-  // const timeChecklist = document.createElement("div");
-  // timeChecklist.textContent = "timeChecklist - day or weekly";
-  // wrapperDiv.appendChild(timeChecklist);
-
-  // const dayChecklist = document.createElement('div')
-  // dayChecklist.textContent = 'dayChecklist '
-  // wrapperDiv.appendChild(dayChecklist)
-  // // this will be if day is selected, then div will drop with tasks to do throughout day
-
-  // const dayCheck = document.createElement('h2')
-  // dayCheck.textContent = 'dayCheck '
-  // wrapperDiv.appendChild(dayCheck)
-  // // the actual list of activties of habits they wish to for the day - the habit option would be hidden along side the week checklist
-
-  // const weekChecklist = document.createElement("div");
-  // weekChecklist.textContent = "weekChecklist";
-  // wrapperDiv.appendChild(weekChecklist);
-  // // radio buttons so when clicked, it will filter which days the habit are for through the week
-
-  // const notesDiv = document.createElement("div");
-  // notesDiv.textContent = "notesDiv";
-  // wrapperDiv.appendChild(notesDiv);
-
-  // const updateButton = document.createElement("div");
-  // updateButton.textContent = "updateButton";
-  // wrapperDiv.appendChild(updateButton);
-  // // wrapperDiv.appendChild(addhabit);
 }
-
-// const subHabits = (subHabits) => {
-//   if (!subHabits) return "";
-//   let subHabit = document.createElement("div");
-//   subHabit.classList.add("subHabits", "card_child");
-//   subHabit.innerText = subHabits;
-//   return subHabit;
-// };
 
 // card section
 const habitName = (habits) => {
@@ -268,13 +187,6 @@ const habitName = (habits) => {
   habitName.innerText = habits;
   return habitName;
 };
-
-// const timeSection = (time) => {
-//   let timeSection = document.createElement("div");
-//   timeSection.classList.add("timeSection", "card_child");
-//   timeSection.innerText = time;
-//   return timeSection;
-// };
 
 const frequencySection = (frequency) => {
   let frequencySection = document.createElement("div");
@@ -303,26 +215,24 @@ const streak = (streak) => {
   return streakDiv;
 };
 
-// Creates the message part on diary journal
-// const noteSection = (body) => {
-//   let notes = document.createElement("p");
-//   notes.classList.add("notes_elem", "card_child");
-//   notes.innerText = "Notes:";
-
-//   return notes;
-// };
 /**
  * Creates and returns the card containing a habit
  * @param  {string} name - The name of the habit
  * @param  {string} frequency - How often the habit is repeated
  * @param  {int} streakNum - How many times in a row the habit has been completed
- * @param  {Object} subhabitsCont - Any subhabits it has
+ * @param  {arr} subhabitsCont - Any subhabits it has
  * @param  {int} habitId - The id in the DB
  */
 const createCard = (name, frequency, streakNum, subhabitsCont, habitId) => {
   let card = document.createElement("div");
   card.classList.add("card");
   card.id = `habit_id_${habitId}`;
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("delete_btn", "btn");
+  deleteBtn.innerText = "X";
+  card.appendChild(deleteBtn);
+  deleteBtn.addEventListener("click", handleDelete);
 
   const cardContent = document.createElement("div");
   cardContent.classList.add("card_content");
@@ -344,26 +254,90 @@ const createCard = (name, frequency, streakNum, subhabitsCont, habitId) => {
   return card;
 };
 
-
+function renderSubHabitForm() {
+  const newHabitForm = document.getElementById("newHabitForm")
+  const subHabitForm = document.createElement("form")
+  newHabitForm.appendChild(subHabitForm)
+  const subHabitName = document.createElement("input");
+  subHabitName.id = "subHabitName";
+  subHabitName.placeholder = "Subhabit Name";
+  subHabitForm.appendChild(subHabitName);
+}
 
 function renderNewHabitForm() {
   let lhWrapper = document.querySelector(".left_page");
   const newHabitForm = document.createElement("form");
+  newHabitForm.id = "newHabitForm"; 
   lhWrapper.appendChild(newHabitForm);
   const newHabitName = document.createElement('input')
   newHabitName.id = 'newHabitName'
   newHabitName.placeholder = "Habit Name"
   newHabitForm.appendChild(newHabitName)
-  const newHabitFreq = document.createElement("input");
-  newHabitFreq.placeholder = "Habit Frequency";
-  newHabitFreq.id = "newHabitFreq";
-  newHabitForm.appendChild(newHabitFreq);
-  const newSubHabit = document.createElement("input");
-  newSubHabit.placeholder = "Subhabit";
-  newSubHabit.id = "newSubHabit";
-  newHabitForm.appendChild(newSubHabit);
+
+  const FreqLabel = document.createElement("label")
+  FreqLabel.textContent = "Frequency"
+  newHabitForm.appendChild(FreqLabel)
+
+  const FreqMon = document.createElement("input")
+  FreqMon.type = "checkbox";
+  FreqMon.value = 1;
+  FreqMon.name = "days[]";
+  FreqMon.classList.add('days') 
+  newHabitForm.appendChild(FreqMon);
+
+  const FreqTue = document.createElement("input");
+  FreqTue.type = "checkbox";
+  FreqTue.value = 1;
+  FreqTue.name = "days[]";
+  FreqTue.classList.add("days"); 
+  newHabitForm.appendChild(FreqTue);
+
+  const FreqWed = document.createElement("input");
+  FreqWed.type = "checkbox";
+  FreqWed.value = 1;
+  FreqWed.name = "days[]";
+  FreqWed.classList.add("days"); 
+  newHabitForm.appendChild(FreqWed);
+
+  const FreqThur = document.createElement("input");FreqThur.type = "checkbox";
+  FreqThur.value = 1;
+  FreqThur.name = "days[]";
+  FreqThur.classList.add("days"); 
+  newHabitForm.appendChild(FreqThur);
+
+  const FreqFri = document.createElement("input");
+  FreqFri.type = "checkbox";
+  FreqFri.value = 1;
+  FreqFri.name = "days[]";
+  FreqFri.classList.add("days"); 
+  newHabitForm.appendChild(FreqFri);
+
+  const FreqSat = document.createElement("input");
+  FreqSat.type = "checkbox";
+  FreqSat.value = 1;
+  FreqSat.name = "days[]";
+  FreqSat.classList.add("days"); 
+  newHabitForm.appendChild(FreqSat);
+
+  const FreqSun = document.createElement("input");
+  FreqSun.type = "checkbox";
+  FreqSun.value = 1;
+  FreqSun.name = "days[]"; 
+  FreqSun.classList.add("days"); 
+  newHabitForm.appendChild(FreqSun);
+  const farray = [];
+  document.querySelectorAll(".days").forEach((f) => farray.push(f.checked));
+
+
+  const addSubHabit = document.createElement("div");
+  addSubHabit.textContent = "Add Subhabit +";
+  newHabitForm.appendChild(addSubHabit);
+  addSubHabit.addEventListener("click", renderSubHabitForm)
+
+
   const newHabitSubmit = document.createElement("input");
-  newHabitSubmit.type = 'submit'
+  newHabitSubmit.type = 'submit';
+  newHabitSubmit.value = "Create";
   newHabitForm.appendChild(newHabitSubmit);
   addEventListener(
     "submit",
@@ -384,8 +358,6 @@ const addCard = () => {
 
   wrapper.appendChild(addDiv);
 };
-
-
 
 function render404() {
   const error = document.createElement("h2");
@@ -410,6 +382,5 @@ module.exports = {
   renderLoginForm,
   renderSignupForm,
   renderHabitPage,
-  addCard,
-  createCard
+  addCard
 };

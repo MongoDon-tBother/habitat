@@ -9,6 +9,15 @@ async function show(req, res) {
   }
 }
 
+async function showHab(req, res) {
+  try {
+    const habit = await Habit.findByHabit(req.params.habit_id);
+    res.status(200).json(habit);
+  } catch (err) {
+    res.status(404).json({ err });
+  }
+}
+
 async function create(req, res) {
   try {
     const habits = await Habit.newHabit(req.body);
@@ -37,4 +46,4 @@ async function update(req, res) {
   }
 }
 
-module.exports = { show, create, destroy, update };
+module.exports = { show, create, destroy, update, showHab };
