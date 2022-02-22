@@ -167,89 +167,7 @@ async function renderHabitPage() {
   const book = createBook();
   book.append(createLeftPage(), await createRightPage());
   main.appendChild(book);
-
-  // const welcomeMessage = document.createElement("h2");
-  // welcomeMessage.textContent =
-  //   "YO BITCHESSSSSSSSSSS THIS IS YO MFING PAGE WHERRE YOU KEEP TRACCK OF YO HABITS ";
-  // main.appendChild(welcomeMessage);
-
-  // const leftpage = document.createElement("div");
-  // leftpage.id = "leftpage";
-  // leftpage.textContent = "Left Page";
-  // book.appendChild(leftpage);
-
-  // const rightpage = document.createElement("div");
-  // rightpage.id = "rightpage";
-
-  // const rhWrapperDiv = document.createElement("div");
-  // rhWrapperDiv.classList.add("rh_wrapper");
-  // rightpage.appendChild(rhWrapperDiv);
-  // book.appendChild(rightpage);
-
-  // const today = new Date().toISOString().substring(0, 10);
-  // const todaysDate = document.createElement("div");
-  // todaysDate.innerHTML = '<input type="date" name="inputHabitsDate">';
-  // rightpage.append(todaysDate);
-  // todaysDate.querySelector(".inputHabitsDate").setAttribute("value", today);
-
-  // const wrapperDiv = document.createElement("div");
-  // wrapperDiv.id = "lh_wrapper";
-  // wrapperDiv.classList = "lh_wrapper";
-  // wrapperDiv.textContent = "this is the wrapper of wraps rap rap";
-
-  // leftpage.appendChild(wrapperDiv);
-  // const createCardDiv = document.createElement("div");
-  // createCardDiv.textContent = "creating Card";
-  // wrapperDiv.appendChild(createCardDiv);
-
-  // const habitDropdown = document.createElement("div");
-  // habitDropdown.textContent = "habitDropdown";
-  // wrapperDiv.appendChild(habitDropdown);
-
-  // const habitOptions = document.createElement("h2");
-  // habitOptions.textContent = "habitOptions";
-  // wrapperDiv.appendChild(habitOptions);
-
-  // const periodToggle = document.createElement("div");
-  // periodToggle.textContent = "periodToggle - day or weekly";
-  // wrapperDiv.appendChild(periodToggle);
-
-  // const timeChecklist = document.createElement("div");
-  // timeChecklist.textContent = "timeChecklist - day or weekly";
-  // wrapperDiv.appendChild(timeChecklist);
-
-  // const dayChecklist = document.createElement('div')
-  // dayChecklist.textContent = 'dayChecklist '
-  // wrapperDiv.appendChild(dayChecklist)
-  // // this will be if day is selected, then div will drop with tasks to do throughout day
-
-  // const dayCheck = document.createElement('h2')
-  // dayCheck.textContent = 'dayCheck '
-  // wrapperDiv.appendChild(dayCheck)
-  // // the actual list of activties of habits they wish to for the day - the habit option would be hidden along side the week checklist
-
-  // const weekChecklist = document.createElement("div");
-  // weekChecklist.textContent = "weekChecklist";
-  // wrapperDiv.appendChild(weekChecklist);
-  // // radio buttons so when clicked, it will filter which days the habit are for through the week
-
-  // const notesDiv = document.createElement("div");
-  // notesDiv.textContent = "notesDiv";
-  // wrapperDiv.appendChild(notesDiv);
-
-  // const updateButton = document.createElement("div");
-  // updateButton.textContent = "updateButton";
-  // wrapperDiv.appendChild(updateButton);
-  // // wrapperDiv.appendChild(addhabit);
 }
-
-// const subHabits = (subHabits) => {
-//   if (!subHabits) return "";
-//   let subHabit = document.createElement("div");
-//   subHabit.classList.add("subHabits", "card_child");
-//   subHabit.innerText = subHabits;
-//   return subHabit;
-// };
 
 // card section
 const habitName = (habits) => {
@@ -258,13 +176,6 @@ const habitName = (habits) => {
   habitName.innerText = habits;
   return habitName;
 };
-
-// const timeSection = (time) => {
-//   let timeSection = document.createElement("div");
-//   timeSection.classList.add("timeSection", "card_child");
-//   timeSection.innerText = time;
-//   return timeSection;
-// };
 
 const frequencySection = (frequency) => {
   let frequencySection = document.createElement("div");
@@ -293,14 +204,6 @@ const streak = (streak) => {
   return streakDiv;
 };
 
-// Creates the message part on diary journal
-// const noteSection = (body) => {
-//   let notes = document.createElement("p");
-//   notes.classList.add("notes_elem", "card_child");
-//   notes.innerText = "Notes:";
-
-//   return notes;
-// };
 /**
  * Creates and returns the card containing a habit
  * @param  {string} name - The name of the habit
