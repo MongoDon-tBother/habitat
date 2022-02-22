@@ -112,6 +112,10 @@ const createLeftPage = () => {
   title.innerText = `Welcome back ${localStorage.getItem("username")}!`;
   lhWrapper.appendChild(title);
 
+  const editContainer = document.createElement("div");
+  editContainer.classList.add("edit_container");
+  lhWrapper.appendChild(editContainer);
+
   return lhWrapper;
 };
 
@@ -248,7 +252,7 @@ async function renderHabitPage() {
 // card section
 const habitName = (habits) => {
   let habitName = document.createElement("h2");
-  habitName.classList.add("habitName", "card_child");
+  habitName.classList.add("habit_name", "card_child");
   habitName.innerText = habits;
   return habitName;
 };
@@ -262,7 +266,7 @@ const habitName = (habits) => {
 
 const frequencySection = (frequency) => {
   let frequencySection = document.createElement("div");
-  frequencySection.classList.add("frequencySection", "card_child");
+  frequencySection.classList.add("frequency_section", "card_child");
   const daysArr = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   let keepDays = [];
   frequency.forEach((elem, index) => {
