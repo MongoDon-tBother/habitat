@@ -134,6 +134,7 @@ const createRightPage = async () => {
   habitsWrapper.classList.add("habits_wrapper");
   rhWrapper.appendChild(habitsWrapper);
 
+
   const allHabits = await createHabitCards();
   allHabits.forEach((habit) => {
     habitsWrapper.appendChild(habit);
@@ -175,6 +176,7 @@ async function renderHabitPage() {
   // leftpage.id = "leftpage";
   // leftpage.textContent = "Left Page";
   // book.appendChild(leftpage);
+
 
   // const rightpage = document.createElement("div");
   // rightpage.id = "rightpage";
@@ -334,15 +336,20 @@ const createCard = (name, frequency, streakNum, subhabitsCont, habitId) => {
 
 // creating a new card for habits - the plus card
 const addCard = () => {
-  let wrapper = document.querySelector(".wrapper");
+  let wrapper = document.querySelector(".habits_wrapper");
 
   let addDiv = document.createElement("div");
-  addDiv.classList.add("add_div", "card", "no_tag");
+  addDiv.classList.add("add_div", "card");
   addDiv.innerText = "+";
-  addDiv.addEventListener("click", showForm);
+  //addDiv.addEventListener("click", renderNewHabitForm);
 
-  wrapper.prepend(addDiv);
+  wrapper.append(addDiv);
 };
+
+function renderNewHabitForm() {
+  
+}
+
 
 function render404() {
   const error = document.createElement("h2");
