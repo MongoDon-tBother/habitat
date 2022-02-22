@@ -56,7 +56,7 @@ async function postHabit(e) {
       name: document.getElementById("newHabitName").value,
       frequency: farray,
       username: localStorage.getItem("username"),
-      subhabits: document.getElementById("newSubHabit").value
+      //subhabits: document.getElementById("newSubHabit").value
     };
     const options = {
       method: "POST",
@@ -68,9 +68,7 @@ async function postHabit(e) {
     };
 
     const response = await fetch("http://localhost:3000/habits", options);
-    console.log(newHabitData);
     const data = await response.json();
-    console.log(farray);
     console.log(data)
     window.location.reload();
     if (data.err) {
