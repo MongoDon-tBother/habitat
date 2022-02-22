@@ -9,3 +9,4 @@ router.put("/:habit_id", habitsController.update);
 router.patch("/:habit_id", habitsController.update);
 
 module.exports = router;
+

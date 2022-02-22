@@ -95,7 +95,7 @@ module.exports = class Habit {
           frequency_id = frequency_id.rows[0].id;
         }
         // set complete and streak to false as its a new habit
-        const complete = false;
+        const complete = 0;
         const streak = 0;
         // find the user id that matches the username
         let user_id = await db.query(
@@ -145,7 +145,7 @@ module.exports = class Habit {
         const { name, frequency, subhabits, complete, streak } = data;
         if (name) this.name = name;
         if (streak) this.streak = streak;
-        if (complete) this.complete = complete;
+        if (complete) this.complete = Date.now();
         if (frequency) this.frequency = frequency;
         console.log(this);
 

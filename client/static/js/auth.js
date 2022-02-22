@@ -42,6 +42,7 @@ function login(token) {
   localStorage.setItem("token", token);
   localStorage.setItem("username", user.username);
   localStorage.setItem("userEmail", user.email);
+  localStorage.setItem("userID", user.userID);
   window.location.hash = "#habit";
 }
 

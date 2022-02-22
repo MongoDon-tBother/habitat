@@ -5,10 +5,10 @@ VALUES
 
 INSERT INTO habits (name, frequency_id, complete, streak, user_id)
 VALUES
-('Drink water', 1, FALSE, 5, 1),
-('Eat veg', 1, FALSE, 5, 1),
-('Work out', 2, FALSE, 3, 1),
-('Work out', 2, FALSE, 8, 2);
+('Drink water', 1, 0, 5, 1),
+('Eat veg', 1, 0, 5, 1),
+('Work out', 2, 0, 3, 1),
+('Work out', 2, 0, 8, 2);
 
 INSERT INTO frequency (monday, tuesday, wednesday, thursday, friday, saturday, sunday)
 VALUES
@@ -17,6 +17,6 @@ VALUES
 
 INSERT INTO subhabits (name, complete, habit_id)
 VALUES
-('9am', FALSE, 1),
-('10am', FALSE, 1),
-('9am', FALSE, 2);
+('9am', 0, 1),
+('10am', 0, 1),
+('9am', 0, 2);
