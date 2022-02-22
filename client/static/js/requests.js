@@ -93,4 +93,4 @@ async function deleteHabit(id) {
   }
 }
 
-module.exports = { getAllUserHabits, postHabit };
+module.exports = { getAllUserHabits, getItem, deleteHabit, postHabit };
