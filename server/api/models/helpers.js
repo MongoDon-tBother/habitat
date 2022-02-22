@@ -42,4 +42,39 @@ const findFrequency = (id) => {
   });
 };
 
-module.exports = { findSubhabits, findFrequency };
+const frequencyDuplicates = async (frequencyCheck) => {
+  // Check if frequency already exists to get its id
+  let duplicate = false;
+  let frequency_id;
+  let previousFrequency = await db.query(`SELECT id FROM frequency`);
+  for (let row of previousFrequency.rows) {
+    const allFrequencyArr = await findFrequency(row.id);
+    if (`${allFrequencyArr}` === `${frequencyCheck}`) {
+      duplicate = true;
+      frequency_id = row.id;
+      break;
+    }
+  }
+  // If that frequency doesn't already exist add it to the DB
+  if (!duplicate) {
+    const frequencyBool = frequencyCheck.map((m) => {
+      if (m === 1) {
+        return "TRUE";
+      } else if (m === 0) {
+        return "FALSE";
+      } else {
+        throw new Error("unexpected value in array");
+      }
+    });
+    frequency_id = await db.query(
+      `INSERT INTO frequency (monday, tuesday, wednesday, thursday, friday, saturday, sunday)
+           VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id;`,
+      frequencyBool
+    );
+    frequency_id = frequency_id.rows[0].id;
+  }
+  console.log(frequency_id);
+  return frequency_id;
+};
+
+module.exports = { findSubhabits, findFrequency, frequencyDuplicates };

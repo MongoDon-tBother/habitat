@@ -1,5 +1,9 @@
 const db = require("../dbConfig/init");
-const { findSubhabits, findFrequency } = require("./helpers");
+const {
+  findSubhabits,
+  findFrequency,
+  frequencyDuplicates
+} = require("./helpers");
 
 module.exports = class Habit {
   constructor(data) {
@@ -65,35 +69,7 @@ module.exports = class Habit {
       try {
         const { name, frequency, username, subhabits } = habitData;
         // Check to see if a frequency matching the new habit frequency exists
-        let duplicate = false;
-        let frequency_id;
-        let previousFrequency = await db.query(`SELECT id FROM frequency`);
-        for (let row of previousFrequency.rows) {
-          const allFrequencyArr = await findFrequency(row.id);
-          if (`${allFrequencyArr}` === `${frequency}`) {
-            duplicate = true;
-            frequency_id = row.id;
-            break;
-          }
-        }
-        // If that frequency doesn't already exist add it to the DB
-        if (!duplicate) {
-          const frequencyBool = frequency.map((m) => {
-            if (m === 1) {
-              return "TRUE";
-            } else if (m === 0) {
-              return "FALSE";
-            } else {
-              throw new Error("unexpected value in array");
-            }
-          });
-          frequency_id = await db.query(
-            `INSERT INTO frequency (monday, tuesday, wednesday, thursday, friday, saturday, sunday)
-           VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id;`,
-            frequencyBool
-          );
-          frequency_id = frequency_id.rows[0].id;
-        }
+        const frequency_id = await frequencyDuplicates(frequency);
         // set complete and streak to false as its a new habit
         const complete = 0;
         const streak = 0;
@@ -147,41 +123,10 @@ module.exports = class Habit {
         if (streak) this.streak = streak;
         if (complete) this.complete = Date.now();
         if (frequency) this.frequency = frequency;
-        console.log(this);
 
-        // Check if frequency already exists to get its id
-        let duplicate = false;
-        let frequency_id;
-        let previousFrequency = await db.query(`SELECT id FROM frequency`);
-        for (let row of previousFrequency.rows) {
-          const allFrequencyArr = await findFrequency(row.id);
-          if (`${allFrequencyArr}` === `${this.frequency}`) {
-            duplicate = true;
-            frequency_id = row.id;
-            break;
-          }
-        }
-        // If that frequency doesn't already exist add it to the DB
-        if (!duplicate) {
-          const frequencyBool = this.frequency.map((m) => {
-            if (m === 1) {
-              return "TRUE";
-            } else if (m === 0) {
-              return "FALSE";
-            } else {
-              throw new Error("unexpected value in array");
-            }
-          });
-          frequency_id = await db.query(
-            `INSERT INTO frequency (monday, tuesday, wednesday, thursday, friday, saturday, sunday)
-           VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id;`,
-            frequencyBool
-          );
-          frequency_id = frequency_id.rows[0].id;
-        }
+        const frequency_id = await frequencyDuplicates(this.frequency);
 
         // Delete any existing subhabits then create new ones
-
         if (subhabits) {
           await db.query(`DELETE FROM subhabits WHERE habit_id = $1;`, [
             this.habitId
