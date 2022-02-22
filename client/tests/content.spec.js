@@ -126,6 +126,37 @@ describe("creating left page", () => {
     }
   });
 
+});
+
+describe("creating right page", () => {
+  describe("creating the div for right page", () => {
+    test("this will create the fight page"), () => {
+      const rhWrapper = document.querySelector("div");
+      expect(rhWrapper).toBeTruthy();
+    }
+  });
+
+  describe("creating the title for the right page", () => {
+    test("this will create the title"), () => {
+      const title = document.querySelector("h1");
+      expect(title).toBeTruthy()
+    }
+  });
+
+  describe("creating the habits wrapper", () => {
+    test("this will create habit wrapper"), () => {
+      const habitsWrapper = document.querySelector("div");
+      expect(habitsWrapper).toBeTruthy()
+    }
+  });
+
+  describe("creating the cards for all habits", () => {
+    test("this will return cards for all habits"), () => {
+      const allHabits = document.querySelector("div");
+      expect(allHabits).toBeTruthy()
+    }
+  });
+
 
   
 });
