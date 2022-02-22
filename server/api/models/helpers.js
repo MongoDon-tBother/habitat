@@ -73,7 +73,6 @@ const frequencyDuplicates = async (frequencyCheck) => {
     );
     frequency_id = frequency_id.rows[0].id;
   }
-  console.log(frequency_id);
   return frequency_id;
 };
 

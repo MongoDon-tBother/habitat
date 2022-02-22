@@ -3,14 +3,12 @@
   width: 50px;
 }
 #login_book {
-background-color: red;
-width: 100px;
-height: 200px;
-position: fixed;
-left: 50%;
-top: 40%;
-
-
+  background-color: red;
+  width: 100px;
+  height: 200px;
+  position: fixed;
+  left: 50%;
+  top: 40%;
 }
 
 #signup_book {
@@ -30,11 +28,10 @@ top: 40%;
   position: fixed;
   left: 35%;
   top: 70%;
- 
 }
 
 body.light {
-  background-color: black
+  background-color: black;
 }
 
 /* Positioning the lightmode btn */
@@ -58,74 +55,22 @@ body.light {
   grid-template-columns: repeat(var(--column_number), auto);
   margin-bottom: 4rem;
   min-height: 50vh;
-  background-color: orange ;
+  background-color: orange;
 }
 
+.book {
+  display: flex;
+}
 #leftpage {
   background-color: lightblue;
   width: 50%;
-  display: inline-block;
   height: 700px;
 }
-
 
 #rightpage {
   background-color: aqua;
   width: 50%;
-  display: inline-block;
   height: 700px;
-}
-
-
-
-
-
-
-
-#modal {
-
-    padding: 1.5rem;
-    position: absolute;
-    width: 200px;
-    height: auto;
-    z-index: 2;
-    font-size: 2rem;
-    border: 2px solid grey;
-    background-color: grey;
-}
-
-#modal p {
-    font-size: 1rem;
-}
-
-#modal li {
-    font-size: 1.2rem;
-}
-
-#modal a { color: var(--opacity); }
-#modal a:hover { color: var(--text-accent); }
-
-#modal i {
-    cursor: pointer;
-    font-style: normal;
-}
-
-#modal button, [type='submit'] {
-    font-family: var(--font-accent);
-    background-color: var(--accent);
-    padding: 10px;
-    border-radius: 5%;
-    position: relative;
-    opacity: 0.4;
-    color: var(--text-accent);
-    cursor: pointer;
-}
-
-#modal button {
-    margin-top: 100px;
-}
-
-#modal button:hover, [type='submit']:hover {
-    opacity: 1;
-    color: var(--text-accent);
+  display: grid;
+  grid-template-columns: repeat(3, auto);
 }
