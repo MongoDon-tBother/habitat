@@ -134,6 +134,7 @@ const createRightPage = async () => {
   habitsWrapper.classList.add("habits_wrapper");
   rhWrapper.appendChild(habitsWrapper);
 
+
   const allHabits = await createHabitCards();
   allHabits.forEach((habit) => {
     habitsWrapper.appendChild(habit);
@@ -175,6 +176,7 @@ async function renderHabitPage() {
   // leftpage.id = "leftpage";
   // leftpage.textContent = "Left Page";
   // book.appendChild(leftpage);
+
 
   // const rightpage = document.createElement("div");
   // rightpage.id = "rightpage";
