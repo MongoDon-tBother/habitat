@@ -36,7 +36,6 @@ async function requestRegistration(e) {
   }
 }
 
-
 function login(token) {
   const user = jwt_decode(token);
   localStorage.setItem("token", token);
@@ -55,3 +54,5 @@ function currentUser() {
   const username = localStorage.getItem("username");
   return username;
 }
+
+module.exports = { currentUser, requestLogin, requestRegistration, logout };

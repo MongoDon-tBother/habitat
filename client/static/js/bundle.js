@@ -1,3 +1,64 @@
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+async function requestLogin(e) {
+  e.preventDefault();
+  try {
+    const options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
+    };
+    const r = await fetch(`http://localhost:3000/auth/login`, options);
+    const data = await r.json();
+    if (!data.success) {
+      throw new Error("Login not authorised");
+    }
+    login(data.token);
+  } catch (err) {
+    console.warn(err);
+  }
+}
+
+async function requestRegistration(e) {
+  e.preventDefault();
+  try {
+    const options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
+    };
+    const r = await fetch(`http://localhost:3000/auth/register`, options);
+    const data = await r.json();
+    if (data.err) {
+      throw Error(data.err);
+    }
+    requestLogin(e);
+  } catch (err) {
+    console.warn(err);
+  }
+}
+
+function login(token) {
+  const user = jwt_decode(token);
+  localStorage.setItem("token", token);
+  localStorage.setItem("username", user.username);
+  localStorage.setItem("userEmail", user.email);
+  localStorage.setItem("userID", user.userID);
+  window.location.hash = "#habit";
+}
+
+function logout() {
+  localStorage.clear();
+  window.location.hash = "#login";
+}
+
+function currentUser() {
+  const username = localStorage.getItem("username");
+  return username;
+}
+
+module.exports = { currentUser, requestLogin, requestRegistration, logout };
+
+},{}],2:[function(require,module,exports){
 const { requestLogin, requestRegistration } = require("./auth");
 
 function renderHomepage() {
@@ -125,7 +186,7 @@ function renderHabitPage() {
     '<input type="date" name="inputHabitsDate">';
   rightpage.append(todaysDate)
   todaysDate.querySelector(".inputHabitsDate").setAttribute("value", today);
-*/
+
  
 
   const wrapperDiv = document.createElement('div')
@@ -134,12 +195,13 @@ function renderHabitPage() {
   wrapperDiv.textContent = 'this is the wrapper of wraps rap rap'
   wrapperDiv.style.display = 'block'
   rightpage.appendChild(wrapperDiv)
+  const addhabit = document.createElement("h1");
+  addhabit.textContent = "Click to add habit"
   
-  
+  wrapperDiv.appendChild(addhabit)
 
 
 
-/*
   const modalsection = document.createElement('section')
   modalsection.id = 'modal'
   modalsection.style = 'display: none;'
@@ -265,3 +327,105 @@ module.exports = {
   renderSignupForm,
   renderHabitPage
 };
+
+},{"./auth":1}],3:[function(require,module,exports){
+const { currentUser, logout } = require("./auth");
+const {
+  renderHomepage,
+  renderLoginForm,
+  renderSignupForm,
+  renderHabitPage
+} = require("./content");
+
+const nav = document.querySelector("nav");
+
+const publicRoutes = ["#", "#login", "#register"];
+const privateRoutes = ["#habit"];
+
+window.addEventListener("hashchange", updateContent);
+
+function updateNav() {
+  nav.innerHTML = "";
+  let links;
+  let logoutBtn;
+  if (currentUser()) {
+    links = privateRoutes.map(createNavLink);
+    logoutBtn = document.createElement("button");
+    logoutBtn.textContent = "Logout";
+    logoutBtn.onclick = logout;
+    nav.appendChild(logoutBtn);
+  } else {
+    links = publicRoutes.map(createNavLink);
+  }
+  links.forEach((l) => nav.insertBefore(l, logoutBtn));
+}
+
+function updateMain(path) {
+  const main = document.querySelector("main");
+  main.innerHTML = "";
+  if (path) {
+    switch (path) {
+      case "#login":
+        renderLoginForm();
+        break;
+      case "#register":
+        renderSignupForm();
+        break;
+      case "#habit":
+        renderHabitPage();
+        break;
+      default:
+        render404();
+        break;
+    }
+  } else {
+    renderHomepage();
+  }
+}
+
+function createNavLink(route) {
+  const link = document.createElement("a");
+  link.textContent =
+    route === "#" ? "Home" : `${route[1].toUpperCase()}${route.substring(2)}`;
+  link.href = route;
+  return link;
+}
+
+function updateContent() {
+  const path = window.location.hash;
+  if (privateRoutes.includes(path) && !currentUser()) {
+    window.location.hash = "#";
+  } else if (!privateRoutes.includes(path) && currentUser()) {
+    window.location.hash = "#habit";
+  } else {
+    updateNav();
+    updateMain(path);
+  }
+}
+
+async function loadIndexFor(category) {
+  modal.style.display = "none";
+  const data = await getAll(category);
+  data.forEach((a) => renderCard(a, category));
+}
+
+function renderCard(data, category) {
+  let link = document.createElement("a");
+  let card = document.createElement("div");
+  card.className = "card";
+  link.href = `#${category}/${data.id}`;
+  card.textContent = data.name || data.title;
+  link.appendChild(card);
+  main.appendChild(link);
+}
+
+module.exports = { updateContent };
+
+},{"./auth":1,"./content":2}],4:[function(require,module,exports){
+const { updateContent } = require("./layout");
+
+const main = document.querySelector("main");
+
+updateContent();
+
+},{"./layout":3}]},{},[4]);
