@@ -1,25 +1,28 @@
-function renderHomepage(){
-  const logo = document.createElement('img');
-  logo.id = 'logo';
-  logo.src ='https://images-platform.99static.com//n7liZzsSMdHX6uDJpYOA2QTUVeA=/163x13:1335x1185/fit-in/500x500/99designs-contests-attachments/116/116335/attachment_116335822'
-  logo.alt='habitat logo'
-  main.appendChild(logo)
-  const login_book = document.createElement('div');
-  login_book.id = 'login_book';
-  main.appendChild(login_book)
+const { requestLogin, requestRegistration } = require("./auth");
 
-  const signup_book = document.createElement('div');
-  signup_book.id = 'signup_book';
-  main.appendChild(signup_book)
+function renderHomepage() {
+  const main = document.querySelector("main");
+  const logo = document.createElement("img");
+  logo.id = "logo";
+  logo.src =
+    "https://images-platform.99static.com//n7liZzsSMdHX6uDJpYOA2QTUVeA=/163x13:1335x1185/fit-in/500x500/99designs-contests-attachments/116/116335/attachment_116335822";
+  logo.alt = "habitat logo";
+  main.appendChild(logo);
+  const login_book = document.createElement("div");
+  login_book.id = "login_book";
+  main.appendChild(login_book);
 
-  const shelf = document.createElement('div');
-  shelf.id = 'shelf';
-  main.appendChild(shelf)
+  const signup_book = document.createElement("div");
+  signup_book.id = "signup_book";
+  main.appendChild(signup_book);
 
-} 
-
+  const shelf = document.createElement("div");
+  shelf.id = "shelf";
+  main.appendChild(shelf);
+}
 
 function renderLoginForm() {
+  const main = document.querySelector("main");
   const fields = [
     {
       tag: "input",
@@ -48,6 +51,7 @@ function renderLoginForm() {
 }
 
 function renderSignupForm() {
+  const main = document.querySelector("main");
   const fields = [
     {
       tag: "input",
@@ -88,23 +92,26 @@ function renderSignupForm() {
 }
 
 function renderHabitPage() {
-  const newHabit = document.createElement('div')
-  newHabit.textContent = 'newHabit'
-  main.appendChild(newHabit)
+  const main = document.querySelector("main");
+  const newHabit = document.createElement("div");
+  newHabit.textContent = "newHabit";
+  main.appendChild(newHabit);
 
-   const welcomeMessage2 = document.createElement("h1");
-   welcomeMessage2.textContent = `Welcome back ${localStorage.getItem("username")}!`;
-   main.appendChild(welcomeMessage2);
+  const welcomeMessage2 = document.createElement("h1");
+  welcomeMessage2.textContent = `Welcome back ${localStorage.getItem(
+    "username"
+  )}!`;
+  main.appendChild(welcomeMessage2);
 
-
-  const welcomeMessage = document.createElement('h2')
-  welcomeMessage.textContent = 'YO BITCHESSSSSSSSSSS THIS IS YO MFING PAGE WHERRE YOU KEEP TRACCK OF YO HABITS '
-  main.appendChild(welcomeMessage)
+  const welcomeMessage = document.createElement("h2");
+  welcomeMessage.textContent =
+    "YO BITCHESSSSSSSSSSS THIS IS YO MFING PAGE WHERRE YOU KEEP TRACCK OF YO HABITS ";
+  main.appendChild(welcomeMessage);
 
   const leftpage = document.createElement("div");
-  leftpage.id = 'leftpage'
-  leftpage.textContent = 'Left Page'
-  main.appendChild(leftpage)
+  leftpage.id = "leftpage";
+  leftpage.textContent = "Left Page";
+  main.appendChild(leftpage);
 
   const rightpage = document.createElement("div");
   rightpage.id = "rightpage";
@@ -157,6 +164,7 @@ function renderHabitPage() {
   wrapperDiv.appendChild(dayCheck)
   // the actual list of activties of habits they wish to for the day - the habit option would be hidden along side the week checklist
   
+
   const weekChecklist = document.createElement('div')
   weekChecklist.textContent = 'weekChecklist'
   wrapperDiv.appendChild(weekChecklist)
@@ -171,6 +179,13 @@ function renderHabitPage() {
   updateButton.textContent = 'updateButton'
   wrapperDiv.appendChild(updateButton)
 }
+
+
+
+  wrapperDiv.appendChild(addhabit)
+
+}
+
 
 
 
@@ -210,19 +225,16 @@ function renderLoginForm() {
 
 }
 
+// card section 
 const habitName = (habits) => {
   let habitName = document.createElement("h2");
   habitName.classList.add("habitName", "card_child");
-  
-
   return habitName;
 };
 
 const timeSection = (time) => {
   let timeSection = document.createElement("div");
   timeSection.classList.add("timeSection", "card_child");
-  
-
   return timeSection;
 };
 
@@ -263,8 +275,10 @@ const addCard = () => {
   addDiv.innerText = "+";
   addDiv.addEventListener("click", showForm);
 
+
   wrapper.prepend(addDiv);
 };
+
 
 function render404() {
   const error = document.createElement("h2");
@@ -272,4 +286,11 @@ function render404() {
   main.appendChild(error);
 }
 
-module.exports
+
+module.exports = {
+  renderHomepage,
+  renderLoginForm,
+  renderSignupForm,
+  renderHabitPage
+};
+

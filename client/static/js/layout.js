@@ -1,11 +1,17 @@
-const main = document.querySelector("main");
+const { currentUser, logout } = require("./auth");
+const {
+  renderHomepage,
+  renderLoginForm,
+  renderSignupForm,
+  renderHabitPage
+} = require("./content");
+
 const nav = document.querySelector("nav");
 
 const publicRoutes = ["#", "#login", "#register"];
 const privateRoutes = ["#habit"];
 
 window.addEventListener("hashchange", updateContent);
-
 
 function updateNav() {
   nav.innerHTML = "";
@@ -24,6 +30,7 @@ function updateNav() {
 }
 
 function updateMain(path) {
+  const main = document.querySelector("main");
   main.innerHTML = "";
   if (path) {
     switch (path) {
@@ -45,7 +52,6 @@ function updateMain(path) {
   }
 }
 
-
 function createNavLink(route) {
   const link = document.createElement("a");
   link.textContent =
@@ -53,7 +59,6 @@ function createNavLink(route) {
   link.href = route;
   return link;
 }
-
 
 function updateContent() {
   const path = window.location.hash;
@@ -66,7 +71,6 @@ function updateContent() {
     updateMain(path);
   }
 }
-
 
 async function loadIndexFor(category) {
   modal.style.display = "none";
@@ -84,6 +88,4 @@ function renderCard(data, category) {
   main.appendChild(link);
 }
 
-
-
-updateContent();
+module.exports = { updateContent };
