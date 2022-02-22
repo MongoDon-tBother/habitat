@@ -60,17 +60,21 @@ body.light {
 
 .book {
   display: flex;
+  margin-top: 5em;
 }
-#leftpage {
-  background-color: lightblue;
+.book_page {
   width: 50%;
-  height: 700px;
+  margin: 0 auto;
 }
 
-#rightpage {
+.left_page {
+  background-color: lightblue;
+}
+.right_page {
   background-color: aqua;
-  width: 50%;
-  height: 700px;
+}
+
+.habits_wrapper {
   display: grid;
   grid-template-columns: repeat(3, auto);
 }
