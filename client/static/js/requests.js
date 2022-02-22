@@ -1,50 +1,48 @@
-async function getAll(category){
+async function getAll(category) {
   try {
-      const response = await fetch(`http://localhost:3000/${category}`);
-      const data = await response.json()
-      return data;
-  } catch (err) {
-      console.warn(err);
-  }
-}
-
-async function getItem(category, id) {
-  try {
-      const response = await fetch(`http://localhost:3000/${category}/${id}`);
-      const data = await response.json();
-      return data;
-  } catch (err) {
-      console.warn(err);
-  }
-}
-
-
-
-async function getAllUserHabits() {
-  e.preventDefault();
-  try {
-    const options = {
-      headers: {
-        "authorization": localStorage.getItem("token"),
-        "Content-Type": "application/json"
-      }
-    };
-
-    const response = await fetch(`http://localhost:3000/habits/${localStorage.getItem("userID")}`, options);
+    const response = await fetch(`http://localhost:3000/${category}`);
     const data = await response.json();
-    if (data.err) {
-      console.warn(data.err);
-      logout();
-    } 
     return data;
   } catch (err) {
     console.warn(err);
   }
 }
 
+async function getItem(category, id) {
+  try {
+    const response = await fetch(`http://localhost:3000/${category}/${id}`);
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.warn(err);
+  }
+}
 
+async function getAllUserHabits() {
+  try {
+    const options = {
+      headers: {
+        authorization: localStorage.getItem("token"),
+        "Content-Type": "application/json"
+      }
+    };
 
-async function postHabit(e){
+    const response = await fetch(
+      `http://localhost:3000/habits/${localStorage.getItem("userID")}`,
+      options
+    );
+    const data = await response.json();
+    if (data.err) {
+      console.warn(data.err);
+      logout();
+    }
+    return data;
+  } catch (err) {
+    console.warn(err);
+  }
+}
+
+async function postHabit(e) {
   e.preventDefault();
   try {
     const newHabitData = {
@@ -56,7 +54,7 @@ async function postHabit(e){
     const options = {
       method: "POST",
       headers: {
-        "authorization": localStorage.getItem("token"),
+        authorization: localStorage.getItem("token"),
         "Content-Type": "application/json"
       },
       body: JSON.stringify(newHabitData)
@@ -74,26 +72,14 @@ async function postHabit(e){
   }
 }
 
-async function deleteHabit(id){
+async function deleteHabit(id) {
   try {
-      const options = { method: 'DELETE' }
-      await fetch(`http://localhost:3000/habits/${id}`, options);
-      window.location.reload()
+    const options = { method: "DELETE" };
+    await fetch(`http://localhost:3000/habits/${id}`, options);
+    window.location.reload();
   } catch (err) {
-      console.warn(err);
+    console.warn(err);
   }
 }
 
-
-
-//********************************* */
-const wrapperDiv = document.getElementById("wrapper");
-
-
-  wrapperDiv.addEventListener("click", renderHabitForm); 
-
-  wrapperDiv.addEventListener("click", () =>
-  {
-    document.getElementById('modal').style.display = 'block'}
-    
-  );
+module.exports = { getAllUserHabits };

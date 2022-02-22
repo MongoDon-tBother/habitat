@@ -23,6 +23,4 @@ function lightDark() {
   const modeCheck = document.getElementById("light-mode");
   modeCheck.addEventListener("click", switchMode);
 }
-lightDark();
-
 module.exports = { lightDark };
