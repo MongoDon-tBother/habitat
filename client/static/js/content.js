@@ -1,6 +1,6 @@
 const { requestLogin, requestRegistration } = require("./auth");
 const { handleEdit, handleDone } = require("./btn_handlers");
-const { getAllUserHabits } = require("./requests");
+const { getAllUserHabits, postHabit } = require("./requests");
 
 function renderHomepage() {
   const main = document.querySelector("main");
@@ -112,6 +112,10 @@ const createLeftPage = () => {
   title.innerText = `Welcome back ${localStorage.getItem("username")}!`;
   lhWrapper.appendChild(title);
 
+  const editContainer = document.createElement("div");
+  editContainer.classList.add("edit_container");
+  lhWrapper.appendChild(editContainer);
+
   return lhWrapper;
 };
 
@@ -160,8 +164,8 @@ async function renderHabitPage() {
   const main = document.querySelector("main");
   const book = createBook();
   book.append(createLeftPage(), await createRightPage());
-  main.appendChild(book);
-
+  main.appendChild(book); 
+  addCard()
   // const welcomeMessage = document.createElement("h2");
   // welcomeMessage.textContent =
   //   "YO BITCHESSSSSSSSSSS THIS IS YO MFING PAGE WHERRE YOU KEEP TRACCK OF YO HABITS ";
@@ -248,7 +252,7 @@ async function renderHabitPage() {
 // card section
 const habitName = (habits) => {
   let habitName = document.createElement("h2");
-  habitName.classList.add("habitName", "card_child");
+  habitName.classList.add("habit_name", "card_child");
   habitName.innerText = habits;
   return habitName;
 };
@@ -262,7 +266,7 @@ const habitName = (habits) => {
 
 const frequencySection = (frequency) => {
   let frequencySection = document.createElement("div");
-  frequencySection.classList.add("frequencySection", "card_child");
+  frequencySection.classList.add("frequency_section", "card_child");
   const daysArr = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   let keepDays = [];
   frequency.forEach((elem, index) => {
@@ -322,23 +326,54 @@ const createCard = (name, frequency, streakNum, subhabitsCont, habitId) => {
   cardBtns.append(createBtn("edit"), createBtn("done"));
 
   card.append(cardContent, cardBtns);
-  card.querySelector("#edit_btn").addEventListener("click", handleEdit);
-  card.querySelector("#done_btn").addEventListener("click", handleDone);
+  card.querySelector(".edit_btn").addEventListener("click", handleEdit);
+  card.querySelector(".done_btn").addEventListener("click", handleDone);
 
   return card;
 };
 
+
+
+function renderNewHabitForm() {
+  let lhWrapper = document.querySelector(".left_page");
+  const newHabitForm = document.createElement("form");
+  lhWrapper.appendChild(newHabitForm);
+  const newHabitName = document.createElement('input')
+  newHabitName.id = 'newHabitName'
+  newHabitName.placeholder = "Habit Name"
+  newHabitForm.appendChild(newHabitName)
+  const newHabitFreq = document.createElement("input");
+  newHabitFreq.placeholder = "Habit Frequency";
+  newHabitFreq.id = "newHabitFreq";
+  newHabitForm.appendChild(newHabitFreq);
+  const newSubHabit = document.createElement("input");
+  newSubHabit.placeholder = "Subhabit";
+  newSubHabit.id = "newSubHabit";
+  newHabitForm.appendChild(newSubHabit);
+  const newHabitSubmit = document.createElement("input");
+  newHabitSubmit.type = 'submit'
+  newHabitForm.appendChild(newHabitSubmit);
+  addEventListener(
+    "submit",
+    postHabit
+  );
+
+}
+
 // creating a new card for habits - the plus card
 const addCard = () => {
-  let wrapper = document.querySelector(".wrapper");
+  let wrapper = document.querySelector(".habits_wrapper");
 
   let addDiv = document.createElement("div");
-  addDiv.classList.add("add_div", "card", "no_tag");
+  addDiv.classList.add("add_div", "card");
   addDiv.innerText = "+";
-  addDiv.addEventListener("click", showForm);
+  addDiv.addEventListener("click", renderNewHabitForm)
+  
 
-  wrapper.prepend(addDiv);
+  wrapper.appendChild(addDiv);
 };
+
+
 
 function render404() {
   const error = document.createElement("h2");
@@ -351,9 +386,8 @@ function render404() {
  * @param  {string} text - The text to display on the btn
  */
 const createBtn = (text) => {
-  const btn = document.createElement("btn");
-  btn.classList.add("habit_btn");
-  btn.id = `${text}_btn`;
+  const btn = document.createElement("button");
+  btn.classList.add("habit_btn", `${text}_btn`);
   btn.innerText = text;
 
   return btn;
