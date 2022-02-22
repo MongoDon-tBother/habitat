@@ -118,7 +118,7 @@ function renderHabitPage() {
     '<input type="date" name="inputHabitsDate">';
   rightpage.append(todaysDate)
   todaysDate.querySelector(".inputHabitsDate").setAttribute("value", today);
-
+*/
  
 
   const wrapperDiv = document.createElement('div')
@@ -127,13 +127,12 @@ function renderHabitPage() {
   wrapperDiv.textContent = 'this is the wrapper of wraps rap rap'
   wrapperDiv.style.display = 'block'
   rightpage.appendChild(wrapperDiv)
-  const addhabit = document.createElement("h1");
-  addhabit.textContent = "Click to add habit"
   
-  wrapperDiv.appendChild(addhabit)
+  
 
 
 
+/*
   const modalsection = document.createElement('section')
   modalsection.id = 'modal'
   modalsection.style = 'display: none;'
