@@ -134,6 +134,7 @@ const createRightPage = async () => {
   habitsWrapper.classList.add("habits_wrapper");
   rhWrapper.appendChild(habitsWrapper);
 
+
   const allHabits = await createHabitCards();
   allHabits.forEach((habit) => {
     habitsWrapper.appendChild(habit);
@@ -164,8 +165,8 @@ async function renderHabitPage() {
   const main = document.querySelector("main");
   const book = createBook();
   book.append(createLeftPage(), await createRightPage());
-  main.appendChild(book); 
-  addCard()
+  main.appendChild(book);
+
   // const welcomeMessage = document.createElement("h2");
   // welcomeMessage.textContent =
   //   "YO BITCHESSSSSSSSSSS THIS IS YO MFING PAGE WHERRE YOU KEEP TRACCK OF YO HABITS ";
@@ -175,6 +176,7 @@ async function renderHabitPage() {
   // leftpage.id = "leftpage";
   // leftpage.textContent = "Left Page";
   // book.appendChild(leftpage);
+
 
   // const rightpage = document.createElement("div");
   // rightpage.id = "rightpage";
