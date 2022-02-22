@@ -210,60 +210,61 @@ function renderLoginForm() {
 
 }
 
-/*
-function renderSignupForm() {
-  const signup = document.createElement("h1");
-  signup.id = "signup";
-  signup.textContent = "Create Account";
-  main.appendChild(signup);
+const habitName = (habits) => {
+  let habitName = document.createElement("h2");
+  habitName.classList.add("habitName", "card_child");
+  
 
-  const signupform = document.createElement("form");
-  signupform.id = "signupform";
+  return habitName;
+};
 
-  const createusernamelabel = document.createElement("label");
-  createusernamelabel.textContent = "Username";
-  signupform.appendChild(createusernamelabel);
+const timeSection = (time) => {
+  let timeSection = document.createElement("div");
+  timeSection.classList.add("timeSection", "card_child");
+  
 
-    const createusernameinput = document.createElement("input");
-    createusernameinput.type = "text";
-    createusernameinput.id = "createusernameinput";
-    signupform.appendChild(createusernameinput);
+  return timeSection;
+};
 
-   const createemaillabel = document.createElement("label");
-   createemaillabel.textContent = "Email";
-   signupform.appendChild(createemaillabel);
-   const createemailinput = document.createElement("input");
-   createemailinput.type = "email";
-   createemailinput.id = "createemailinput";
-   signupform.appendChild(createemailinput);
+const frequencySection = (frequency) => {
+  let frequencySection = document.createElement("div");
+  frequencySection.classList.add("frequencySection", "card_child");
+  return frequencySection;
+};
 
-  const createpasswordlabel = document.createElement("label");
-  createpasswordlabel.textContent = "Password";
-  signupform.appendChild(createpasswordlabel);
-  const createpasswordinput = document.createElement("input");
-  createpasswordinput.type = "password";
-  createpasswordinput.id = "createpasswordinput";
-  signupform.appendChild(createpasswordinput);
+// Creates the message part on diary journal 
+const noteSection = (body) => {
+  
+  let notes = document.createElement("p");
+  notes.classList.add("notes_elem", "card_child");
+  notes.innerText = 'Notes:'
 
-   const confirmpasswordlabel = document.createElement("label");
-   confirmpasswordlabel.textContent = "Confirm Password";
-   signupform.appendChild(confirmpasswordlabel);
-   const confirmpasswordinput = document.createElement("input");
-   confirmpasswordinput.type = "password";
-   confirmpasswordinput.id = "confirmpasswordinput";
-   signupform.appendChild(confirmpasswordinput);
+  return notes;
+};
 
-  const createsubmitinput = document.createElement("input");
-  createsubmitinput.type = "submit";
-  createsubmitinput.value = "Login";
-  signupform.appendChild(createsubmitinput);
+const createCard = (habits, time, frequencey, body) => {
+  let wrapper = document.querySelector(".wrapper");
+  let card = document.createElement("div");
+  card.classList.add("card");
+  card.append(
+    habitName(habits),
+    timeSection(time),
+    frequencySection(frequency),
+    noteSection(body)
+  );
+};
 
-  signupform.addEventListener("submit", requestRegistration);
-  main.appendChild(signupform);
-}
+// creating a new card for habits
+const addCard = () => {
+  let wrapper = document.querySelector(".wrapper");
 
-*/
+  let addDiv = document.createElement("div");
+  addDiv.classList.add("add_div", "card", "no_tag");
+  addDiv.innerText = "+";
+  addDiv.addEventListener("click", showForm);
 
+  wrapper.prepend(addDiv);
+};
 
 function render404() {
   const error = document.createElement("h2");
@@ -271,3 +272,4 @@ function render404() {
   main.appendChild(error);
 }
 
+module.exports
