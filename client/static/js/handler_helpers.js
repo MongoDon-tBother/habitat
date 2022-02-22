@@ -48,4 +48,12 @@ const displaySubhabits = (subhabits, frequency) => {
   return subList;
 };
 
-module.exports = { createTitle, displaySubhabits };
+const createBtn = () => {
+  const btn = document.createElement("button");
+  btn.classList.add("btn", "update_btn");
+  btn.innerText = "Update";
+
+  return btn;
+};
+
+module.exports = { createTitle, displaySubhabits, createBtn };

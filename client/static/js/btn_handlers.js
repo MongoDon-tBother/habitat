@@ -1,4 +1,8 @@
-const { createTitle, displaySubhabits } = require("./handler_helpers");
+const {
+  createTitle,
+  displaySubhabits,
+  createBtn
+} = require("./handler_helpers");
 const { getItem } = require("./requests");
 
 const handleEdit = async (e) => {
@@ -14,13 +18,17 @@ const handleEdit = async (e) => {
   const complete = habitObj.complete;
   const subhabits = habitObj.subhabits;
 
-  console.log("subhabits", subhabits);
-  console.log("frequency", frequency);
   console.log("streak", streak);
-  console.log("complete", complete);
-  wrapper.append(createTitle(name), displaySubhabits(subhabits, frequency));
+  const title = createTitle(name);
+  const subs = displaySubhabits(subhabits, frequency);
+  const updateBtn = createBtn();
+  updateBtn.addEventListener("click", handleUpdate);
+  wrapper.append(title, subs, updateBtn);
 };
 
+const handleUpdate = () => {
+  console.log("hello");
+};
 const handleDone = () => {
   console.log("Done");
 };
