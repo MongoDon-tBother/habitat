@@ -351,7 +351,7 @@ function render404() {
  * @param  {string} text - The text to display on the btn
  */
 const createBtn = (text) => {
-  const btn = document.createElement("btn");
+  const btn = document.createElement("button");
   btn.classList.add("habit_btn", `${text}_btn`);
   btn.innerText = text;
 
