@@ -78,3 +78,13 @@ body.light {
   display: grid;
   grid-template-columns: repeat(3, auto);
 }
+
+/* Style when the subtask has been complete */
+.sub_done {
+  color: aliceblue;
+}
+
+/* Style when the subtask is incomplete */
+.sub_incomplete {
+  color: red;
+}

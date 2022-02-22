@@ -109,6 +109,7 @@ const createLeftPage = () => {
   lhWrapper.classList.add("left_page", "book_page");
 
   const title = document.createElement("h1");
+  title.classList.add("title", "left_title");
   title.innerText = `Welcome back ${localStorage.getItem("username")}!`;
   lhWrapper.appendChild(title);
 
@@ -128,12 +129,12 @@ const createRightPage = async () => {
 
   const title = document.createElement("h2");
   title.innerText = `Habits:`;
+  title.classList.add("title", "right_title");
   rhWrapper.appendChild(title);
 
   const habitsWrapper = document.createElement("div");
   habitsWrapper.classList.add("habits_wrapper");
   rhWrapper.appendChild(habitsWrapper);
-
 
   const allHabits = await createHabitCards();
   allHabits.forEach((habit) => {
@@ -176,7 +177,6 @@ async function renderHabitPage() {
   // leftpage.id = "leftpage";
   // leftpage.textContent = "Left Page";
   // book.appendChild(leftpage);
-
 
   // const rightpage = document.createElement("div");
   // rightpage.id = "rightpage";
@@ -306,7 +306,7 @@ const streak = (streak) => {
  * @param  {string} name - The name of the habit
  * @param  {string} frequency - How often the habit is repeated
  * @param  {int} streakNum - How many times in a row the habit has been completed
- * @param  {Object} subhabitsCont - Any subhabits it has
+ * @param  {arr} subhabitsCont - Any subhabits it has
  * @param  {int} habitId - The id in the DB
  */
 const createCard = (name, frequency, streakNum, subhabitsCont, habitId) => {
@@ -346,10 +346,7 @@ const addCard = () => {
   wrapper.append(addDiv);
 };
 
-function renderNewHabitForm() {
-  
-}
-
+function renderNewHabitForm() {}
 
 function render404() {
   const error = document.createElement("h2");
