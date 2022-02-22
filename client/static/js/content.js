@@ -134,7 +134,6 @@ const createRightPage = async () => {
   habitsWrapper.classList.add("habits_wrapper");
   rhWrapper.appendChild(habitsWrapper);
 
-
   const allHabits = await createHabitCards();
   allHabits.forEach((habit) => {
     habitsWrapper.appendChild(habit);
@@ -334,26 +333,90 @@ const createCard = (name, frequency, streakNum, subhabitsCont, habitId) => {
   return card;
 };
 
-
+function renderSubHabitForm() {
+  const newHabitForm = document.getElementById("newHabitForm")
+  const subHabitForm = document.createElement("form")
+  newHabitForm.appendChild(subHabitForm)
+  const subHabitName = document.createElement("input");
+  subHabitName.id = "subHabitName";
+  subHabitName.placeholder = "Subhabit Name";
+  subHabitForm.appendChild(subHabitName);
+}
 
 function renderNewHabitForm() {
   let lhWrapper = document.querySelector(".left_page");
   const newHabitForm = document.createElement("form");
+  newHabitForm.id = "newHabitForm"; 
   lhWrapper.appendChild(newHabitForm);
   const newHabitName = document.createElement('input')
   newHabitName.id = 'newHabitName'
   newHabitName.placeholder = "Habit Name"
   newHabitForm.appendChild(newHabitName)
-  const newHabitFreq = document.createElement("input");
-  newHabitFreq.placeholder = "Habit Frequency";
-  newHabitFreq.id = "newHabitFreq";
-  newHabitForm.appendChild(newHabitFreq);
-  const newSubHabit = document.createElement("input");
-  newSubHabit.placeholder = "Subhabit";
-  newSubHabit.id = "newSubHabit";
-  newHabitForm.appendChild(newSubHabit);
+
+  const FreqLabel = document.createElement("label")
+  FreqLabel.textContent = "Frequency"
+  newHabitForm.appendChild(FreqLabel)
+
+  const FreqMon = document.createElement("input")
+  FreqMon.type = "checkbox";
+  FreqMon.value = 1;
+  FreqMon.name = "days[]";
+  FreqMon.classList.add('days') 
+  newHabitForm.appendChild(FreqMon);
+
+  const FreqTue = document.createElement("input");
+  FreqTue.type = "checkbox";
+  FreqTue.value = 1;
+  FreqTue.name = "days[]";
+  FreqTue.classList.add("days"); 
+  newHabitForm.appendChild(FreqTue);
+
+  const FreqWed = document.createElement("input");
+  FreqWed.type = "checkbox";
+  FreqWed.value = 1;
+  FreqWed.name = "days[]";
+  FreqWed.classList.add("days"); 
+  newHabitForm.appendChild(FreqWed);
+
+  const FreqThur = document.createElement("input");FreqThur.type = "checkbox";
+  FreqThur.value = 1;
+  FreqThur.name = "days[]";
+  FreqThur.classList.add("days"); 
+  newHabitForm.appendChild(FreqThur);
+
+  const FreqFri = document.createElement("input");
+  FreqFri.type = "checkbox";
+  FreqFri.value = 1;
+  FreqFri.name = "days[]";
+  FreqFri.classList.add("days"); 
+  newHabitForm.appendChild(FreqFri);
+
+  const FreqSat = document.createElement("input");
+  FreqSat.type = "checkbox";
+  FreqSat.value = 1;
+  FreqSat.name = "days[]";
+  FreqSat.classList.add("days"); 
+  newHabitForm.appendChild(FreqSat);
+
+  const FreqSun = document.createElement("input");
+  FreqSun.type = "checkbox";
+  FreqSun.value = 1;
+  FreqSun.name = "days[]"; 
+  FreqSun.classList.add("days"); 
+  newHabitForm.appendChild(FreqSun);
+  const farray = [];
+  document.querySelectorAll(".days").forEach((f) => farray.push(f.checked));
+
+
+  const addSubHabit = document.createElement("div");
+  addSubHabit.textContent = "Add Subhabit +";
+  newHabitForm.appendChild(addSubHabit);
+  addSubHabit.addEventListener("click", renderSubHabitForm)
+
+
   const newHabitSubmit = document.createElement("input");
-  newHabitSubmit.type = 'submit'
+  newHabitSubmit.type = 'submit';
+  newHabitSubmit.value = "Create";
   newHabitForm.appendChild(newHabitSubmit);
   addEventListener(
     "submit",

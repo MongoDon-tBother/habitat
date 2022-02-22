@@ -47,9 +47,14 @@ async function getAllUserHabits() {
 async function postHabit(e) {
   e.preventDefault();
   try {
+    const farray = []
+    document.querySelectorAll(".days").forEach((f) => {
+      if (f.checked) farray.push(1);
+      if (!f.checked) farray.push(0);
+    });
     const newHabitData = {
       name: document.getElementById("newHabitName").value,
-      frequency: [0, 0, 0, 1, 1, 0, 0],
+      frequency: farray,
       username: localStorage.getItem("username"),
       subhabits: document.getElementById("newSubHabit").value
     };
@@ -65,11 +70,12 @@ async function postHabit(e) {
     const response = await fetch("http://localhost:3000/habits", options);
     console.log(newHabitData);
     const data = await response.json();
+    console.log(farray);
     console.log(data)
     window.location.reload();
     if (data.err) {
       console.warn(data.err);
-      //logout();
+      logout();
     }
     return data;
   } catch (err) {
