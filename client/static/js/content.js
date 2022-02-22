@@ -28,7 +28,7 @@ function renderLoginForm() {
   const fields = [
     {
       tag: "input",
-      attributes: { type: "email", name: "email", placeholder: "Email",  pattern:".+@gmail\.com", title: "Please insert your email you signed up with"}
+      attributes: { type: "email", name: "email", placeholder: "Email",  pattern:".+@gmail\.com", title: "Email incorrect or incomplete"}
     },
     {
       tag: "input",
