@@ -314,6 +314,11 @@ const createCard = (name, frequency, streakNum, subhabitsCont, habitId) => {
   card.classList.add("card");
   card.id = `habit_id_${habitId}`;
 
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("delete_btn", "btn");
+  deleteBtn.innerText = "X";
+  card.appendChild(deleteBtn);
+
   const cardContent = document.createElement("div");
   cardContent.classList.add("card_content");
   cardContent.append(
@@ -371,6 +376,5 @@ module.exports = {
   renderLoginForm,
   renderSignupForm,
   renderHabitPage,
-  addCard,
-  createCard
+  addCard
 };
