@@ -154,15 +154,15 @@ function renderHabitPage() {
   timeChecklist.textContent = 'timeChecklist - day or weekly'
   wrapperDiv.appendChild(timeChecklist)
 
-  const dayChecklist = document.createElement('div')
-  dayChecklist.textContent = 'dayChecklist '
-  wrapperDiv.appendChild(dayChecklist)
-  // this will be if day is selected, then div will drop with tasks to do throughout day
+  // const dayChecklist = document.createElement('div')
+  // dayChecklist.textContent = 'dayChecklist '
+  // wrapperDiv.appendChild(dayChecklist)
+  // // this will be if day is selected, then div will drop with tasks to do throughout day
 
-  const dayCheck = document.createElement('h2')
-  dayCheck.textContent = 'dayCheck '
-  wrapperDiv.appendChild(dayCheck)
-  // the actual list of activties of habits they wish to for the day - the habit option would be hidden along side the week checklist
+  // const dayCheck = document.createElement('h2')
+  // dayCheck.textContent = 'dayCheck '
+  // wrapperDiv.appendChild(dayCheck)
+  // // the actual list of activties of habits they wish to for the day - the habit option would be hidden along side the week checklist
   
 
   const weekChecklist = document.createElement('div')
@@ -178,14 +178,17 @@ function renderHabitPage() {
   const updateButton = document.createElement('div ')
   updateButton.textContent = 'updateButton'
   wrapperDiv.appendChild(updateButton)
-}
-
-
-
   wrapperDiv.appendChild(addhabit)
 
-}
+  async function renderHabits () {
+    const habits = await getAllUserHabits();
+    for (let habit of habits ) {
+     createCard(habit.name, habit.time, habit.frequencey, habit.streak, habit.subHabits)
+    } 
+  
 
+  }
+}
 
 
 
@@ -224,6 +227,11 @@ function renderLoginForm() {
 
 
 }
+const subHabits = (subHabits) => {
+  let subHabits = document.createElement("div");
+  subHabits.classList.add("subHabits", "card_child");
+  return subHabits;
+};
 
 // card section 
 const habitName = (habits) => {
@@ -244,6 +252,12 @@ const frequencySection = (frequency) => {
   return frequencySection;
 };
 
+const streak = ( streak) => {
+  let  streak = document.createElement("div");
+   streak.classList.add(" streak", "card_child");
+  return  streak;
+};
+
 // Creates the message part on diary journal 
 const noteSection = (body) => {
   
@@ -254,7 +268,7 @@ const noteSection = (body) => {
   return notes;
 };
 
-const createCard = (habits, time, frequencey, body) => {
+const createCard = (habits, time, frequencey, body, streak, subHabits) => {
   let wrapper = document.querySelector(".wrapper");
   let card = document.createElement("div");
   card.classList.add("card");
@@ -262,11 +276,15 @@ const createCard = (habits, time, frequencey, body) => {
     habitName(habits),
     timeSection(time),
     frequencySection(frequency),
-    noteSection(body)
+    noteSection(body),
+    streak(streak),
+    subHabits(subHabits)
   );
+  wrapper.appendChild(card);
+
 };
 
-// creating a new card for habits
+// creating a new card for habits - the plus card
 const addCard = () => {
   let wrapper = document.querySelector(".wrapper");
 
@@ -291,6 +309,8 @@ module.exports = {
   renderHomepage,
   renderLoginForm,
   renderSignupForm,
-  renderHabitPage
+  renderHabitPage,
+  addCard,
+  createCard
 };
 

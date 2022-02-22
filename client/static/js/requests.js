@@ -20,7 +20,7 @@ async function getItem(category, id) {
 
 
 
-async function getAllHabits() {
+async function getAllUserHabits() {
   e.preventDefault();
   try {
     const options = {
@@ -83,12 +83,6 @@ async function deleteHabit(id){
       console.warn(err);
   }
 }
-
-
-
-
-
-
 
 
 
