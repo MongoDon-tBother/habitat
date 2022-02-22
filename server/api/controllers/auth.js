@@ -29,7 +29,7 @@ async function show(req, res) {
          user.passwordDigest
        );
        if (!!authed) {
-         const payload = { username: user.username, email: user.email };
+         const payload = { username: user.username, email: user.email, userID: user.id };
          const sendToken = (err, token) => {
            if (err) {
              throw new Error("Error in token generation");

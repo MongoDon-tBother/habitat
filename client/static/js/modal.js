@@ -1,3 +1,5 @@
+
+/*
 const modal = document.querySelector("#modal");
 const modalHeader = modal.querySelector("h2");
 const modalContent = modal.querySelector("article");
@@ -12,19 +14,11 @@ const fields = [
   },
   {
     tag: "input",
-    attributes: {
-      type: "text",
-      name: "yearOfPublication",
-      placeholder: "Year of Publication"
-    }
-  },
-  {
-    tag: "input",
-    attributes: { type: "text", name: "authorName", placeholder: "Author" }
+    attributes: { type: "text", name: "Frequency", placeholder: "Frequency" }
   },
   {
     tag: "textarea",
-    attributes: { name: "abstract", placeholder: "Abstract" }
+    attributes: { name: "Info", placeholder: "Info" }
   },
   { tag: "input", attributes: { type: "submit", value: "Add Habit" } }
 ];
@@ -39,5 +33,13 @@ function renderHabitForm() {
   });
   habitform.onsubmit = postHabit;
   modalContent.appendChild(habitform);
-  modalExit.href = `#habit`;
 }
+
+
+async function loadModalFor() {
+  modalContent.innerHTML = "";
+  modal.style.display = "block";
+    renderNewBookForm();
+}
+
+*/

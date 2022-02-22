@@ -91,22 +91,61 @@ function renderHabitPage() {
   const newHabit = document.createElement('div')
   newHabit.textContent = 'newHabit'
   main.appendChild(newHabit)
+
+   const welcomeMessage2 = document.createElement("h1");
+   welcomeMessage2.textContent = `Welcome back ${localStorage.getItem("username")}!`;
+   main.appendChild(welcomeMessage2);
+
+
   const welcomeMessage = document.createElement('h2')
   welcomeMessage.textContent = 'YO BITCHESSSSSSSSSSS THIS IS YO MFING PAGE WHERRE YOU KEEP TRACCK OF YO HABITS '
   main.appendChild(welcomeMessage)
+
+  const leftpage = document.createElement("div");
+  leftpage.id = 'leftpage'
+  leftpage.textContent = 'Left Page'
+  main.appendChild(leftpage)
+
+  const rightpage = document.createElement("div");
+  rightpage.id = "rightpage";
+  rightpage.textContent = "Right Page";
+  main.appendChild(rightpage);
+
+  /*
+  const today = new Date().toISOString().substring(0, 10);
+  const todaysDate = document.createElement('div')
+  todaysDate.innerHTML =
+    '<input type="date" name="inputHabitsDate">';
+  rightpage.append(todaysDate)
+  todaysDate.querySelector(".inputHabitsDate").setAttribute("value", today);
+
+ 
+
   const wrapperDiv = document.createElement('div')
   wrapperDiv.id = 'wrapper'
   wrapperDiv.classList = 'wrapper'
   wrapperDiv.textContent = 'this is the wrapper of wraps rap rap'
-  main.appendChild(wrapperDiv)
+  wrapperDiv.style.display = 'block'
+  rightpage.appendChild(wrapperDiv)
+  const addhabit = document.createElement("h1");
+  addhabit.textContent = "Click to add habit"
+  
+  wrapperDiv.appendChild(addhabit)
+
+
+
   const modalsection = document.createElement('section')
   modalsection.id = 'modal'
   modalsection.style = 'display: none;'
-  main.appendChild(modalsection)
+  leftpage.appendChild(modalsection)
+
   const modali = document.createElement("i")
   modalsection.appendChild(modali)
   const modala = document.createElement("a")
   modala.href = "#"
+  modala.addEventListener('click', () => {
+    window.location.reload();
+  })
   modala.textContent = 'x'
   modali.appendChild(modala)
   const modalh2 = document.createElement("h2")
@@ -114,8 +153,8 @@ function renderHabitPage() {
   const modalarticle = document.createElement('article')
   modalsection.appendChild(modalarticle);
 
-  
-  
+*/
+
 
 
 
