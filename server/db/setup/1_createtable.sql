@@ -14,7 +14,7 @@ CREATE TABLE habits (
     id serial PRIMARY KEY,
     name varchar NOT NULL,
     frequency_id int NOT NULL,
-    complete boolean NOT NULL,
+    complete bigint NOT NULL,
     streak int NOT NULL,
     user_id int NOT NULL
 );
@@ -33,6 +33,6 @@ CREATE TABLE frequency (
 CREATE TABLE subhabits (
   id serial PRIMARY KEY,
   name varchar NOT NULL,
-  complete boolean NOT NULL,
+  complete bigint NOT NULL,
   habit_id int NOT NULL
 );
