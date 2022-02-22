@@ -57,18 +57,22 @@ function renderSignupForm() {
   const fields = [
     {
       tag: "input",
-      attributes: { type: "text", name: "username", placeholder: "Username" }
+      attributes: { type: "text", name: "username", placeholder: "Username" , required: "true",  pattern: "[a-z]{5,12}",  title:"5 to 12 lowercase letters"}
     },
     {
       tag: "input",
-      attributes: { type: "email", name: "email", placeholder: "Email" }
+      attributes: { type: "email", name: "email", placeholder: "Email" ,   required: "true" }
     },
     {
       tag: "input",
       attributes: {
         type: "password",
         name: "password",
-        placeholder: "Password"
+        placeholder: "Password",
+        required: "true",
+        pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$", 
+        // title:"Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+        title: "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
       }
     },
     {
@@ -76,11 +80,15 @@ function renderSignupForm() {
       attributes: {
         type: "password",
         name: "passwordConfirmation",
-        placeholder: "Confirm Password"
+        placeholder: "Confirm Password",
+        required: "true",
+        // pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$", 
+        title:"Password doesn't match"
       }
     },
     { tag: "input", attributes: { type: "submit", value: "Create Account" } }
   ];
+  
   const form = document.createElement("form");
   fields.forEach((f) => {
     let field = document.createElement(f.tag);
@@ -92,6 +100,8 @@ function renderSignupForm() {
   form.addEventListener("submit", requestRegistration);
   main.appendChild(form);
 }
+
+
 /**
  * Creates the book element
  */
