@@ -36,7 +36,8 @@ function renderLoginForm() {
         type: "password",
         name: "password",
         placeholder: "Password",
-        pattern: "[a-z]{5,12}",  title:"Invalid password"
+        pattern: "[a-z]{5,12}", 
+        title:"Invalid password"
       }
     },
     { tag: "input", attributes: { type: "submit", value: "Login" } }
