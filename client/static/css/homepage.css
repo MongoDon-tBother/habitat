@@ -4,12 +4,15 @@
 }
 
 #login_book {
-  background-color: red;
-  width: 100px;
+  background-color:red;
+  width: 80px;
   height: 200px;
   position: fixed;
+  top: 44%;
   left: 50%;
-  top: 50%;
+  margin-top: -5em;
+  margin-left: -80px;
+  display: flex;
 }
 .flip-horizontal-bottom {
   
@@ -18,25 +21,30 @@
 
 }
 #signup_book {
-  background-color: blue;
-  width: 100px;
+
+  background-color:blue;
+  width: 50px;
   height: 200px;
   position: fixed;
-  left: 40%;
-  top: 40%;
-  margin-left: 50px;
+  top: 44%;
+  left: 50%;
+  margin-top: -5em;
+  margin-left: 20px;
+  display: flex;
+
+  
 }
 
 #shelf {
   background-color: brown;
   width: 500px;
-  height: 20px;
+  height: 40px;
   position: fixed;
   top: 70%;
   left: 50%;
   margin-top: -5em;
   margin-left: -15em;
-  padding: 0 3em;
+  /* padding: 0 3em; */
   display: flex;
   align-items: flex-end;
   
