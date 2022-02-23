@@ -244,14 +244,14 @@ const createCard = (name, frequency, streakNum, subhabitsCont, habitId) => {
   return card;
 };
 
-function renderSubHabitForm() {
+function renderSubHabitInput() {
   const newHabitForm = document.getElementById("newHabitForm");
-  const subHabitForm = document.createElement("form");
-  newHabitForm.appendChild(subHabitForm);
   const subHabitName = document.createElement("input");
-  subHabitName.id = "subHabitName";
+  subHabitName.name = "subHabitName";
+  subHabitName.classList.add("subHabitName");
   subHabitName.placeholder = "Subhabit Name";
-  subHabitForm.appendChild(subHabitName);
+  newHabitForm.appendChild(subHabitName);
+ 
 }
 
 function renderNewHabitForm() {
@@ -316,20 +316,85 @@ function renderNewHabitForm() {
   FreqSun.name = "days[]";
   FreqSun.classList.add("days");
   newHabitForm.appendChild(FreqSun);
-  const farray = [];
-  document.querySelectorAll(".days").forEach((f) => farray.push(f.checked));
+  // const farray = [];
+  // document.querySelectorAll(".days").forEach((f) => farray.push(f.checked));
 
   const addSubHabit = document.createElement("div");
   addSubHabit.textContent = "Add Subhabit +";
-  newHabitForm.appendChild(addSubHabit);
-  addSubHabit.addEventListener("click", renderSubHabitForm);
+  newHabitForm.append(addSubHabit);
+  addSubHabit.addEventListener("click", renderSubHabitInput);
 
   const newHabitSubmit = document.createElement("input");
   newHabitSubmit.type = "submit";
   newHabitSubmit.value = "Create";
   newHabitForm.appendChild(newHabitSubmit);
+
+
+//  const sarray = ["12pm", "1pm", "2pm"]
+
+// {"name":"12pm","complete":"0"}, {"name":"1pm","complete":"0"}, {"name":"2pm","complete":"0"}
+
+
+
+//  const newarray =sarray.map((f) => {
+//  return {"name": f ,"complete":0}
+// })
+
+// console.log(newarray)
+
+//  console.log([{"name":sarray[0],"complete":0}, {"name":sarray[1],"complete":0}, {"name":sarray[2],"complete":0}])
+
+
+
+ 
+
+//  sarray.reduce((a, v) => ({ ...a, "name": v}, {"complete": "0"}), {}) 
+// console.log(sarray)
+
+// // const myObj = Object.fromEntries(sarray.map((key) => ["name", key]));
+// var newsarray =sarray.map((key) => ["name", key]);
+// console.log(newsarray);
+
+
+
+  //  const sarray = [];
+  //  document.querySelectorAll(".subHabitName").value.forEach((f) => {
+  //    sarray.push()
+  //  });
+  //  console.log(sarray)
+
+  // const sarray = [];
+  // const habitvalues = document.querySelectorAll(".subHabitName").value
+  // const obj = {"name":`${habitvalues}`,"complete":"0"}
+  // const work = JSON.parse(`${obj}`);
+  // sarray.push(work);
+  // console.log(sarry)
+
+  // create object and map each subhabit name
+  // const allsubhabits = ["12pm", "1pm"]
+
+  //const allsubhabits = document.querySelectorAll(".subHabitName").value
+  // const mapallsubhabits = allsubhabits.map((f) => {
+  //   new Map([
+  //     ["name", `${f}`],
+  //     ["complete", "0"]
+  //   ]);
+  // });
+
+// const obj = Object.fromEntries(mapallsubhabits);
+
+//   console.log(obj);
+
+  //then json parse each of them and push it into an array
+
   addEventListener("submit", postHabit);
 }
+
+
+
+
+
+
 
 // creating a new card for habits - the plus card
 const addCard = () => {
@@ -338,6 +403,7 @@ const addCard = () => {
   let addDiv = document.createElement("div");
   addDiv.classList.add("add_div", "card");
   addDiv.innerText = "+";
+
   addDiv.addEventListener("click", renderNewHabitForm);
 
   wrapper.appendChild(addDiv);
