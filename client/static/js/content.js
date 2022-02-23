@@ -29,6 +29,18 @@ function renderHomepage() {
   tilted_book.id = "tilted_book";
   main.appendChild(tilted_book);
 
+  const pot_top = document.createElement("div");
+  pot_top.id = "pot_top";
+  main.appendChild(pot_top);
+
+  const pot_top_shadow = document.createElement("div");
+  pot_top_shadow.id = "pot_top_shadow";
+  main.appendChild(pot_top_shadow);
+
+  const pot_bottom = document.createElement("div");
+  pot_bottom .id = "pot_bottom";
+  main.appendChild(pot_bottom);
+
   // for the book details 
   const login_book_top = document.createElement("div");
   login_book_top.id = "login_book_top";
