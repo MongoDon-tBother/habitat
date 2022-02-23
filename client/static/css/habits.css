@@ -63,11 +63,18 @@ body {
   background-color: gray;
 }
 
+.title {
+  text-align: center;
+  font-size: 3rem;
+}
+
 .right_title,
-.title,
 .left_title {
   text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5em;
 }
+
 .frequency_section {
   position: absolute;
   display: flex;
