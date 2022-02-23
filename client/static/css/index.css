@@ -4,13 +4,13 @@
 *::after,
 *::before {
   box-sizing: border-box;
-}
-body {
+ }
+/* body {
   margin: 0;
   padding: 0;
   --text_black: #303633;
   font-family: "Poppins", sans-serif;
-}
+}  */
 
 body.light {
   background-color: black;
