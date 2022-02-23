@@ -122,6 +122,7 @@ module.exports = class Habit {
         if (name) this.name = name;
         if (streak) this.streak = streak;
         if (complete) this.complete = Date.now();
+        if (complete === "100") this.complete = 0;
         if (frequency) this.frequency = frequency;
 
         const frequency_id = await frequencyDuplicates(this.frequency);
