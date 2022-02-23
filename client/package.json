@@ -25,7 +25,7 @@
     "vueIndentScriptAndStyle": false
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watch --coverage",
     "watch": "watchify ./static/js/main.js -o ./static/js/bundle.js -v",
     "build": "browserify ./static/js/main.js -o ./static/js/bundle.js"
   },
