@@ -1,7 +1,7 @@
 const {
-  displaySubhabits,
   createBtn,
-  createFrequencySelect
+  createFrequencySelect,
+  renderSubHabitInput
 } = require("./handler_helpers");
 const { getItem, deleteHabit, updateHabit } = require("./requests");
 
@@ -13,7 +13,6 @@ const handleEdit = async (e) => {
 
   const name = habitObj.name;
   const frequency = habitObj.frequency;
-  const complete = habitObj.complete;
   const subhabits = habitObj.subhabits;
 
   // const subs = displaySubhabits(subhabits, frequency);
@@ -26,22 +25,22 @@ const handleEdit = async (e) => {
   newHabitName.value = name;
   newHabitForm.appendChild(newHabitName);
 
-  const inputs = createFrequencySelect(frequency);
-  inputs.forEach((input) => newHabitForm.appendChild(input));
+  createFrequencySelect(frequency).forEach((input) =>
+    newHabitForm.appendChild(input)
+  );
 
   const addSubHabit = document.createElement("div");
   addSubHabit.textContent = "Add Subhabit +";
   newHabitForm.append(addSubHabit);
   addSubHabit.addEventListener("click", renderSubHabitInput);
+  if (subhabits)
+    subhabits.forEach((subhabit) => {
+      renderSubHabitInput(subhabit);
+    });
 
-  const newHabitSubmit = document.createElement("input");
-  newHabitSubmit.type = "submit";
-  newHabitSubmit.value = "Create";
-  newHabitForm.appendChild(newHabitSubmit);
-  addEventListener("submit", postHabit);
   const updateBtn = createBtn();
   updateBtn.addEventListener("click", handleUpdate);
-  wrapper.append(title, subs, updateBtn);
+  wrapper.append(updateBtn);
 };
 
 const handleUpdate = () => {
@@ -57,9 +56,15 @@ const handleDone = (e) => {
     updateHabit(habitId, { complete: "100" });
   }
 };
+
+const handleRemoveSubtask = (e) => {
+  e.preventDefault();
+  console.log(e.target.parentNode.remove());
+};
+
 const handleDelete = (e) => {
   const habitId = e.target.parentNode.id.slice(-1);
   deleteHabit(habitId);
 };
 
-module.exports = { handleEdit, handleDone, handleDelete };
+module.exports = { handleEdit, handleDone, handleDelete, handleRemoveSubtask };
