@@ -135,7 +135,7 @@ const createRightPage = async () => {
   rhWrapper.classList.add("right_page", "book_page");
 
   const title = document.createElement("h2");
-  title.innerText = `Habits:`;
+  title.innerText = `Habits`;
   title.classList.add("title", "right_title");
   rhWrapper.appendChild(title);
 
