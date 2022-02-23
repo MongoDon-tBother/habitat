@@ -1,5 +1,6 @@
 const { requestLogin, requestRegistration } = require("./auth");
 const { handleEdit, handleDone, handleDelete } = require("./btn_handlers");
+const { dateCheck } = require("./handler_helpers");
 const { getAllUserHabits, postHabit } = require("./requests");
 
 function renderHomepage() {
@@ -28,8 +29,13 @@ function renderLoginForm() {
   const fields = [
     {
       tag: "input",
-      attributes: { type: "email", name: "email", placeholder: "Email",  pattern:".+@gmail\.com", title: "Email incorrect or incomplete"}
-
+      attributes: {
+        type: "email",
+        name: "email",
+        placeholder: "Email",
+        pattern: ".+@gmail.com",
+        title: "Email incorrect or incomplete"
+      }
     },
     {
       tag: "input",
@@ -155,8 +161,8 @@ async function createHabitCards() {
       habit.name,
       habit.frequency,
       habit.streak,
-      habit.subhabits,
-      habit.habitId
+      habit.habitId,
+      habit.complete
     );
     habitsArr.push(newCard);
   }
@@ -213,12 +219,13 @@ const streak = (streak) => {
  * @param  {int} streakNum - How many times in a row the habit has been completed
  * @param  {arr} subhabitsCont - Any subhabits it has
  * @param  {int} habitId - The id in the DB
+ * @param {string} complete - A timestamp of when this was last completed
  */
-const createCard = (name, frequency, streakNum, subhabitsCont, habitId) => {
+const createCard = (name, frequency, streakNum, habitId, complete) => {
   let card = document.createElement("div");
   card.classList.add("card");
+  if (!dateCheck(complete, frequency)) card.classList.add("habit_complete");
   card.id = `habit_id_${habitId}`;
-
   const deleteBtn = document.createElement("button");
   deleteBtn.classList.add("delete_btn", "btn");
   deleteBtn.innerText = "X";
@@ -231,7 +238,6 @@ const createCard = (name, frequency, streakNum, subhabitsCont, habitId) => {
     habitName(name),
     frequencySection(frequency),
     streak(streakNum)
-    // subHabits(subhabitsCont)
   );
 
   const cardBtns = document.createElement("div");

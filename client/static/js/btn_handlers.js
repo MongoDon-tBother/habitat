@@ -3,22 +3,19 @@ const {
   displaySubhabits,
   createBtn
 } = require("./handler_helpers");
-const { getItem, deleteHabit } = require("./requests");
+const { getItem, deleteHabit, updateHabit } = require("./requests");
 
 const handleEdit = async (e) => {
   const wrapper = document.querySelector(".edit_container");
   wrapper.innerHTML = "";
-  const target = e.target;
-  const habitId = target.parentNode.parentNode.id.slice(-1);
+  const habitId = e.target.parentNode.parentNode.id.slice(-1);
   const habitObj = await getItem("habits/hab_id", habitId);
 
   const name = habitObj.name;
   const frequency = habitObj.frequency;
-  const streak = habitObj.streak;
   const complete = habitObj.complete;
   const subhabits = habitObj.subhabits;
 
-  console.log("streak", streak);
   const title = createTitle(name);
   const subs = displaySubhabits(subhabits, frequency);
   const updateBtn = createBtn();
@@ -29,8 +26,15 @@ const handleEdit = async (e) => {
 const handleUpdate = () => {
   console.log("hello");
 };
-const handleDone = () => {
-  console.log("Done");
+const handleDone = (e) => {
+  const habit = e.target.parentNode.parentNode;
+  habit.classList.toggle("habit_complete");
+  const habitId = habit.id.slice(-1);
+  if (habit.classList.contains("habit_complete")) {
+    updateHabit(habitId, { complete: true });
+  } else {
+    updateHabit(habitId, { complete: "100" });
+  }
 };
 const handleDelete = (e) => {
   const habitId = e.target.parentNode.id.slice(-1);
