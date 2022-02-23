@@ -33,10 +33,30 @@ function renderHomepage() {
   login_book_bottom.id = "login_book_bottom";
   login_book.appendChild(login_book_bottom);
 
+  const signup_book_top = document.createElement("div");
+  signup_book_top.id = "signup_book_top";
+  signup_book.appendChild(signup_book_top);
+
+  const signup_book_bottom = document.createElement("div");
+  signup_book_bottom.id = "signup_book_bottom";
+  signup_book.appendChild(signup_book_bottom);
+
+  const extra_book_top = document.createElement("div");
+  extra_book_top.id = "extra_book_top";
+  extra_book.appendChild(extra_book_top);
+
+  const extra_book_bottom = document.createElement("div");
+  extra_book_bottom.id = "extra_book_bottom";
+  extra_book.appendChild(extra_book_bottom);
 
   const shelf = document.createElement("div");
   shelf.id = "shelf";
   main.appendChild(shelf);
+
+  const shelf_shadow = document.createElement("div");
+  shelf_shadow.id = "shelf_shadow";
+  extra_book.appendChild(shelf_shadow);
+
 }
 
 function renderLoginForm() {

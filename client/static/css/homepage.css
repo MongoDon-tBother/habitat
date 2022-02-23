@@ -6,7 +6,7 @@
 #login_book {
   background-color:red;
   width: 60px;
-  height: 177px;  
+  height: 180px;  
   position: fixed;
   top: 44%;
   left: 50%;
@@ -42,6 +42,7 @@
             animation: flip-horizontal-bottom 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 
 }
+
 #signup_book {
 
   background-color:blue;
@@ -55,9 +56,29 @@
   display: flex;
 }
 
+#signup_book_top {
+  background-color: rgba(255, 255, 255, 0.408);
+  height: 30px;
+  width: 100px;
+  margin-top: 0px;
+  display: block;
+  position: fixed;
+ 
+}
+
+#signup_book_bottom{
+  background-color: rgba(255, 255, 255, 0.408);
+  height: 10px;
+  /* height: 30px; */
+  width: 100px;
+  padding: 10px;
+  display: block;
+  position: fixed;
+  margin-top: 140px;
+}
 #extra_book {
 
-  background-color:rgb(251, 101, 0);
+  background-color:rgb(241, 166, 116);
   width: 25px;
   height: 210px;
   position: fixed;
@@ -68,8 +89,29 @@
   display: flex;
 }
 
+#extra_book_top {
+  background-color: rgba(255, 255, 255, 0.408);
+  height: 30px;
+  width: 25px;
+  margin-top: 0px;
+  display: block;
+  position: fixed;
+ 
+}
+
+#extra_book_bottom{
+  background-color: rgba(255, 255, 255, 0.408);
+  height: 10px;
+  /* height: 30px; */
+  width: 25px;
+  padding: 10px;
+  display: block;
+  position: fixed;
+  margin-top: 185px;
+}
+
 #shelf {
-  background-color: brown;
+  background-color: rgb(181, 104, 59);
   width: 500px;
   height: 40px;
   position: fixed;
@@ -80,9 +122,11 @@
   /* padding: 0 3em; */
   display: flex;
   align-items: flex-end;
-  
+ 
 
 }
+
+
 
 
 /* ----------------------------------------------
