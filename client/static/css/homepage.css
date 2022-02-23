@@ -113,6 +113,40 @@ body {
   margin-top: 185px;
 }
 
+#tilted_book {
+
+  background-color:rgb(21, 21, 108);
+  width: 50px;
+  height: 200px;
+  position: fixed;
+  top: 44%;
+  left: 50%;
+  margin-top: -5em;
+  margin-left: 20px; 
+  display: flex;
+}
+
+#tilted_book_top {
+  background-color: rgba(255, 255, 255, 0.408);
+  height: 30px;
+  width: 50px;
+  margin-top: 0px;
+  display: block;
+  position: fixed;
+ 
+}
+
+#tilted_book_bottom{
+  background-color: rgba(255, 255, 255, 0.408);
+  height: 10px;
+  
+  width: 50px;
+  padding: 10px;
+  display: block;
+  position: fixed;
+  margin-top: 140px;
+}
+
 #shelf {
   background-color: rgb(216, 128, 77);
   width: 500px;
