@@ -1,9 +1,16 @@
+body {
+  --text_white: white;
+  --text_black: black;
+  --bg_white: white;
+  --bg_black: black;
+}
+
 .book {
   display: flex;
-  margin-top: 5em;
-  background-color: white;
-
-  border: 1px solid black;
+  background-color: var(--bg_white);
+  border: 1px solid var(--text_black);
+  margin: 1em;
+  --habit_columns: 3;
 }
 
 .book_page {
@@ -12,22 +19,30 @@
 }
 
 .card {
-  background-color: black;
-  color: white;
+  background-color: var(--bg_black);
+  color: var(--text_white);
   margin: 1em;
   padding: 0.5em;
+  position: relative;
+  min-height: 300px;
+}
+.card_child {
+  margin-right: 1.5em;
 }
 
 .left_page {
-  border-right: 1em black solid;
+  border-right: 1em var(--bg_black) solid;
 }
 .right_page {
-  border-left: 1em black solid;
+  border-left: 1em var(--bg_black) solid;
 }
 
 .habits_wrapper {
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(
+    var(--habit_columns),
+    calc(100% / var(--habit_columns))
+  );
 }
 
 /* Style when the subtask has been complete */
@@ -43,4 +58,33 @@
 /* Style when the habit is complete */
 .habit_complete {
   background-color: gray;
+}
+
+.right_title,
+.title,
+.left_title {
+  text-align: center;
+}
+.frequency_section {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0px;
+  right: 0px;
+  margin: 12.5px 10px;
+  height: 275px;
+  justify-content: space-between;
+}
+.f_day {
+  text-align: center;
+  width: 27px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.active_day {
+  background-color: var(--bg_white);
+  color: var(--text_black);
+  border-radius: 50%;
 }

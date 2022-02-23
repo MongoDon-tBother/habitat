@@ -192,7 +192,7 @@ async function renderHabitPage() {
 
 // card section
 const habitName = (habits) => {
-  let habitName = document.createElement("h2");
+  let habitName = document.createElement("h3");
   habitName.classList.add("habit_name", "card_child");
   habitName.innerText = habits;
   return habitName;
@@ -201,20 +201,16 @@ const habitName = (habits) => {
 const frequencySection = (frequency) => {
   let frequencySection = document.createElement("div");
   frequencySection.classList.add("frequency_section", "card_child");
-  const daysArr = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  let keepDays = [];
+  const daysArr = ["M", "T", "W", "T", "F", "S", "S"];
+  let keepDays = "";
   frequency.forEach((elem, index) => {
-    if (elem) keepDays.push(daysArr[index]);
+    if (elem) {
+      keepDays += `<div class="f_day active_day">${daysArr[index]}</div>`;
+    } else {
+      keepDays += `<div class="f_day inactive_day">${daysArr[index]}</div>`;
+    }
   });
-
-  if (keepDays.length === 7) keepDays = "Every day";
-  if (keepDays.toString() === "Mon,Tue,Wed,Thu,Fri") {
-    keepDays = "Weekdays";
-  }
-  if (keepDays.toString() === "Sat,Sun") keepDays = "Weekends";
-  if (keepDays.length === 1) keepDays = `Weekly on ${keepDays[0]}`;
-
-  frequencySection.innerText = keepDays;
+  frequencySection.innerHTML = keepDays.toString();
   return frequencySection;
 };
 
@@ -283,7 +279,6 @@ function renderNewHabitForm() {
   newHabitName.id = "newHabitName";
   newHabitName.placeholder = "Habit Name";
   newHabitForm.appendChild(newHabitName);
-
   createFrequencySelect([1, 1, 1, 1, 1, 1, 1]).forEach((input) => {
     newHabitForm.appendChild(input);
   });

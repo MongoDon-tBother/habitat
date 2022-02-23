@@ -44,7 +44,7 @@ const handleEdit = async (e) => {
   wrapper.append(updateBtn);
 };
 
-const handleUpdate = (e) => {
+const handleUpdate = async (e) => {
   e.preventDefault();
   const form = document.querySelector("#newHabitForm");
   const habitId = parseInt(form.classList[0]);
@@ -69,7 +69,8 @@ const handleUpdate = (e) => {
     username: localStorage.getItem("username"),
     subhabits: newArray
   };
-  updateHabit(habitId, newHabitData);
+  await updateHabit(habitId, newHabitData);
+  window.location.reload();
 };
 
 const handleDone = (e) => {
