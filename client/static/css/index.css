@@ -1,0 +1,90 @@
+#logo {
+  height: 50px;
+  width: 50px;
+}
+#login_book {
+  background-color: red;
+  width: 100px;
+  height: 200px;
+  position: fixed;
+  left: 50%;
+  top: 40%;
+}
+
+#signup_book {
+  background-color: blue;
+  width: 100px;
+  height: 200px;
+  position: fixed;
+  left: 40%;
+  top: 40%;
+  margin-left: 50px;
+}
+
+#shelf {
+  background-color: brown;
+  width: 500px;
+  height: 50px;
+  position: fixed;
+  left: 35%;
+  top: 70%;
+}
+
+body.light {
+  background-color: black;
+}
+
+/* Positioning the lightmode btn */
+#light-mode {
+  position: fixed;
+  background: pink;
+  border: none;
+  padding: 0.5em;
+  border-radius: 20%;
+  margin: 2em;
+  margin-left: 2em;
+  font-size: 1.25rem;
+  margin-left: 1em;
+  color: purple;
+}
+.wrapper {
+  width: fit-content;
+  margin: 0 auto;
+  display: grid;
+  --column_number: 4;
+  grid-template-columns: repeat(var(--column_number), auto);
+  margin-bottom: 4rem;
+  min-height: 50vh;
+  background-color: orange;
+}
+
+.book {
+  display: flex;
+  margin-top: 5em;
+}
+.book_page {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.left_page {
+  background-color: lightblue;
+}
+.right_page {
+  background-color: aqua;
+}
+
+.habits_wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+
+/* Style when the subtask has been complete */
+.sub_done {
+  color: aliceblue;
+}
+
+/* Style when the subtask is incomplete */
+.sub_incomplete {
+  color: red;
+}
