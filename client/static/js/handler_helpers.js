@@ -13,8 +13,6 @@ const createTitle = (name) => {
  */
 const displaySubhabits = (subhabits, frequency) => {
   if (!subhabits) return "";
-  const today = new Date().toString().split(" ").slice(0, 4);
-  const todayDay = today[0];
 
   const subList = document.createElement("ul");
   subList.classList.add("sub_list");
@@ -24,18 +22,10 @@ const displaySubhabits = (subhabits, frequency) => {
     listItem.classList.add("sub_task");
     listItem.innerText = name;
     subList.appendChild(listItem);
+
     const completed = subhabit.complete;
-    const lastCompleted = new Date(parseInt(completed))
-      .toString()
-      .split(" ")
-      .slice(0, 4);
     // check if need to be completed today and hasn't been completed
-    const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-    const matchingDay = days.indexOf(todayDay);
-    if (
-      frequency[matchingDay] === 1 &&
-      today.toString() !== lastCompleted.toString()
-    ) {
+    if (dateCheck(completed, frequency)) {
       // if so mark show solid
       listItem.classList.add("sub_incomplete");
       listItem.classList.remove("sub_done");
@@ -47,6 +37,24 @@ const displaySubhabits = (subhabits, frequency) => {
   });
   return subList;
 };
+/**
+ * @param  {string} doneDate - The timestamp stored in the habit
+ * @param  {arr} frequency - The array of frequency stored in the habit
+ */
+const dateCheck = (doneDate, frequency) => {
+  const today = new Date().toString().split(" ").slice(0, 4);
+  const todayDay = today[0];
+  const lastCompleted = new Date(parseInt(doneDate))
+    .toString()
+    .split(" ")
+    .slice(0, 4);
+  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  const matchingDay = days.indexOf(todayDay);
+  return (
+    frequency[matchingDay] === 1 &&
+    today.toString() !== lastCompleted.toString()
+  );
+};
 
 const createBtn = () => {
   const btn = document.createElement("button");
@@ -56,4 +64,4 @@ const createBtn = () => {
   return btn;
 };
 
-module.exports = { createTitle, displaySubhabits, createBtn };
+module.exports = { createTitle, displaySubhabits, createBtn, dateCheck };
