@@ -258,7 +258,6 @@ function renderSubHabitInput() {
   subHabitName.classList.add("subHabitName");
   subHabitName.placeholder = "Subhabit Name";
   newHabitForm.appendChild(subHabitName);
- 
 }
 
 function renderNewHabitForm() {
@@ -335,73 +334,8 @@ function renderNewHabitForm() {
   newHabitSubmit.type = "submit";
   newHabitSubmit.value = "Create";
   newHabitForm.appendChild(newHabitSubmit);
-
-
-//  const sarray = ["12pm", "1pm", "2pm"]
-
-// {"name":"12pm","complete":"0"}, {"name":"1pm","complete":"0"}, {"name":"2pm","complete":"0"}
-
-
-
-//  const newarray =sarray.map((f) => {
-//  return {"name": f ,"complete":0}
-// })
-
-// console.log(newarray)
-
-//  console.log([{"name":sarray[0],"complete":0}, {"name":sarray[1],"complete":0}, {"name":sarray[2],"complete":0}])
-
-
-
- 
-
-//  sarray.reduce((a, v) => ({ ...a, "name": v}, {"complete": "0"}), {}) 
-// console.log(sarray)
-
-// // const myObj = Object.fromEntries(sarray.map((key) => ["name", key]));
-// var newsarray =sarray.map((key) => ["name", key]);
-// console.log(newsarray);
-
-
-
-  //  const sarray = [];
-  //  document.querySelectorAll(".subHabitName").value.forEach((f) => {
-  //    sarray.push()
-  //  });
-  //  console.log(sarray)
-
-  // const sarray = [];
-  // const habitvalues = document.querySelectorAll(".subHabitName").value
-  // const obj = {"name":`${habitvalues}`,"complete":"0"}
-  // const work = JSON.parse(`${obj}`);
-  // sarray.push(work);
-  // console.log(sarry)
-
-  // create object and map each subhabit name
-  // const allsubhabits = ["12pm", "1pm"]
-
-  //const allsubhabits = document.querySelectorAll(".subHabitName").value
-  // const mapallsubhabits = allsubhabits.map((f) => {
-  //   new Map([
-  //     ["name", `${f}`],
-  //     ["complete", "0"]
-  //   ]);
-  // });
-
-// const obj = Object.fromEntries(mapallsubhabits);
-
-//   console.log(obj);
-
-  //then json parse each of them and push it into an array
-
   addEventListener("submit", postHabit);
 }
-
-
-
-
-
-
 
 // creating a new card for habits - the plus card
 const addCard = () => {
