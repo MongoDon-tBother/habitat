@@ -14,6 +14,19 @@
   margin-left: -60px;
   display: flex;
 }
+
+.book-top {
+  height: 10em;
+  width: 10px;
+  background: purple;
+}
+
+.book-top{
+  height: 10em;
+  width: 1.5em;
+  background: #552835;
+}
+
 .flip-horizontal-bottom {
   
     -webkit-animation: flip-horizontal-bottom 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
