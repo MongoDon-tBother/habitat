@@ -103,7 +103,7 @@ async function deleteHabit(id) {
       `https://habitat-trackerrr.herokuapp.com/habits/${id}`,
       options
     );
-    //window.location.reload();
+    window.location.reload();
   } catch (err) {
     console.warn(err);
   }
