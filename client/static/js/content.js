@@ -103,6 +103,11 @@ function renderSignupForm() {
  * Creates the book element
  */
 const createBook = () => {
+  const main = document.querySelector("main");
+  const title = document.createElement("h1");
+  title.classList.add("title");
+  title.innerText = `Welcome back ${localStorage.getItem("username")}!`;
+  main.appendChild(title);
   const book = document.createElement("div");
   book.classList.add("book");
 
@@ -114,11 +119,6 @@ const createBook = () => {
 const createLeftPage = () => {
   const lhWrapper = document.createElement("div");
   lhWrapper.classList.add("left_page", "book_page");
-
-  const title = document.createElement("h1");
-  title.classList.add("title", "left_title");
-  title.innerText = `Welcome back ${localStorage.getItem("username")}!`;
-  lhWrapper.appendChild(title);
 
   const editContainer = document.createElement("div");
   editContainer.classList.add("edit_container");
