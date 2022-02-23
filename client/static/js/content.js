@@ -217,7 +217,7 @@ const frequencySection = (frequency) => {
 const streak = (streak) => {
   let streakDiv = document.createElement("div");
   streakDiv.classList.add("streak", "card_child");
-  streakDiv.innerText = streak;
+  streakDiv.innerText = `Streak: ${streak}`;
   return streakDiv;
 };
 
@@ -320,7 +320,7 @@ function render404() {
  */
 const createBtn = (text) => {
   const btn = document.createElement("button");
-  btn.classList.add("habit_btn", `${text}_btn`);
+  btn.classList.add("habit_btn", `${text}_btn`, "btn");
   btn.innerText = text;
 
   return btn;
