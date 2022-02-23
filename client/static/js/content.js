@@ -55,7 +55,7 @@ function renderHomepage() {
 
   const shelf_shadow = document.createElement("div");
   shelf_shadow.id = "shelf_shadow";
-  extra_book.appendChild(shelf_shadow);
+  main.appendChild(shelf_shadow);
 
 }
 

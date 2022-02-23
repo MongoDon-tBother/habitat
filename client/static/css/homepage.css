@@ -1,3 +1,6 @@
+body {
+  background-color: #a781d6;
+}
 #logo {
   height: 50px;
   width: 50px;
@@ -59,7 +62,7 @@
 #signup_book_top {
   background-color: rgba(255, 255, 255, 0.408);
   height: 30px;
-  width: 100px;
+  width: 50px;
   margin-top: 0px;
   display: block;
   position: fixed;
@@ -70,7 +73,7 @@
   background-color: rgba(255, 255, 255, 0.408);
   height: 10px;
   /* height: 30px; */
-  width: 100px;
+  width: 50px;
   padding: 10px;
   display: block;
   position: fixed;
@@ -122,8 +125,25 @@
   /* padding: 0 3em; */
   display: flex;
   align-items: flex-end;
- 
+}
 
+#shelf_shadow {
+  
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: 100px;
+  margin-left: -210px;
+  width: 450px; 
+  height: 80px;
+  padding: 20px;
+  z-index: -1;
+  
+  
+  background: -webkit-gradient(linear, left top, left bottom, from(#663c23), to(#a781d6));
+  background: -o-linear-gradient(top, #663c23 0%, #a781d6 100%);
+  background: linear-gradient(to bottom, #663c23 0%, #a781d6 100%);
 }
 
 
