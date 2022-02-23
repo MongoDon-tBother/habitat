@@ -126,18 +126,21 @@ module.exports = class Habit {
         if (frequency) this.frequency = frequency;
 
         const frequency_id = await frequencyDuplicates(this.frequency);
-
         // Delete any existing subhabits then create new ones
         if (subhabits) {
           await db.query(`DELETE FROM subhabits WHERE habit_id = $1;`, [
             this.habitId
           ]);
           for (let subhabit of subhabits) {
-            await db.query(
-              `INSERT INTO subhabits (name, complete, habit_id)
+            try {
+              await db.query(
+                `INSERT INTO subhabits (name, complete, habit_id)
              VALUES ($1, $2, $3);`,
-              [subhabit.name, subhabit.complete, habit_id]
-            );
+                [subhabit.name, subhabit.complete, this.habitId]
+              );
+            } catch (err) {
+              console.warn(err);
+            }
           }
         }
         // update the habits
@@ -150,6 +153,7 @@ module.exports = class Habit {
             WHERE id = $5;`,
           [this.name, frequency_id, this.complete, this.streak, this.habitId]
         );
+
         resolve("Habit updated");
       } catch (err) {
         reject("Habit cannot be updated");
