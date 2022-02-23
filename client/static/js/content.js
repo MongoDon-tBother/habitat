@@ -20,6 +20,10 @@ function renderHomepage() {
   signup_book.id = "signup_book";
   main.appendChild(signup_book);
 
+  const extra_book = document.createElement("div");
+  extra_book.id = "extra_book";
+  main.appendChild(extra_book);
+  
   const shelf = document.createElement("div");
   shelf.id = "shelf";
   main.appendChild(shelf);

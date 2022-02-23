@@ -5,13 +5,13 @@
 
 #login_book {
   background-color:red;
-  width: 80px;
-  height: 200px;
+  width: 60px;
+  height: 155px;  
   position: fixed;
   top: 44%;
   left: 50%;
-  margin-top: -5em;
-  margin-left: -80px;
+  margin-top: -73px;
+  margin-left: -60px;
   display: flex;
 }
 .flip-horizontal-bottom {
@@ -31,8 +31,19 @@
   margin-top: -5em;
   margin-left: 20px;
   display: flex;
+}
 
-  
+#extra_book {
+
+  background-color:pink;
+  width: 25px;
+  height: 210px;
+  position: fixed;
+  top: 44%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -0;
+  display: flex;
 }
 
 #shelf {
