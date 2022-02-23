@@ -183,11 +183,12 @@ body {
 #pot_top{
   width: 100px;
   height: 20px;
-  background-color: #FF7043;
+  background-color: #c05c40;
   top: 50%;
   left: 50%;
   position: fixed;
   margin-left: -175px;
+  z-index: 10;
 
 }
 #pot_bottom{
@@ -196,7 +197,7 @@ body {
   position: fixed;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 50px solid #FF7043 ;
+  border-top: 50px solid #c05c40 ;
   top: 50%;
   left: 50%;
   position: fixed;
@@ -205,12 +206,12 @@ body {
 }
 
 #pot_top_shadow{
-  width: 90px;
+  width: 91px;
   height: 0px;
   position: fixed;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 10px solid #F4511E ;
+  border-top: 10px solid #9f4d36 ;
   top: 50%;
   left: 50%;
   z-index: 10;
