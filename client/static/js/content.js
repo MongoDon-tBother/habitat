@@ -41,9 +41,13 @@ function renderHomepage() {
   pot_bottom.id = "pot_bottom";
   main.appendChild(pot_bottom);
 
-  const flower = document.createElement("div");
-  flower.id = "flower";
+  const flower = document.createElement("span");
+  flower.classList = "flower";
   main.appendChild(flower);
+
+  const flower_stem = document.createElement("div");
+  flower_stem.id = "flower_stem";
+  main.appendChild(flower_stem);
 
 
   // for the book details 
