@@ -1,0 +1,46 @@
+.book {
+  display: flex;
+  margin-top: 5em;
+  background-color: white;
+
+  border: 1px solid black;
+}
+
+.book_page {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: black;
+  color: white;
+  margin: 1em;
+  padding: 0.5em;
+}
+
+.left_page {
+  border-right: 1em black solid;
+}
+.right_page {
+  border-left: 1em black solid;
+}
+
+.habits_wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+
+/* Style when the subtask has been complete */
+.sub_done {
+  color: aliceblue;
+}
+
+/* Style when the subtask is incomplete */
+.sub_incomplete {
+  color: red;
+}
+
+/* Style when the habit is complete */
+.habit_complete {
+  background-color: gray;
+}
