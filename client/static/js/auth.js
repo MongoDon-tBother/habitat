@@ -6,7 +6,10 @@ async function requestLogin(e) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
     };
-    const r = await fetch(`http://localhost:3000/auth/login`, options);
+    const r = await fetch(
+      `https://habitat-trackerrr.herokuapp.com/auth/login`,
+      options
+    );
     const data = await r.json();
     if (!data.success) {
       throw new Error("Login not authorised");
@@ -25,7 +28,10 @@ async function requestRegistration(e) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
     };
-    const r = await fetch(`http://localhost:3000/auth/register`, options);
+    const r = await fetch(
+      `https://habitat-trackerrr.herokuapp.com/auth/register`,
+      options
+    );
     const data = await r.json();
     if (data.err) {
       throw Error(data.err);

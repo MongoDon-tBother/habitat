@@ -2,7 +2,9 @@ const { logout } = require("./auth");
 
 async function getAll(category) {
   try {
-    const response = await fetch(`http://localhost:3000/${category}`);
+    const response = await fetch(
+      `https://habitat-trackerrr.herokuapp.com/${category}`
+    );
     const data = await response.json();
     return data;
   } catch (err) {
@@ -12,7 +14,9 @@ async function getAll(category) {
 
 async function getItem(category, id) {
   try {
-    const response = await fetch(`http://localhost:3000/${category}/${id}`);
+    const response = await fetch(
+      `https://habitat-trackerrr.herokuapp.com/${category}/${id}`
+    );
     const data = await response.json();
     return data;
   } catch (err) {
@@ -30,7 +34,9 @@ async function getAllUserHabits() {
     };
 
     const response = await fetch(
-      `http://localhost:3000/habits/${localStorage.getItem("userID")}`,
+      `https://habitat-trackerrr.herokuapp.com/habits/${localStorage.getItem(
+        "userID"
+      )}`,
       options
     );
     const data = await response.json();
@@ -75,7 +81,10 @@ async function postHabit(e) {
       },
       body: JSON.stringify(newHabitData)
     };
-    const response = await fetch("http://localhost:3000/habits", options);
+    const response = await fetch(
+      "https://habitat-trackerrr.herokuapp.com/habits",
+      options
+    );
     const data = await response.json();
     window.location.reload();
     if (data.err) {
@@ -90,8 +99,11 @@ async function postHabit(e) {
 async function deleteHabit(id) {
   try {
     const options = { method: "DELETE" };
-    await fetch(`http://localhost:3000/habits/${id}`, options);
-    window.location.reload();
+    await fetch(
+      `https://habitat-trackerrr.herokuapp.com/habits/${id}`,
+      options
+    );
+    //window.location.reload();
   } catch (err) {
     console.warn(err);
   }
@@ -107,7 +119,10 @@ async function updateHabit(id, data) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     };
-    await fetch(`http://localhost:3000/habits/${id}`, options);
+    await fetch(
+      `https://habitat-trackerrr.herokuapp.com/habits/${id}`,
+      options
+    );
   } catch (err) {
     console.warn(err);
   }
