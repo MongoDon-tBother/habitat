@@ -8,7 +8,8 @@ const { getItem, deleteHabit, updateHabit } = require("./requests");
 const handleEdit = async (e) => {
   const wrapper = document.querySelector(".edit_container");
   wrapper.innerHTML = "";
-  const habitId = e.target.parentNode.parentNode.id.slice(-1);
+  const habitId = e.currentTarget.id.slice(9);
+  console.log(habitId);
   const habitObj = await getItem("habits/hab_id", habitId);
 
   const name = habitObj.name;

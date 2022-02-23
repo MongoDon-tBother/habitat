@@ -254,9 +254,9 @@ const createCard = (name, frequency, streakNum, habitId, complete) => {
   cardBtns.append(createBtn("edit"), createBtn("done"));
 
   card.append(cardContent, cardBtns);
-  card.querySelector(".edit_btn").addEventListener("click", handleEdit);
+  // card.querySelector(".edit_btn").addEventListener("click", handleEdit);
   card.querySelector(".done_btn").addEventListener("click", handleDone);
-
+  card.addEventListener("click", handleEdit);
   return card;
 };
 
