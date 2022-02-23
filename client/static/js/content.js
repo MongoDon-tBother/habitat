@@ -335,6 +335,8 @@ module.exports = {
   renderHomepage,
   renderLoginForm,
   renderSignupForm,
+  createBook,
+  createLeftPage,
   renderHabitPage,
   addCard
 };
