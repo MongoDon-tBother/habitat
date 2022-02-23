@@ -3,28 +3,32 @@ body {
   --text_black: black;
   --bg_white: white;
   --bg_black: black;
+  --btn_white: white;
 }
 
 .book {
   display: flex;
   background-color: var(--bg_white);
   border: 1px solid var(--text_black);
-  margin: 1em;
+  margin: 2em;
   --habit_columns: 3;
 }
 
 .book_page {
   width: 50%;
-  margin: 0 auto;
 }
 
 .card {
   background-color: var(--bg_black);
   color: var(--text_white);
   margin: 1em;
-  padding: 0.5em;
+  padding: 1em;
   position: relative;
   min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  width: 90%;
 }
 .card_child {
   margin-right: 1.5em;
@@ -39,10 +43,8 @@ body {
 
 .habits_wrapper {
   display: grid;
-  grid-template-columns: repeat(
-    var(--habit_columns),
-    calc(100% / var(--habit_columns))
-  );
+  grid-template-columns: repeat(var(--habit_columns), 1fr);
+  justify-items: center;
 }
 
 /* Style when the subtask has been complete */
@@ -87,4 +89,47 @@ body {
   background-color: var(--bg_white);
   color: var(--text_black);
   border-radius: 50%;
+}
+
+.btn {
+  background: none;
+  border: none;
+  background-color: var(--btn_white);
+  color: var(--text_black);
+}
+.delete_btn {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+}
+
+.card_btns {
+  margin-top: auto;
+  display: flex;
+  width: calc(100% - 40px);
+  justify-content: space-around;
+}
+
+.habit_btn {
+  font-family: inherit;
+  font-weight: bold;
+  text-transform: capitalize;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+}
+
+.card_content {
+  margin-top: 1em;
+}
+
+@media screen and (max-width: 1500px) {
+  .book {
+    --habit_columns: 2;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .book {
+    --habit_columns: 1;
+  }
 }
