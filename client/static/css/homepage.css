@@ -15,16 +15,25 @@
   display: flex;
 }
 
-.book-top {
-  height: 10em;
-  width: 10px;
-  background: purple;
+#login_book_top {
+  background-color: rgba(255, 255, 255, 0.408);
+  height: 30px;
+  width: 100px;
+  margin-top: 0px;
+  display: block;
+  position: fixed;
+ 
 }
 
-.book-top{
-  height: 10em;
-  width: 1.5em;
-  background: #552835;
+#login_book_bottom{
+  background-color: rgba(255, 255, 255, 0.408);
+  height: 10px;
+  /* height: 30px; */
+  width: 100px;
+  padding: 10px;
+  display: block;
+  position: fixed;
+  margin-top: 140px;
 }
 
 .flip-horizontal-bottom {
@@ -48,7 +57,7 @@
 
 #extra_book {
 
-  background-color:pink;
+  background-color:rgb(251, 101, 0);
   width: 25px;
   height: 210px;
   position: fixed;

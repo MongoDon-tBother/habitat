@@ -14,21 +14,25 @@ function renderHomepage() {
   const login_book = document.createElement("div");
   login_book.id = "login_book";
   login_book.classList.add("flip-horizontal-bottom")
-  login_book.classList.add("book-top")
-  login_book.classList.add("book-bottom")
+  
   main.appendChild(login_book);
 
   const signup_book = document.createElement("div");
   signup_book.id = "signup_book";
-  signup_book.classList.add("book-top")
-  signup_book.classList.add("book-bottom")
   main.appendChild(signup_book);
 
   const extra_book = document.createElement("div");
   extra_book.id = "extra_book";
-  extra_book.classList.add("book-top")
-  extra_book.classList.add("book-bottom")
   main.appendChild(extra_book);
+
+  const login_book_top = document.createElement("div");
+  login_book_top.id = "login_book_top";
+  login_book.appendChild(login_book_top);
+
+  const login_book_bottom = document.createElement("div");
+  login_book_bottom.id = "login_book_bottom";
+  login_book.appendChild(login_book_bottom);
+
 
   const shelf = document.createElement("div");
   shelf.id = "shelf";
