@@ -11,6 +11,11 @@ const handleEdit = async (e) => {
   const habitId = e.currentTarget.id.slice(9);
   const habitObj = await getItem("habits/hab_id", habitId);
 
+  const title = document.createElement("h2");
+  title.innerText = `Update Habit`;
+  title.classList.add("title", "left_title");
+  wrapper.appendChild(title);
+
   const name = habitObj.name;
   const frequency = habitObj.frequency;
   const subhabits = habitObj.subhabits;

@@ -272,6 +272,11 @@ function renderSubHabitInput() {
 function renderNewHabitForm() {
   let lhWrapper = document.querySelector(".edit_container");
   lhWrapper.innerHTML = "";
+
+  const title = document.createElement("h2");
+  title.innerText = `New Habit`;
+  title.classList.add("title", "left_title");
+  lhWrapper.appendChild(title);
   const newHabitForm = document.createElement("form");
   newHabitForm.id = "newHabitForm";
   lhWrapper.appendChild(newHabitForm);
