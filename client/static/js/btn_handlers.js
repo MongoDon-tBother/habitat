@@ -1,7 +1,7 @@
 const {
-  createTitle,
   displaySubhabits,
-  createBtn
+  createBtn,
+  createFrequencySelect
 } = require("./handler_helpers");
 const { getItem, deleteHabit, updateHabit } = require("./requests");
 
@@ -16,8 +16,29 @@ const handleEdit = async (e) => {
   const complete = habitObj.complete;
   const subhabits = habitObj.subhabits;
 
-  const title = createTitle(name);
-  const subs = displaySubhabits(subhabits, frequency);
+  // const subs = displaySubhabits(subhabits, frequency);
+  const newHabitForm = document.createElement("form");
+  newHabitForm.id = "newHabitForm";
+  wrapper.appendChild(newHabitForm);
+
+  const newHabitName = document.createElement("input");
+  newHabitName.id = "newHabitName";
+  newHabitName.value = name;
+  newHabitForm.appendChild(newHabitName);
+
+  const inputs = createFrequencySelect(frequency);
+  inputs.forEach((input) => newHabitForm.appendChild(input));
+
+  const addSubHabit = document.createElement("div");
+  addSubHabit.textContent = "Add Subhabit +";
+  newHabitForm.append(addSubHabit);
+  addSubHabit.addEventListener("click", renderSubHabitInput);
+
+  const newHabitSubmit = document.createElement("input");
+  newHabitSubmit.type = "submit";
+  newHabitSubmit.value = "Create";
+  newHabitForm.appendChild(newHabitSubmit);
+  addEventListener("submit", postHabit);
   const updateBtn = createBtn();
   updateBtn.addEventListener("click", handleUpdate);
   wrapper.append(title, subs, updateBtn);

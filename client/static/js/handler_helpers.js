@@ -1,14 +1,4 @@
 /**
- * @param  {string} name - the name of the habit
- */
-const createTitle = (name) => {
-  const title = document.createElement("h2");
-  title.classList.add("title", "edit_title");
-  title.innerText = name;
-
-  return name;
-};
-/**
  * @param  {arr} subhabits - the array of objects containing the subhabits
  */
 const displaySubhabits = (subhabits, frequency) => {
@@ -56,6 +46,24 @@ const dateCheck = (doneDate, frequency) => {
   );
 };
 
+const createFrequencySelect = (frequency) => {
+  const returnArr = [];
+
+  const FreqLabel = document.createElement("label");
+  FreqLabel.textContent = "Frequency";
+  returnArr.push(FreqLabel);
+
+  frequency.forEach((num) => {
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.name = "days[]";
+    input.classList.add("days");
+    if (num) input.checked = "true";
+    returnArr.push(input);
+  });
+  return returnArr;
+};
+
 const createBtn = () => {
   const btn = document.createElement("button");
   btn.classList.add("btn", "update_btn");
@@ -64,4 +72,9 @@ const createBtn = () => {
   return btn;
 };
 
-module.exports = { createTitle, displaySubhabits, createBtn, dateCheck };
+module.exports = {
+  displaySubhabits,
+  createBtn,
+  dateCheck,
+  createFrequencySelect
+};

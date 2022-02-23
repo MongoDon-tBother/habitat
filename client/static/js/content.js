@@ -1,6 +1,6 @@
 const { requestLogin, requestRegistration } = require("./auth");
 const { handleEdit, handleDone, handleDelete } = require("./btn_handlers");
-const { dateCheck } = require("./handler_helpers");
+const { dateCheck, createFrequencySelect } = require("./handler_helpers");
 const { getAllUserHabits, postHabit } = require("./requests");
 
 function renderHomepage() {
@@ -284,60 +284,9 @@ function renderNewHabitForm() {
   newHabitName.placeholder = "Habit Name";
   newHabitForm.appendChild(newHabitName);
 
-  const FreqLabel = document.createElement("label");
-  FreqLabel.textContent = "Frequency";
-  newHabitForm.appendChild(FreqLabel);
-
-  const FreqMon = document.createElement("input");
-  FreqMon.type = "checkbox";
-  FreqMon.value = 1;
-  FreqMon.name = "days[]";
-  FreqMon.classList.add("days");
-  newHabitForm.appendChild(FreqMon);
-
-  const FreqTue = document.createElement("input");
-  FreqTue.type = "checkbox";
-  FreqTue.value = 1;
-  FreqTue.name = "days[]";
-  FreqTue.classList.add("days");
-  newHabitForm.appendChild(FreqTue);
-
-  const FreqWed = document.createElement("input");
-  FreqWed.type = "checkbox";
-  FreqWed.value = 1;
-  FreqWed.name = "days[]";
-  FreqWed.classList.add("days");
-  newHabitForm.appendChild(FreqWed);
-
-  const FreqThur = document.createElement("input");
-  FreqThur.type = "checkbox";
-  FreqThur.value = 1;
-  FreqThur.name = "days[]";
-  FreqThur.classList.add("days");
-  newHabitForm.appendChild(FreqThur);
-
-  const FreqFri = document.createElement("input");
-  FreqFri.type = "checkbox";
-  FreqFri.value = 1;
-  FreqFri.name = "days[]";
-  FreqFri.classList.add("days");
-  newHabitForm.appendChild(FreqFri);
-
-  const FreqSat = document.createElement("input");
-  FreqSat.type = "checkbox";
-  FreqSat.value = 1;
-  FreqSat.name = "days[]";
-  FreqSat.classList.add("days");
-  newHabitForm.appendChild(FreqSat);
-
-  const FreqSun = document.createElement("input");
-  FreqSun.type = "checkbox";
-  FreqSun.value = 1;
-  FreqSun.name = "days[]";
-  FreqSun.classList.add("days");
-  newHabitForm.appendChild(FreqSun);
-  // const farray = [];
-  // document.querySelectorAll(".days").forEach((f) => farray.push(f.checked));
+  createFrequencySelect([1, 1, 1, 1, 1, 1, 1]).forEach((input) => {
+    newHabitForm.appendChild(input);
+  });
 
   const addSubHabit = document.createElement("div");
   addSubHabit.textContent = "Add Subhabit +";
