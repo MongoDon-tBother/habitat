@@ -274,7 +274,8 @@ function renderSubHabitInput() {
 }
 
 function renderNewHabitForm() {
-  let lhWrapper = document.querySelector(".left_page");
+  let lhWrapper = document.querySelector(".edit_container");
+  lhWrapper.innerHTML = "";
   const newHabitForm = document.createElement("form");
   newHabitForm.id = "newHabitForm";
   lhWrapper.appendChild(newHabitForm);
