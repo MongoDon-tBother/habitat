@@ -305,7 +305,7 @@ const addCard = () => {
 
   addDiv.addEventListener("click", renderNewHabitForm);
 
-  wrapper.appendChild(addDiv);
+  wrapper.prepend(addDiv);
 };
 
 function render404() {
