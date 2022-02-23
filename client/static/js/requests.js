@@ -51,19 +51,16 @@ async function postHabit(e) {
     // const work = JSON.parse('{"name":"11am","complete":"0"}');
     // sarray.push(work);
 
-    const sarray = []
+    const sarray = [];
 
-     document.querySelectorAll(".subHabitName").forEach((h) => {
-       //console.log(h.value)
-      sarray.push(h.value)
-  
-  });
-    
+    document.querySelectorAll(".subHabitName").forEach((h) => {
+      //console.log(h.value)
+      sarray.push(h.value);
+    });
 
-     const newarray = sarray.map((g) => {
-  
-       return { name: g, complete: 0 };
-     });
+    const newarray = sarray.map((g) => {
+      return { name: g, complete: 0 };
+    });
 
     const farray = [];
     document.querySelectorAll(".days").forEach((f) => {
@@ -76,7 +73,6 @@ async function postHabit(e) {
       username: localStorage.getItem("username"),
       subhabits: newarray
     };
-    console.log(newHabitData)
     const options = {
       method: "POST",
       headers: {
@@ -88,7 +84,6 @@ async function postHabit(e) {
 
     const response = await fetch("http://localhost:3000/habits", options);
     const data = await response.json();
-    console.log(data);
     window.location.reload();
     if (data.err) {
       console.warn(data.err);

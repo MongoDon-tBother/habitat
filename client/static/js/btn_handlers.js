@@ -1,7 +1,7 @@
 const {
-  createTitle,
-  displaySubhabits,
-  createBtn
+  createBtn,
+  createFrequencySelect,
+  renderSubHabitInput
 } = require("./handler_helpers");
 const { getItem, deleteHabit, updateHabit } = require("./requests");
 
@@ -13,19 +13,65 @@ const handleEdit = async (e) => {
 
   const name = habitObj.name;
   const frequency = habitObj.frequency;
-  const complete = habitObj.complete;
   const subhabits = habitObj.subhabits;
 
-  const title = createTitle(name);
-  const subs = displaySubhabits(subhabits, frequency);
+  // const subs = displaySubhabits(subhabits, frequency);
+  const newHabitForm = document.createElement("form");
+  newHabitForm.id = "newHabitForm";
+  newHabitForm.classList.add(habitId);
+  wrapper.appendChild(newHabitForm);
+
+  const newHabitName = document.createElement("input");
+  newHabitName.id = "newHabitName";
+  newHabitName.value = name;
+  newHabitForm.appendChild(newHabitName);
+
+  createFrequencySelect(frequency).forEach((input) =>
+    newHabitForm.appendChild(input)
+  );
+
+  const addSubHabit = document.createElement("div");
+  addSubHabit.textContent = "Add Subhabit +";
+  newHabitForm.append(addSubHabit);
+  addSubHabit.addEventListener("click", renderSubHabitInput);
+  if (subhabits)
+    subhabits.forEach((subhabit) => {
+      renderSubHabitInput(subhabit);
+    });
+
   const updateBtn = createBtn();
   updateBtn.addEventListener("click", handleUpdate);
-  wrapper.append(title, subs, updateBtn);
+  wrapper.append(updateBtn);
 };
 
-const handleUpdate = () => {
-  console.log("hello");
+const handleUpdate = (e) => {
+  e.preventDefault();
+  const form = document.querySelector("#newHabitForm");
+  const habitId = parseInt(form.classList[0]);
+
+  const sArray = [];
+  document.querySelectorAll(".subHabitName").forEach((h) => {
+    sArray.push(h.value);
+  });
+
+  const newArray = sArray.map((g) => {
+    return { name: g, complete: 0 };
+  });
+
+  const farray = [];
+  document.querySelectorAll(".days").forEach((f) => {
+    if (f.checked) farray.push(1);
+    if (!f.checked) farray.push(0);
+  });
+  const newHabitData = {
+    name: document.getElementById("newHabitName").value,
+    frequency: farray,
+    username: localStorage.getItem("username"),
+    subhabits: newArray
+  };
+  updateHabit(habitId, newHabitData);
 };
+
 const handleDone = (e) => {
   const habit = e.target.parentNode.parentNode;
   habit.classList.toggle("habit_complete");
@@ -36,9 +82,15 @@ const handleDone = (e) => {
     updateHabit(habitId, { complete: "100" });
   }
 };
+
+const handleRemoveSubtask = (e) => {
+  e.preventDefault();
+  e.target.parentNode.remove();
+};
+
 const handleDelete = (e) => {
   const habitId = e.target.parentNode.id.slice(-1);
   deleteHabit(habitId);
 };
 
-module.exports = { handleEdit, handleDone, handleDelete };
+module.exports = { handleEdit, handleDone, handleDelete, handleRemoveSubtask };

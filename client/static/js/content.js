@@ -1,6 +1,6 @@
 const { requestLogin, requestRegistration } = require("./auth");
 const { handleEdit, handleDone, handleDelete } = require("./btn_handlers");
-const { dateCheck } = require("./handler_helpers");
+const { dateCheck, createFrequencySelect } = require("./handler_helpers");
 const { getAllUserHabits, postHabit } = require("./requests");
 
 function renderHomepage() {
@@ -144,6 +144,19 @@ const createRightPage = async () => {
   rhWrapper.appendChild(habitsWrapper);
 
   const allHabits = await createHabitCards();
+  allHabits.sort((a, b) => {
+    if (a.classList.contains("habit_complete")) {
+      a = 1;
+    } else {
+      a = 0;
+    }
+    if (b.classList.contains("habit_complete")) {
+      b = 1;
+    } else {
+      b = 0;
+    }
+    return a - b;
+  });
   allHabits.forEach((habit) => {
     habitsWrapper.appendChild(habit);
   });
@@ -258,11 +271,11 @@ function renderSubHabitInput() {
   subHabitName.classList.add("subHabitName");
   subHabitName.placeholder = "Subhabit Name";
   newHabitForm.appendChild(subHabitName);
- 
 }
 
 function renderNewHabitForm() {
-  let lhWrapper = document.querySelector(".left_page");
+  let lhWrapper = document.querySelector(".edit_container");
+  lhWrapper.innerHTML = "";
   const newHabitForm = document.createElement("form");
   newHabitForm.id = "newHabitForm";
   lhWrapper.appendChild(newHabitForm);
@@ -271,60 +284,9 @@ function renderNewHabitForm() {
   newHabitName.placeholder = "Habit Name";
   newHabitForm.appendChild(newHabitName);
 
-  const FreqLabel = document.createElement("label");
-  FreqLabel.textContent = "Frequency";
-  newHabitForm.appendChild(FreqLabel);
-
-  const FreqMon = document.createElement("input");
-  FreqMon.type = "checkbox";
-  FreqMon.value = 1;
-  FreqMon.name = "days[]";
-  FreqMon.classList.add("days");
-  newHabitForm.appendChild(FreqMon);
-
-  const FreqTue = document.createElement("input");
-  FreqTue.type = "checkbox";
-  FreqTue.value = 1;
-  FreqTue.name = "days[]";
-  FreqTue.classList.add("days");
-  newHabitForm.appendChild(FreqTue);
-
-  const FreqWed = document.createElement("input");
-  FreqWed.type = "checkbox";
-  FreqWed.value = 1;
-  FreqWed.name = "days[]";
-  FreqWed.classList.add("days");
-  newHabitForm.appendChild(FreqWed);
-
-  const FreqThur = document.createElement("input");
-  FreqThur.type = "checkbox";
-  FreqThur.value = 1;
-  FreqThur.name = "days[]";
-  FreqThur.classList.add("days");
-  newHabitForm.appendChild(FreqThur);
-
-  const FreqFri = document.createElement("input");
-  FreqFri.type = "checkbox";
-  FreqFri.value = 1;
-  FreqFri.name = "days[]";
-  FreqFri.classList.add("days");
-  newHabitForm.appendChild(FreqFri);
-
-  const FreqSat = document.createElement("input");
-  FreqSat.type = "checkbox";
-  FreqSat.value = 1;
-  FreqSat.name = "days[]";
-  FreqSat.classList.add("days");
-  newHabitForm.appendChild(FreqSat);
-
-  const FreqSun = document.createElement("input");
-  FreqSun.type = "checkbox";
-  FreqSun.value = 1;
-  FreqSun.name = "days[]";
-  FreqSun.classList.add("days");
-  newHabitForm.appendChild(FreqSun);
-  // const farray = [];
-  // document.querySelectorAll(".days").forEach((f) => farray.push(f.checked));
+  createFrequencySelect([1, 1, 1, 1, 1, 1, 1]).forEach((input) => {
+    newHabitForm.appendChild(input);
+  });
 
   const addSubHabit = document.createElement("div");
   addSubHabit.textContent = "Add Subhabit +";
@@ -335,73 +297,8 @@ function renderNewHabitForm() {
   newHabitSubmit.type = "submit";
   newHabitSubmit.value = "Create";
   newHabitForm.appendChild(newHabitSubmit);
-
-
-//  const sarray = ["12pm", "1pm", "2pm"]
-
-// {"name":"12pm","complete":"0"}, {"name":"1pm","complete":"0"}, {"name":"2pm","complete":"0"}
-
-
-
-//  const newarray =sarray.map((f) => {
-//  return {"name": f ,"complete":0}
-// })
-
-// console.log(newarray)
-
-//  console.log([{"name":sarray[0],"complete":0}, {"name":sarray[1],"complete":0}, {"name":sarray[2],"complete":0}])
-
-
-
- 
-
-//  sarray.reduce((a, v) => ({ ...a, "name": v}, {"complete": "0"}), {}) 
-// console.log(sarray)
-
-// // const myObj = Object.fromEntries(sarray.map((key) => ["name", key]));
-// var newsarray =sarray.map((key) => ["name", key]);
-// console.log(newsarray);
-
-
-
-  //  const sarray = [];
-  //  document.querySelectorAll(".subHabitName").value.forEach((f) => {
-  //    sarray.push()
-  //  });
-  //  console.log(sarray)
-
-  // const sarray = [];
-  // const habitvalues = document.querySelectorAll(".subHabitName").value
-  // const obj = {"name":`${habitvalues}`,"complete":"0"}
-  // const work = JSON.parse(`${obj}`);
-  // sarray.push(work);
-  // console.log(sarry)
-
-  // create object and map each subhabit name
-  // const allsubhabits = ["12pm", "1pm"]
-
-  //const allsubhabits = document.querySelectorAll(".subHabitName").value
-  // const mapallsubhabits = allsubhabits.map((f) => {
-  //   new Map([
-  //     ["name", `${f}`],
-  //     ["complete", "0"]
-  //   ]);
-  // });
-
-// const obj = Object.fromEntries(mapallsubhabits);
-
-//   console.log(obj);
-
-  //then json parse each of them and push it into an array
-
   addEventListener("submit", postHabit);
 }
-
-
-
-
-
-
 
 // creating a new card for habits - the plus card
 const addCard = () => {
