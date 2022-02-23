@@ -9,7 +9,6 @@ const handleEdit = async (e) => {
   const wrapper = document.querySelector(".edit_container");
   wrapper.innerHTML = "";
   const habitId = e.currentTarget.id.slice(9);
-  console.log(habitId);
   const habitObj = await getItem("habits/hab_id", habitId);
 
   const name = habitObj.name;
@@ -75,9 +74,10 @@ const handleUpdate = async (e) => {
 };
 
 const handleDone = (e) => {
+  e.stopPropagation();
   const habit = e.target.parentNode.parentNode;
   habit.classList.toggle("habit_complete");
-  const habitId = habit.id.slice(-1);
+  const habitId = habit.id.slice(9);
   if (habit.classList.contains("habit_complete")) {
     updateHabit(habitId, { complete: true });
   } else {
@@ -91,7 +91,8 @@ const handleRemoveSubtask = (e) => {
 };
 
 const handleDelete = (e) => {
-  const habitId = e.target.parentNode.id.slice(-1);
+  e.stopPropagation();
+  const habitId = e.target.parentNode.id.slice(9);
   deleteHabit(habitId);
 };
 
