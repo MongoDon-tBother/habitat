@@ -3,7 +3,7 @@ const {
   displaySubhabits,
   createBtn
 } = require("./handler_helpers");
-const { getItem, deleteHabit } = require("./requests");
+const { getItem, deleteHabit, updateHabit } = require("./requests");
 
 const handleEdit = async (e) => {
   const wrapper = document.querySelector(".edit_container");
@@ -30,9 +30,11 @@ const handleDone = (e) => {
   const habit = e.target.parentNode.parentNode;
   habit.classList.toggle("habit_complete");
   const habitId = habit.id.slice(-1);
-  console.log(habitId);
-  console.log(habit);
-  console.log("Done");
+  if (habit.classList.contains("habit_complete")) {
+    updateHabit(habitId, { complete: true });
+  } else {
+    updateHabit(habitId, { complete: "100" });
+  }
 };
 const handleDelete = (e) => {
   const habitId = e.target.parentNode.id.slice(-1);
