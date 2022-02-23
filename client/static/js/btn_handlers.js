@@ -8,8 +8,13 @@ const { getItem, deleteHabit, updateHabit } = require("./requests");
 const handleEdit = async (e) => {
   const wrapper = document.querySelector(".edit_container");
   wrapper.innerHTML = "";
-  const habitId = e.target.parentNode.parentNode.id.slice(-1);
+  const habitId = e.currentTarget.id.slice(9);
   const habitObj = await getItem("habits/hab_id", habitId);
+
+  const title = document.createElement("h2");
+  title.innerText = `Update Habit`;
+  title.classList.add("title", "left_title");
+  wrapper.appendChild(title);
 
   const name = habitObj.name;
   const frequency = habitObj.frequency;
@@ -44,7 +49,7 @@ const handleEdit = async (e) => {
   wrapper.append(updateBtn);
 };
 
-const handleUpdate = (e) => {
+const handleUpdate = async (e) => {
   e.preventDefault();
   const form = document.querySelector("#newHabitForm");
   const habitId = parseInt(form.classList[0]);
@@ -69,13 +74,15 @@ const handleUpdate = (e) => {
     username: localStorage.getItem("username"),
     subhabits: newArray
   };
-  updateHabit(habitId, newHabitData);
+  await updateHabit(habitId, newHabitData);
+  window.location.reload();
 };
 
 const handleDone = (e) => {
+  e.stopPropagation();
   const habit = e.target.parentNode.parentNode;
   habit.classList.toggle("habit_complete");
-  const habitId = habit.id.slice(-1);
+  const habitId = habit.id.slice(9);
   if (habit.classList.contains("habit_complete")) {
     updateHabit(habitId, { complete: true });
   } else {
@@ -89,7 +96,8 @@ const handleRemoveSubtask = (e) => {
 };
 
 const handleDelete = (e) => {
-  const habitId = e.target.parentNode.id.slice(-1);
+  e.stopPropagation();
+  const habitId = e.target.parentNode.id.slice(9);
   deleteHabit(habitId);
 };
 

@@ -1,33 +1,51 @@
+body {
+  --text_white: white;
+  --text_black: black;
+  --bg_white: white;
+  --bg_black: black;
+  --btn_white: white;
+}
+
 .book {
   display: flex;
-  margin-top: 5em;
-  background-color: white;
-
-  border: 1px solid black;
+  background-color: var(--bg_white);
+  border: 1px solid var(--text_black);
+  margin: 2em;
+  --habit_columns: 3;
 }
 
 .book_page {
   width: 50%;
-  margin: 0 auto;
 }
 
 .card {
-  background-color: black;
-  color: white;
-  margin: 1em;
-  padding: 0.5em;
+  background-color: var(--bg_black);
+  color: var(--text_white);
+  margin: 1rem;
+  padding: 1rem;
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  width: 90%;
+}
+.card_child {
+  margin-right: 2em;
 }
 
 .left_page {
-  border-right: 1em black solid;
+  border-right: 1em var(--bg_black) solid;
 }
 .right_page {
-  border-left: 1em black solid;
+  border-left: 1em var(--bg_black) solid;
 }
 
 .habits_wrapper {
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(var(--habit_columns), 1fr);
+  justify-items: center;
+  margin-bottom: 2em;
 }
 
 /* Style when the subtask has been complete */
@@ -43,4 +61,89 @@
 /* Style when the habit is complete */
 .habit_complete {
   background-color: gray;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.right_title,
+.left_title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+
+.frequency_section {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0px;
+  right: 0px;
+  margin: 12.5px 10px;
+  height: 275px;
+  justify-content: space-between;
+}
+.f_day {
+  text-align: center;
+  width: 27px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.active_day {
+  background-color: var(--bg_white);
+  color: var(--text_black);
+  border-radius: 50%;
+}
+
+.btn {
+  background: none;
+  border: none;
+  background-color: var(--btn_white);
+  color: var(--text_black);
+}
+.delete_btn {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+}
+
+.card_btns {
+  margin-top: auto;
+  display: flex;
+  width: calc(100% - 40px);
+  justify-content: space-around;
+}
+
+.habit_btn {
+  font-family: inherit;
+  font-weight: bold;
+  text-transform: capitalize;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+}
+
+.card_content {
+  margin-top: 1em;
+}
+
+.add_div {
+  font-size: 11rem;
+  display: flex;
+  text-align: center;
+}
+
+@media screen and (max-width: 1500px) {
+  .book {
+    --habit_columns: 2;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .book {
+    --habit_columns: 1;
+  }
 }

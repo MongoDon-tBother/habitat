@@ -103,6 +103,11 @@ function renderSignupForm() {
  * Creates the book element
  */
 const createBook = () => {
+  const main = document.querySelector("main");
+  const title = document.createElement("h1");
+  title.classList.add("title");
+  title.innerText = `Welcome back ${localStorage.getItem("username")}!`;
+  main.appendChild(title);
   const book = document.createElement("div");
   book.classList.add("book");
 
@@ -114,11 +119,6 @@ const createBook = () => {
 const createLeftPage = () => {
   const lhWrapper = document.createElement("div");
   lhWrapper.classList.add("left_page", "book_page");
-
-  const title = document.createElement("h1");
-  title.classList.add("title", "left_title");
-  title.innerText = `Welcome back ${localStorage.getItem("username")}!`;
-  lhWrapper.appendChild(title);
 
   const editContainer = document.createElement("div");
   editContainer.classList.add("edit_container");
@@ -192,7 +192,7 @@ async function renderHabitPage() {
 
 // card section
 const habitName = (habits) => {
-  let habitName = document.createElement("h2");
+  let habitName = document.createElement("h3");
   habitName.classList.add("habit_name", "card_child");
   habitName.innerText = habits;
   return habitName;
@@ -201,27 +201,23 @@ const habitName = (habits) => {
 const frequencySection = (frequency) => {
   let frequencySection = document.createElement("div");
   frequencySection.classList.add("frequency_section", "card_child");
-  const daysArr = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  let keepDays = [];
+  const daysArr = ["M", "T", "W", "T", "F", "S", "S"];
+  let keepDays = "";
   frequency.forEach((elem, index) => {
-    if (elem) keepDays.push(daysArr[index]);
+    if (elem) {
+      keepDays += `<div class="f_day active_day">${daysArr[index]}</div>`;
+    } else {
+      keepDays += `<div class="f_day inactive_day">${daysArr[index]}</div>`;
+    }
   });
-
-  if (keepDays.length === 7) keepDays = "Every day";
-  if (keepDays.toString() === "Mon,Tue,Wed,Thu,Fri") {
-    keepDays = "Weekdays";
-  }
-  if (keepDays.toString() === "Sat,Sun") keepDays = "Weekends";
-  if (keepDays.length === 1) keepDays = `Weekly on ${keepDays[0]}`;
-
-  frequencySection.innerText = keepDays;
+  frequencySection.innerHTML = keepDays.toString();
   return frequencySection;
 };
 
 const streak = (streak) => {
   let streakDiv = document.createElement("div");
   streakDiv.classList.add("streak", "card_child");
-  streakDiv.innerText = streak;
+  streakDiv.innerText = `Streak: ${streak}`;
   return streakDiv;
 };
 
@@ -258,9 +254,9 @@ const createCard = (name, frequency, streakNum, habitId, complete) => {
   cardBtns.append(createBtn("edit"), createBtn("done"));
 
   card.append(cardContent, cardBtns);
-  card.querySelector(".edit_btn").addEventListener("click", handleEdit);
+  // card.querySelector(".edit_btn").addEventListener("click", handleEdit);
   card.querySelector(".done_btn").addEventListener("click", handleDone);
-
+  card.addEventListener("click", handleEdit);
   return card;
 };
 
@@ -276,6 +272,11 @@ function renderSubHabitInput() {
 function renderNewHabitForm() {
   let lhWrapper = document.querySelector(".edit_container");
   lhWrapper.innerHTML = "";
+
+  const title = document.createElement("h2");
+  title.innerText = `New Habit`;
+  title.classList.add("title", "left_title");
+  lhWrapper.appendChild(title);
   const newHabitForm = document.createElement("form");
   newHabitForm.id = "newHabitForm";
   lhWrapper.appendChild(newHabitForm);
@@ -283,7 +284,6 @@ function renderNewHabitForm() {
   newHabitName.id = "newHabitName";
   newHabitName.placeholder = "Habit Name";
   newHabitForm.appendChild(newHabitName);
-
   createFrequencySelect([1, 1, 1, 1, 1, 1, 1]).forEach((input) => {
     newHabitForm.appendChild(input);
   });
@@ -310,7 +310,7 @@ const addCard = () => {
 
   addDiv.addEventListener("click", renderNewHabitForm);
 
-  wrapper.appendChild(addDiv);
+  wrapper.prepend(addDiv);
 };
 
 function render404() {
@@ -325,7 +325,7 @@ function render404() {
  */
 const createBtn = (text) => {
   const btn = document.createElement("button");
-  btn.classList.add("habit_btn", `${text}_btn`);
+  btn.classList.add("habit_btn", `${text}_btn`, "btn");
   btn.innerText = text;
 
   return btn;

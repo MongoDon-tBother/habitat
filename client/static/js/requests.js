@@ -47,14 +47,8 @@ async function getAllUserHabits() {
 async function postHabit(e) {
   e.preventDefault();
   try {
-    // const sarray = [];
-    // const work = JSON.parse('{"name":"11am","complete":"0"}');
-    // sarray.push(work);
-
     const sarray = [];
-
     document.querySelectorAll(".subHabitName").forEach((h) => {
-      //console.log(h.value)
       sarray.push(h.value);
     });
 
@@ -81,13 +75,11 @@ async function postHabit(e) {
       },
       body: JSON.stringify(newHabitData)
     };
-
     const response = await fetch("http://localhost:3000/habits", options);
     const data = await response.json();
     window.location.reload();
     if (data.err) {
       console.warn(data.err);
-      //logout();
     }
     return data;
   } catch (err) {
