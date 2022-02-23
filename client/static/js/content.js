@@ -29,15 +29,14 @@ function renderLoginForm() {
     {
       tag: "input",
       attributes: { type: "email", name: "email", placeholder: "Email",  pattern:".+@gmail\.com", title: "Email incorrect or incomplete"}
+
     },
     {
       tag: "input",
       attributes: {
         type: "password",
         name: "password",
-        placeholder: "Password",
-        pattern: "[a-z]{5,12}", 
-        title:"Invalid password"
+        placeholder: "Password"
       }
     },
     { tag: "input", attributes: { type: "submit", value: "Login" } }
@@ -59,22 +58,18 @@ function renderSignupForm() {
   const fields = [
     {
       tag: "input",
-      attributes: { type: "text", name: "username", placeholder: "Username" , required: "true",  pattern: "[a-z]{5,12}",  title:"5 to 12 lowercase letters"}
+      attributes: { type: "text", name: "username", placeholder: "Username" }
     },
     {
       tag: "input",
-      attributes: { type: "email", name: "email", placeholder: "Email" ,   required: "true" ,   pattern:".+@gmail\.com",  title:"please input your gmail account"}
+      attributes: { type: "email", name: "email", placeholder: "Email" }
     },
     {
       tag: "input",
       attributes: {
         type: "password",
         name: "password",
-        placeholder: "Password",
-        required: "true",
-        pattern: "[a-z]{5,12}", 
-        // title:"Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-        title:"5 to 12 lowercase letters"
+        placeholder: "Password"
       }
     },
     {
@@ -82,15 +77,11 @@ function renderSignupForm() {
       attributes: {
         type: "password",
         name: "passwordConfirmation",
-        placeholder: "Confirm Password",
-        required: "true",
-        // pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$", 
-        title:"Password doesn't match"
+        placeholder: "Confirm Password"
       }
     },
     { tag: "input", attributes: { type: "submit", value: "Create Account" } }
   ];
-  
   const form = document.createElement("form");
   fields.forEach((f) => {
     let field = document.createElement(f.tag);
@@ -102,8 +93,6 @@ function renderSignupForm() {
   form.addEventListener("submit", requestRegistration);
   main.appendChild(form);
 }
-
-
 /**
  * Creates the book element
  */
@@ -179,7 +168,7 @@ async function renderHabitPage() {
   const book = createBook();
   book.append(createLeftPage(), await createRightPage());
   main.appendChild(book);
-  addCard()
+  addCard();
 }
 
 // card section
@@ -257,9 +246,9 @@ const createCard = (name, frequency, streakNum, subhabitsCont, habitId) => {
 };
 
 function renderSubHabitForm() {
-  const newHabitForm = document.getElementById("newHabitForm")
-  const subHabitForm = document.createElement("form")
-  newHabitForm.appendChild(subHabitForm)
+  const newHabitForm = document.getElementById("newHabitForm");
+  const subHabitForm = document.createElement("form");
+  newHabitForm.appendChild(subHabitForm);
   const subHabitName = document.createElement("input");
   subHabitName.id = "subHabitName";
   subHabitName.placeholder = "Subhabit Name";
@@ -269,83 +258,78 @@ function renderSubHabitForm() {
 function renderNewHabitForm() {
   let lhWrapper = document.querySelector(".left_page");
   const newHabitForm = document.createElement("form");
-  newHabitForm.id = "newHabitForm"; 
+  newHabitForm.id = "newHabitForm";
   lhWrapper.appendChild(newHabitForm);
-  const newHabitName = document.createElement('input')
-  newHabitName.id = 'newHabitName'
-  newHabitName.placeholder = "Habit Name"
-  newHabitForm.appendChild(newHabitName)
+  const newHabitName = document.createElement("input");
+  newHabitName.id = "newHabitName";
+  newHabitName.placeholder = "Habit Name";
+  newHabitForm.appendChild(newHabitName);
 
-  const FreqLabel = document.createElement("label")
-  FreqLabel.textContent = "Frequency"
-  newHabitForm.appendChild(FreqLabel)
+  const FreqLabel = document.createElement("label");
+  FreqLabel.textContent = "Frequency";
+  newHabitForm.appendChild(FreqLabel);
 
-  const FreqMon = document.createElement("input")
+  const FreqMon = document.createElement("input");
   FreqMon.type = "checkbox";
   FreqMon.value = 1;
   FreqMon.name = "days[]";
-  FreqMon.classList.add('days') 
+  FreqMon.classList.add("days");
   newHabitForm.appendChild(FreqMon);
 
   const FreqTue = document.createElement("input");
   FreqTue.type = "checkbox";
   FreqTue.value = 1;
   FreqTue.name = "days[]";
-  FreqTue.classList.add("days"); 
+  FreqTue.classList.add("days");
   newHabitForm.appendChild(FreqTue);
 
   const FreqWed = document.createElement("input");
   FreqWed.type = "checkbox";
   FreqWed.value = 1;
   FreqWed.name = "days[]";
-  FreqWed.classList.add("days"); 
+  FreqWed.classList.add("days");
   newHabitForm.appendChild(FreqWed);
 
-  const FreqThur = document.createElement("input");FreqThur.type = "checkbox";
+  const FreqThur = document.createElement("input");
+  FreqThur.type = "checkbox";
   FreqThur.value = 1;
   FreqThur.name = "days[]";
-  FreqThur.classList.add("days"); 
+  FreqThur.classList.add("days");
   newHabitForm.appendChild(FreqThur);
 
   const FreqFri = document.createElement("input");
   FreqFri.type = "checkbox";
   FreqFri.value = 1;
   FreqFri.name = "days[]";
-  FreqFri.classList.add("days"); 
+  FreqFri.classList.add("days");
   newHabitForm.appendChild(FreqFri);
 
   const FreqSat = document.createElement("input");
   FreqSat.type = "checkbox";
   FreqSat.value = 1;
   FreqSat.name = "days[]";
-  FreqSat.classList.add("days"); 
+  FreqSat.classList.add("days");
   newHabitForm.appendChild(FreqSat);
 
   const FreqSun = document.createElement("input");
   FreqSun.type = "checkbox";
   FreqSun.value = 1;
-  FreqSun.name = "days[]"; 
-  FreqSun.classList.add("days"); 
+  FreqSun.name = "days[]";
+  FreqSun.classList.add("days");
   newHabitForm.appendChild(FreqSun);
   const farray = [];
   document.querySelectorAll(".days").forEach((f) => farray.push(f.checked));
 
-
   const addSubHabit = document.createElement("div");
   addSubHabit.textContent = "Add Subhabit +";
   newHabitForm.appendChild(addSubHabit);
-  addSubHabit.addEventListener("click", renderSubHabitForm)
-
+  addSubHabit.addEventListener("click", renderSubHabitForm);
 
   const newHabitSubmit = document.createElement("input");
-  newHabitSubmit.type = 'submit';
+  newHabitSubmit.type = "submit";
   newHabitSubmit.value = "Create";
   newHabitForm.appendChild(newHabitSubmit);
-  addEventListener(
-    "submit",
-    postHabit
-  );
-
+  addEventListener("submit", postHabit);
 }
 
 // creating a new card for habits - the plus card
@@ -355,8 +339,7 @@ const addCard = () => {
   let addDiv = document.createElement("div");
   addDiv.classList.add("add_div", "card");
   addDiv.innerText = "+";
-  addDiv.addEventListener("click", renderNewHabitForm)
-  
+  addDiv.addEventListener("click", renderNewHabitForm);
 
   wrapper.appendChild(addDiv);
 };
