@@ -21,8 +21,8 @@ body {
 .card {
   background-color: var(--bg_black);
   color: var(--text_white);
-  margin: 1em;
-  padding: 1em;
+  margin: 1rem;
+  padding: 1rem;
   position: relative;
   min-height: 300px;
   display: flex;
@@ -31,7 +31,7 @@ body {
   width: 90%;
 }
 .card_child {
-  margin-right: 1.5em;
+  margin-right: 2em;
 }
 
 .left_page {
@@ -45,6 +45,7 @@ body {
   display: grid;
   grid-template-columns: repeat(var(--habit_columns), 1fr);
   justify-items: center;
+  margin-bottom: 2em;
 }
 
 /* Style when the subtask has been complete */
@@ -120,6 +121,13 @@ body {
 
 .card_content {
   margin-top: 1em;
+}
+
+.add_div {
+  background-color: blue;
+  font-size: 11rem;
+  display: flex;
+  text-align: center;
 }
 
 @media screen and (max-width: 1500px) {
