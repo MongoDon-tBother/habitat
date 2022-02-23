@@ -1,32 +1,280 @@
+body {
+  background-color: #ffc3aa;
+}
 #logo {
   height: 50px;
   width: 50px;
 }
 
 #login_book {
-  background-color: red;
-  width: 100px;
-  height: 200px;
+  background-color:rgb(206, 7, 7);
+  width: 60px;
+  height: 180px;  
   position: fixed;
+  top: 44%;
   left: 50%;
-  top: 40%;
+  margin-top: -73px;
+  margin-left: -65px;
+  display: flex;
+}
+
+#login_book_top {
+  background-color: rgba(255, 255, 255, 0.408);
+  height: 15px;
+  width: 60px;
+  margin-top: 40px;
+  display: block;
+  position: fixed
+}
+
+#login_book:hover {
+  position: relative;
+  top: 0;
+  transition: top ease 10s;
+  background-color: rgb(28, 239, 250);
+  margin-top: 150px;
+}
+
+#login_book_bottom{
+  background-color: rgba(255, 255, 255, 0.408);
+  height: 15px;
+  width: 60px;
+  padding: 10px;
+  display: block;
+  position: fixed;
+  margin-top: 140px;
+}
+
+.flip-horizontal-bottom {
+  
+    -webkit-animation: flip-horizontal-bottom 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+            animation: flip-horizontal-bottom 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+
 }
 
 #signup_book {
-  background-color: blue;
-  width: 100px;
+
+  background-color:rgb(21, 21, 108);
+  width: 50px;
   height: 200px;
   position: fixed;
-  left: 40%;
-  top: 40%;
-  margin-left: 50px;
+  top: 44%;
+  left: 50%;
+  margin-top: -5em;
+  margin-left: 25px; 
+  display: flex;
+}
+
+
+#signup_book_top {
+  background-color: rgba(255, 255, 255, 0.408);
+  height: 15px;
+  width: 50px;
+  margin-top: 40px;
+  display: block;
+  position: fixed;
+  
+}
+
+#signup_book_bottom{
+  background-color: rgba(255, 255, 255, 0.408);
+  height: 15px;
+  /* height: 30px; */
+  width: 50px;
+  padding: 10px;
+  display: block;
+  position: fixed;
+  margin-top: 140px;
+}
+
+#signup_book:hover {
+  position: relative;
+  top: 0;
+  transition: top ease 10s;
+  background-color: rgb(28, 239, 250);
+  margin-top: 130px;
+}
+
+#extra_book {
+
+  background-color:rgb(55, 152, 59);
+  width: 25px;
+  height: 210px;
+  position: fixed;
+  top: 44%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: 0px;
+  display: flex;
+}
+
+#extra_book_top {
+  background-color: rgba(255, 255, 255, 0.408);
+  height: 15px;
+  width: 25px;
+  margin-top: 40px;
+  display: block;
+  position: fixed;
+ 
+}
+
+#extra_book_bottom{
+  background-color: rgba(255, 255, 255, 0.408);
+  height: 15px;
+  /* height: 30px; */
+  width: 25px; 
+  padding: 10px;
+  display: block;
+  position: fixed;
+  margin-top: 170px;
+}
+
+#extra_book:hover {
+  position: relative;
+  top: 0;
+  transition: top ease 10s;
+  background-color: rgb(28, 239, 250);
+  margin-top: 120px;
+}
+
+#tilted_book {
+
+  background-color:rgb(165, 172, 32);
+  width: 30px;
+  height: 200px;
+  position: fixed;
+  top: 44%;
+  left: 50%;
+  margin-top: -5em;
+  margin-left: 100px; 
+  display: flex;
+  transform: rotate(-15deg);
+}
+
+
+#tilted_book_top {
+  background-color: rgba(255, 255, 255, 0.408);
+  height: 15px;
+  width: 30px;
+  margin-top: 20px;
+  display: block;
+  position: fixed;
+ 
+}
+
+#tilted_book_bottom{
+  background-color: rgba(255, 255, 255, 0.408);
+  height: 10px;
+  width: 30px;
+  padding: 10px;
+  display: block;
+  position: fixed;
+  margin-top: 140px;
+}
+
+#tilted_book:hover {
+  position: relative;
+  top: 0;
+  transition: top ease 10s;
+  background-color: rgb(28, 239, 250);
+  margin-top: 130px;
 }
 
 #shelf {
-  background-color: brown;
+  background-color: rgb(187, 103, 55);
   width: 500px;
-  height: 50px;
+  height: 40px;
   position: fixed;
-  left: 35%;
   top: 70%;
+  left: 50%;
+  margin-top: -5em;
+  margin-left: -15em;
+  /* padding: 0 3em; */
+  display: flex;
+  align-items: flex-end;
 }
+
+#shelf_shadow {
+  
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: 100px;
+  margin-left: -210px;
+  width: 450px; 
+  height: 5px;
+  padding: 15px;
+  z-index: -1;
+  background: -webkit-gradient(linear, left top, left bottom, from(#6a3315), to(#ffc3aa));
+  background: -o-linear-gradient(top, #6a3315 0%, #ffc3aa 100%);
+  background: linear-gradient(to bottom, #6a3315 0%, #ffc3aa 100%);
+}
+
+
+#shelf_bottom_left {
+  
+  background-color: #45220e;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: 100px; 
+  margin-left: -225px;
+  width: 18px; 
+  height: 35px;
+  
+  z-index: -1;
+  /* background: -webkit-gradient(linear, left top, left bottom, from(#6a3315), to(#ffc3aa));
+  background: -o-linear-gradient(top, #6a3315 0%, #ffc3aa 100%);
+  background: linear-gradient(to bottom, #6a3315 0%, #ffc3aa 100%); */
+}
+
+#shelf_bottom_right {
+  
+  background-color: #45220e;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: 100px; 
+  margin-left: 225px;
+  width: 18px; 
+  height: 35px;
+  
+  z-index: -1;
+  /* background: -webkit-gradient(linear, left top, left bottom, from(#6a3315), to(#ffc3aa));
+  background: -o-linear-gradient(top, #6a3315 0%, #ffc3aa 100%);
+  background: linear-gradient(to bottom, #6a3315 0%, #ffc3aa 100%); */
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2022-2-23 14:44:43
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation flip-horizontal-bottom
+ * ----------------------------------------
+ */
+ /* @-webkit-keyframes flip-horizontal-bottom {
+  0% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+  }
+  100% {
+    -webkit-transform: rotateX(-180deg);
+            transform: rotateX(-180deg);
+  }
+}
+@keyframes flip-horizontal-bottom {
+  0% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+  }
+  100% {
+    -webkit-transform: rotateX(-180deg);
+            transform: rotateX(-180deg);
+  }
+} */

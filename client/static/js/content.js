@@ -13,15 +13,83 @@ function renderHomepage() {
   main.appendChild(logo);
   const login_book = document.createElement("div");
   login_book.id = "login_book";
+  login_book.classList.add("flip-horizontal-bottom")
+  
   main.appendChild(login_book);
 
   const signup_book = document.createElement("div");
   signup_book.id = "signup_book";
   main.appendChild(signup_book);
 
+  const extra_book = document.createElement("div");
+  extra_book.id = "extra_book";
+  main.appendChild(extra_book);
+
+  const tilted_book = document.createElement("div");
+  tilted_book.id = "tilted_book";
+  main.appendChild(tilted_book);
+
+  const pot_top = document.createElement("div");
+  pot_top.id = "pot_top";
+  main.appendChild(pot_top);
+
+  const pot_top_shadow = document.createElement("div");
+  pot_top_shadow.id = "pot_top_shadow";
+  main.appendChild(pot_top_shadow);
+
+  const pot_bottom = document.createElement("div");
+  pot_bottom .id = "pot_bottom";
+  main.appendChild(pot_bottom);
+
+  // for the book details 
+  const login_book_top = document.createElement("div");
+  login_book_top.id = "login_book_top";
+  login_book.appendChild(login_book_top);
+
+  const login_book_bottom = document.createElement("div");
+  login_book_bottom.id = "login_book_bottom";
+  login_book.appendChild(login_book_bottom);
+
+  const signup_book_top = document.createElement("div");
+  signup_book_top.id = "signup_book_top";
+  signup_book.appendChild(signup_book_top);
+
+  const signup_book_bottom = document.createElement("div");
+  signup_book_bottom.id = "signup_book_bottom";
+  signup_book.appendChild(signup_book_bottom);
+
+  const extra_book_top = document.createElement("div");
+  extra_book_top.id = "extra_book_top";
+  extra_book.appendChild(extra_book_top);
+
+  const extra_book_bottom = document.createElement("div");
+  extra_book_bottom.id = "extra_book_bottom";
+  extra_book.appendChild(extra_book_bottom);
+
+  const tilted_book_top = document.createElement("div");
+  tilted_book_top.id = "tilted_book_top";
+  tilted_book.appendChild(tilted_book_top);
+
+  const tilted_book_bottom = document.createElement("div");
+  tilted_book_bottom.id = "tilted_book_bottom";
+  tilted_book.appendChild(tilted_book_bottom);
+
+  // shelf section 
   const shelf = document.createElement("div");
   shelf.id = "shelf";
   main.appendChild(shelf);
+
+  const shelf_shadow = document.createElement("div");
+  shelf_shadow.id = "shelf_shadow";
+  main.appendChild(shelf_shadow);
+
+  const shelf_bottom_right = document.createElement("div");
+  shelf_bottom_right.id = "shelf_bottom_right";
+  main.appendChild(shelf_bottom_right);
+
+  const shelf_bottom_left = document.createElement("div");
+  shelf_bottom_left.id = "shelf_bottom_left";
+  main.appendChild(shelf_bottom_left);
 }
 
 function renderLoginForm() {
