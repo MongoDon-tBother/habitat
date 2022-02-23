@@ -18,6 +18,7 @@ const handleEdit = async (e) => {
   // const subs = displaySubhabits(subhabits, frequency);
   const newHabitForm = document.createElement("form");
   newHabitForm.id = "newHabitForm";
+  newHabitForm.classList.add(habitId);
   wrapper.appendChild(newHabitForm);
 
   const newHabitName = document.createElement("input");
@@ -43,9 +44,34 @@ const handleEdit = async (e) => {
   wrapper.append(updateBtn);
 };
 
-const handleUpdate = () => {
-  console.log("hello");
+const handleUpdate = (e) => {
+  e.preventDefault();
+  const form = document.querySelector("#newHabitForm");
+  const habitId = parseInt(form.classList[0]);
+
+  const sArray = [];
+  document.querySelectorAll(".subHabitName").forEach((h) => {
+    sArray.push(h.value);
+  });
+
+  const newArray = sArray.map((g) => {
+    return { name: g, complete: 0 };
+  });
+
+  const farray = [];
+  document.querySelectorAll(".days").forEach((f) => {
+    if (f.checked) farray.push(1);
+    if (!f.checked) farray.push(0);
+  });
+  const newHabitData = {
+    name: document.getElementById("newHabitName").value,
+    frequency: farray,
+    username: localStorage.getItem("username"),
+    subhabits: newArray
+  };
+  updateHabit(habitId, newHabitData);
 };
+
 const handleDone = (e) => {
   const habit = e.target.parentNode.parentNode;
   habit.classList.toggle("habit_complete");
@@ -59,7 +85,7 @@ const handleDone = (e) => {
 
 const handleRemoveSubtask = (e) => {
   e.preventDefault();
-  console.log(e.target.parentNode.remove());
+  e.target.parentNode.remove();
 };
 
 const handleDelete = (e) => {
