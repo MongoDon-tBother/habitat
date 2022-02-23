@@ -14,25 +14,23 @@ body {
   top: 44%;
   left: 50%;
   margin-top: -73px;
-  margin-left: -60px;
+  margin-left: -65px;
   display: flex;
 }
 
 #login_book_top {
   background-color: rgba(255, 255, 255, 0.408);
-  height: 30px;
-  width: 100px;
-  margin-top: 0px;
+  height: 15px;
+  width: 60px;
+  margin-top: 40px;
   display: block;
-  position: fixed;
- 
+  position: fixed
 }
 
 #login_book_bottom{
   background-color: rgba(255, 255, 255, 0.408);
-  height: 10px;
-  /* height: 30px; */
-  width: 100px;
+  height: 15px;
+  width: 60px;
   padding: 10px;
   display: block;
   position: fixed;
@@ -55,15 +53,15 @@ body {
   top: 44%;
   left: 50%;
   margin-top: -5em;
-  margin-left: 20px; 
+  margin-left: 25px; 
   display: flex;
 }
 
 #signup_book_top {
   background-color: rgba(255, 255, 255, 0.408);
-  height: 30px;
+  height: 15px;
   width: 50px;
-  margin-top: 0px;
+  margin-top: 40px;
   display: block;
   position: fixed;
  
@@ -71,7 +69,7 @@ body {
 
 #signup_book_bottom{
   background-color: rgba(255, 255, 255, 0.408);
-  height: 10px;
+  height: 15px;
   /* height: 30px; */
   width: 50px;
   padding: 10px;
@@ -88,15 +86,15 @@ body {
   top: 44%;
   left: 50%;
   margin-top: -100px;
-  margin-left: -0;
+  margin-left: 0px;
   display: flex;
 }
 
 #extra_book_top {
   background-color: rgba(255, 255, 255, 0.408);
-  height: 30px;
+  height: 15px;
   width: 25px;
-  margin-top: 0px;
+  margin-top: 40px;
   display: block;
   position: fixed;
  
@@ -104,33 +102,34 @@ body {
 
 #extra_book_bottom{
   background-color: rgba(255, 255, 255, 0.408);
-  height: 10px;
+  height: 15px;
   /* height: 30px; */
   width: 25px; 
   padding: 10px;
   display: block;
   position: fixed;
-  margin-top: 185px;
+  margin-top: 170px;
 }
 
 #tilted_book {
 
-  background-color:rgb(21, 21, 108);
-  width: 50px;
+  background-color:rgb(165, 172, 32);
+  width: 30px;
   height: 200px;
   position: fixed;
   top: 44%;
   left: 50%;
   margin-top: -5em;
-  margin-left: 20px; 
+  margin-left: 100px; 
   display: flex;
+  transform: rotate(-15deg);
 }
 
 #tilted_book_top {
   background-color: rgba(255, 255, 255, 0.408);
-  height: 30px;
-  width: 50px;
-  margin-top: 0px;
+  height: 15px;
+  width: 30px;
+  margin-top: 20px;
   display: block;
   position: fixed;
  
@@ -139,8 +138,7 @@ body {
 #tilted_book_bottom{
   background-color: rgba(255, 255, 255, 0.408);
   height: 10px;
-  
-  width: 50px;
+  width: 30px;
   padding: 10px;
   display: block;
   position: fixed;
@@ -148,7 +146,7 @@ body {
 }
 
 #shelf {
-  background-color: rgb(216, 128, 77);
+  background-color: rgb(187, 103, 55);
   width: 500px;
   height: 40px;
   position: fixed;
@@ -173,9 +171,9 @@ body {
   height: 5px;
   padding: 20px;
   z-index: -1;
-  background: -webkit-gradient(linear, left top, left bottom, from(#663c23), to(#ffc3aa));
-  background: -o-linear-gradient(top, #663c23 0%, #ffc3aa 100%);
-  background: linear-gradient(to bottom, #663c23 0%, #ffc3aa 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(#6a3315), to(#ffc3aa));
+  background: -o-linear-gradient(top, #6a3315 0%, #ffc3aa 100%);
+  background: linear-gradient(to bottom, #6a3315 0%, #ffc3aa 100%);
 }
 
 

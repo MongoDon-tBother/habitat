@@ -69,6 +69,13 @@ function renderHomepage() {
   shelf_shadow.id = "shelf_shadow";
   main.appendChild(shelf_shadow);
 
+  const shelf_bottom_right = document.createElement("div");
+  shelf_bottom_right.id = "shelf_bottom_right";
+  main.appendChild(shelf_bottom_right);
+
+  const shelf_bottom_left = document.createElement("div");
+  shelf_bottom_left.id = "shelf_bottom_left";
+  main.appendChild(shelf_bottom_left);
 }
 
 function renderLoginForm() {
