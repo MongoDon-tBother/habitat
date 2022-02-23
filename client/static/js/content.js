@@ -277,6 +277,7 @@ function renderNewHabitForm() {
   title.innerText = `New Habit`;
   title.classList.add("title", "left_title");
   lhWrapper.appendChild(title);
+
   const newHabitForm = document.createElement("form");
   newHabitForm.id = "newHabitForm";
   lhWrapper.appendChild(newHabitForm);

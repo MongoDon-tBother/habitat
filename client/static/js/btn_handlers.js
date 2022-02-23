@@ -78,16 +78,24 @@ const handleUpdate = async (e) => {
   window.location.reload();
 };
 
-const handleDone = (e) => {
+const handleDone = async (e) => {
   e.stopPropagation();
   const habit = e.target.parentNode.parentNode;
   habit.classList.toggle("habit_complete");
   const habitId = habit.id.slice(9);
+  const habitObj = await getItem("habits/hab_id", habitId);
+  const streak = habitObj.streak;
+
   if (habit.classList.contains("habit_complete")) {
-    updateHabit(habitId, { complete: true });
+    const newStreak = streak + 1;
+    await updateHabit(habitId, { complete: true, streak: newStreak });
+    // need to increment the streak
   } else {
-    updateHabit(habitId, { complete: "100" });
+    const newStreak = streak - 1;
+    await updateHabit(habitId, { complete: "100", streak: newStreak });
+    // need to decrement the streak
   }
+  window.location.reload();
 };
 
 const handleRemoveSubtask = (e) => {
