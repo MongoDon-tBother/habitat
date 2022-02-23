@@ -180,6 +180,17 @@ body {
   margin-top: 130px;
 }
 
+#pot_top{
+  width: 90px;
+  height: 20px;
+  background-color: #FF7043;
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  margin-left: -200px;
+
+}
+
 #shelf {
   background-color: rgb(187, 103, 55);
   width: 500px;
