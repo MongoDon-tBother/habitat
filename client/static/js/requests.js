@@ -24,7 +24,7 @@ async function getAllUserHabits() {
   try {
     const options = {
       headers: {
-        "authorization": localStorage.getItem("token"),
+        authorization: localStorage.getItem("token"),
         "Content-Type": "application/json"
       }
     };
@@ -47,7 +47,7 @@ async function getAllUserHabits() {
 async function postHabit(e) {
   e.preventDefault();
   try {
-    const farray = []
+    const farray = [];
     document.querySelectorAll(".days").forEach((f) => {
       if (f.checked) farray.push(1);
       if (!f.checked) farray.push(0);
@@ -55,13 +55,13 @@ async function postHabit(e) {
     const newHabitData = {
       name: document.getElementById("newHabitName").value,
       frequency: farray,
-      username: localStorage.getItem("username"),
+      username: localStorage.getItem("username")
       //subhabits: document.getElementById("newSubHabit").value
     };
     const options = {
       method: "POST",
       headers: {
-        "authorization": localStorage.getItem("token"),
+        authorization: localStorage.getItem("token"),
         "Content-Type": "application/json"
       },
       body: JSON.stringify(newHabitData)
@@ -69,7 +69,7 @@ async function postHabit(e) {
 
     const response = await fetch("http://localhost:3000/habits", options);
     const data = await response.json();
-    console.log(data)
+    console.log(data);
     window.location.reload();
     if (data.err) {
       console.warn(data.err);
@@ -78,7 +78,7 @@ async function postHabit(e) {
     return data;
   } catch (err) {
     console.warn(err);
-  };
+  }
 }
 
 async function deleteHabit(id) {
@@ -90,5 +90,27 @@ async function deleteHabit(id) {
     console.warn(err);
   }
 }
+/**
+ * @param  {int} id - The habit id
+ * @param  {object} body - The body should be in the form { name, frequency, subhabits, complete, streak }. all args are optional
+ */
+async function updateHabit(id, data) {
+  try {
+    const options = {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    };
+    await fetch(`http://localhost:3000/habits/${id}`, options);
+  } catch (err) {
+    console.warn(err);
+  }
+}
 
-module.exports = { getAllUserHabits, getItem, deleteHabit, postHabit };
+module.exports = {
+  getAllUserHabits,
+  getItem,
+  deleteHabit,
+  postHabit,
+  updateHabit
+};
