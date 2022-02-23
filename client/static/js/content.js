@@ -144,6 +144,19 @@ const createRightPage = async () => {
   rhWrapper.appendChild(habitsWrapper);
 
   const allHabits = await createHabitCards();
+  allHabits.sort((a, b) => {
+    if (a.classList.contains("habit_complete")) {
+      a = 1;
+    } else {
+      a = 0;
+    }
+    if (b.classList.contains("habit_complete")) {
+      b = 1;
+    } else {
+      b = 0;
+    }
+    return a - b;
+  });
   allHabits.forEach((habit) => {
     habitsWrapper.appendChild(habit);
   });
