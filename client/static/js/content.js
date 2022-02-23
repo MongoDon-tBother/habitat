@@ -29,6 +29,7 @@ function renderHomepage() {
   tilted_book.id = "tilted_book";
   main.appendChild(tilted_book);
 
+  // for the book details 
   const login_book_top = document.createElement("div");
   login_book_top.id = "login_book_top";
   login_book.appendChild(login_book_top);
@@ -61,6 +62,7 @@ function renderHomepage() {
   tilted_book_bottom.id = "tilted_book_bottom";
   tilted_book.appendChild(tilted_book_bottom);
 
+  // shelf section 
   const shelf = document.createElement("div");
   shelf.id = "shelf";
   main.appendChild(shelf);
