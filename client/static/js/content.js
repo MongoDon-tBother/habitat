@@ -141,45 +141,23 @@ function renderLoginForm() {
   
   const login_form = document.createElement("div");
   login_form.id = "login_form";
-  login_form.classList.add("cover","back_cover")
   main.appendChild(login_form);
 
-  const login_form_pages = document.createElement("div");
-  login_form_pages.id = "login_form_pages";
-  login_form_pages.classList.add("page1","page2", "page3", "page4", "page5", "page6", "page7")
-  main.appendChild(login_form_pages);
+  const login_front_cover = document.createElement("div");
+  login_front_cover.id = "login_front_cover";
+  main.appendChild(login_front_cover);
 
-  const login_last_page = document.createElement("div");
-  login_last_page.id = "login_last_page";
-  login_last_page.classList.add(last_page)
-  login_last_page.src =
- "https://i.guim.co.uk/img/media/26392d05302e02f7bf4eb143bb84c8097d09144b/446_167_3683_2210/master/3683.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=49ed3252c0b2ffb49cf8b508892e452d";
- login_last_page.alt = "last page image";
-  main.appendChild(login_last_page);
-  // const login_form_cover = document.createElement("div");
-  // login_form_cover.id = "login_form_cover";
-  // main.appendChild(login_form_cover);
 
-  // const login_form_backcover = document.createElement("div");
-  // login_form_backcover.id = "login_form_backcover";
-  // main.appendChild(login_form_backcover);
+  const login_back_cover = document.createElement("div");
+  login_back_cover.id = "login_back_cover";
+  main.appendChild(login_back_cover);
 
-  // const login_form_left = document.createElement("div");
-  // login_form_left.id = "login_form_left";
-  // main.appendChild(login_form_left);
+  // const login_form_pages = document.createElement("div");
+  // login_form_pages.id = "login_form_pages";
+  // login_form_pages.classList.add("page1","page2", "page3", "page4", "page5", "page6", "page7")
+  // main.appendChild(login_form_pages);
 
-  // const login_form_left_cover = document.createElement("div");
-  // login_form_left_cover.id = "login_form_left_cover";
-  // main.appendChild(login_form_left_cover);
   
-  // const login_form_right = document.createElement("div");
-  // login_form_right.id = "login_form_right";
-  // main.appendChild(login_form_right);
-
-  // const login_form_right_cover = document.createElement("div");
-  // login_form_right_cover.id = "login_form_right_cover";
-  // main.appendChild(login_form_right_cover);
-
   // need to make a div for pages and the center shadow 
 
 

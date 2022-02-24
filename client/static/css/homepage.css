@@ -349,8 +349,8 @@ body {
   cursor: pointer;
   
 }
-.cover, 
-.back_cover {
+
+#login_back_cover {
 background-color: rgb(182, 16, 16);
 height: 300px;
 width: 500px;
@@ -359,19 +359,11 @@ position: absolute;
 box-shadow: 1px 1px 10px gray;
 }
 
-#login_form_pages {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  
-}
-
-.page1, .page2 , .page3,
- .page4, .page5, .page6, .page7{
-  background-color: white;
-  height: 300px;
-  width: 500px;
-  position: absolute;
-  z-index: 2;
-
-}
+/* .back_cover {
+  background-color: rgb(71, 18, 18);
+height: 300px;
+width: 500px;
+border-radius: 2px 20px 20px 2px;
+position: absolute;
+box-shadow: 1px 1px 10px gray;
+} */
