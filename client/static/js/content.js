@@ -18,9 +18,6 @@ function renderHomepage() {
   const login_book = document.createElement("div");
   login_book.id = "login_book";
 
-  const login_book_hover = document.createElement("div");
-  login_book_hover.id = "login_book_hover";
-  main.appendChild(login_book_hover);
 
   main.appendChild(login_book);
 
