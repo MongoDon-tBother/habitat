@@ -387,8 +387,8 @@ margin-top: -300px;
       position: fixed;
       box-shadow: -40px 10px 40px  rgb(95, 63, 63);
       margin-left: -335px;
-      margin-top: -310px;
-      transform: skewY(-5deg);
+      margin-top: -308px;
+      transform: skewY(-10deg);
       z-index: -1;
       border-radius: 10%;
       }
