@@ -17,7 +17,6 @@ function renderHomepage() {
   main.appendChild(logo);
   const login_book = document.createElement("div");
   login_book.id = "login_book";
- 
 
   main.appendChild(login_book);
 
