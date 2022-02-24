@@ -20,7 +20,6 @@ const handleEdit = async (e) => {
   const frequency = habitObj.frequency;
   const subhabits = habitObj.subhabits;
 
-  // const subs = displaySubhabits(subhabits, frequency);
   const newHabitForm = document.createElement("form");
   newHabitForm.id = "newHabitForm";
   newHabitForm.classList.add(habitId);
@@ -31,9 +30,7 @@ const handleEdit = async (e) => {
   newHabitName.value = name;
   newHabitForm.appendChild(newHabitName);
 
-  createFrequencySelect(frequency).forEach((input) =>
-    newHabitForm.appendChild(input)
-  );
+  newHabitForm.append(createFrequencySelect(frequency));
 
   const addSubHabit = document.createElement("div");
   addSubHabit.textContent = "Add Subhabit +";

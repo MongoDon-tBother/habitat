@@ -17,21 +17,32 @@ const dateCheck = (doneDate, frequency) => {
  * @param  {arr} frequency - An array of 1s and 0s to say which day it is repeated on
  */
 const createFrequencySelect = (frequency) => {
-  const returnArr = [];
+  const f_container = document.createElement("div");
+  f_container.classList.add("f_container");
 
-  const FreqLabel = document.createElement("label");
+  const FreqLabel = document.createElement("div");
   FreqLabel.textContent = "Frequency";
-  returnArr.push(FreqLabel);
+  f_container.append(FreqLabel);
 
-  frequency.forEach((num) => {
+  frequency.forEach((num, index) => {
     const input = document.createElement("input");
     input.type = "checkbox";
     input.name = "days[]";
+    input.id = `f_label_${index + 1}`;
     input.classList.add("days");
     if (num) input.checked = "true";
-    returnArr.push(input);
+
+    const daysArr = ["M", "T", "W", "T", "F", "S", "S"];
+    let keepDays = "";
+    const label = document.createElement("label");
+    label.innerText = daysArr[index];
+    label.classList.add("f_day");
+    label.htmlFor = `f_label_${index + 1}`;
+    if (num) label.classList.add("active_day");
+    f_container.append(label);
+    f_container.append(input);
   });
-  return returnArr;
+  return f_container;
 };
 
 function renderSubHabitInput(subhabit) {

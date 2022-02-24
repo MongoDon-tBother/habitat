@@ -98,6 +98,10 @@ body {
   color: var(--text_black);
   border-radius: 50%;
 }
+.left_page .active_day {
+  color: var(--text_white);
+  background-color: var(--bg_black);
+}
 
 .btn {
   background: none;
