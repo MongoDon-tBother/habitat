@@ -173,6 +173,15 @@ function renderLoginForm() {
   login_page2.id = "login_page2";
   main.appendChild(login_page2);
 
+  const login_page3 = document.createElement("div");
+  login_page3.id = "login_page3";
+  main.appendChild(login_page3);
+
+  const login_page4 = document.createElement("div");
+  login_page4.id = "login_page4"
+  main.appendChild(login_page4);
+  
+
   // need to make a div for pages and the center shadow 
 
 
