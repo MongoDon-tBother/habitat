@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node ./index.js",
     "startDev": "nodemon ./index.js",
-    "seedDev": "node ./dbConfig/seedDev.js"
+    "seedDev": "node ./dbConfig/seedDev.js",
+    "test": "jest --setupFiles ./test/testConfig.js --watchAll --detectOpenHandles --runInBand --coverage"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -20,6 +21,8 @@
     "pg": "^8.7.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
   }
 }
