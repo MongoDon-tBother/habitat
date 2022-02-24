@@ -364,6 +364,7 @@ function renderNewHabitForm() {
   const newHabitName = document.createElement("input");
   newHabitName.id = "newHabitName";
   newHabitName.placeholder = "Habit Name";
+  newHabitName.required = "true";
   const habitLabel = document.createElement("label");
   habitLabel.htmlFor = "newHabitName";
   habitLabel.innerText = "What's your habit called?";

@@ -28,6 +28,8 @@ const handleEdit = async (e) => {
   const newHabitName = document.createElement("input");
   newHabitName.id = "newHabitName";
   newHabitName.value = name;
+  newHabitName.placeholder = "Habit Name";
+  newHabitName.required = "true";
   const habitLabel = document.createElement("label");
   habitLabel.htmlFor = "newHabitName";
   habitLabel.innerText = "What's your habit called?";
@@ -46,7 +48,7 @@ const handleEdit = async (e) => {
     });
 
   const updateBtn = createBtn();
-  updateBtn.addEventListener("click", handleUpdate);
+  newHabitForm.addEventListener("submit", handleUpdate);
   newHabitForm.append(updateBtn);
 };
 
