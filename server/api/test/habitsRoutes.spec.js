@@ -90,7 +90,7 @@ describe("GET /hab_id/:habit_id", () => {
   });
 });
 
-// CREATE 
+// CREATE
 
 describe("POST /", () => {
   let api;
@@ -108,26 +108,39 @@ describe("POST /", () => {
   });
 
   test("responds with status code 200", (done) => {
-    request(api).post("/habits/hab_id/1").expect(200, done);
+    request(api).post("/habits/").expect(200, done);
   });
 
   test("responds with json", (done) => {
     request(api).post("/habits/").expect("Content-Type", /json/, done);
   });
 
-  test("responds with user's habits", (done) => {
+  let newHabit = {
+    name: "Drink juice",
+    frequency: [0, 0, 0, 0, 0, 1, 1],
+    subhabits: [{ name: "9am", complete: "0" }],
+    username: "test1"
+  };
+
+  test("responds with user's new habit", (done) => {
     request(api)
-      .post("/habits/hab_id/1")
+      .post("/habits/")
+      .send(newHabit)
       .expect(
         {
-          name: "Drink water",
+          name: "Drink juice",
           frequency: [0, 0, 0, 0, 0, 1, 1],
           complete: "0",
-          streak: 5,
+          streak: 0,
           subhabits: [{ name: "9am", complete: "0" }],
           habitId: 1
         },
         done
       );
   });
+
+  test("responds with error message 422", (done) => {
+    request(api).post("/habits/").send({}).expect(422, done);
+  });
 });
+
