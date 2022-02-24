@@ -379,16 +379,30 @@ margin-top: -300px;
   }
 
   #login_upper_spine {
-    background-color: rgb(175, 104, 104);
+    background-color: rgb(133, 17, 17);
     height: 600px;
     width: 50px;
     top: 50%;
     left: 50%;
     position: fixed;
-    box-shadow: 1px 1px 10px gray;
+    /* box-shadow: 1px 1px 10px gray; */
     margin-left: -350px;
     margin-top: -300px;
     /* transform: rotate(-1deg); */
     }
+
+    #login_lower_spine {
+      background-color: rgba(133, 17, 17, 0.769);
+      height: 600px;
+      width: 20px;
+      top: 50%;
+      left: 50%;
+      position: fixed;
+      box-shadow: 1px 1px 100px gray;
+      margin-left: -350px;
+      margin-top: -300px;
+      /* transform: rotate(-1deg); */
+      }
+    
   
 

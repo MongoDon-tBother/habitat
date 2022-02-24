@@ -156,6 +156,10 @@ function renderLoginForm() {
   login_upper_spine.id = "login_upper_spine";
   main.appendChild(login_upper_spine);
 
+  const login_lower_spine = document.createElement("div");
+  login_lower_spine.id = "login_lower_spine";
+  main.appendChild(login_lower_spine);
+
 
   // const login_form_pages = document.createElement("div");
   // login_form_pages.id = "login_form_pages";
