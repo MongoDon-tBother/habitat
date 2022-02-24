@@ -152,6 +152,11 @@ function renderLoginForm() {
   login_back_cover.id = "login_back_cover";
   main.appendChild(login_back_cover);
 
+  const login_spine = document.createElement("div");
+  login_spine.id = "login_spine";
+  main.appendChild(login_spine);
+
+
   // const login_form_pages = document.createElement("div");
   // login_form_pages.id = "login_form_pages";
   // login_form_pages.classList.add("page1","page2", "page3", "page4", "page5", "page6", "page7")
