@@ -43,7 +43,8 @@ const handleEdit = async (e) => {
   newHabitForm.append(subSection);
 
   const addSubHabit = document.createElement("div");
-  addSubHabit.textContent = "Add a subhabit? +";
+  addSubHabit.textContent = "Add a subhabit +";
+  addSubHabit.classList.add("add_sub_btn");
   subSection.append(addSubHabit);
   addSubHabit.addEventListener("click", renderSubHabitInput);
   if (subhabits)

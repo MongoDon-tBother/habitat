@@ -383,6 +383,7 @@ function renderNewHabitForm() {
 
   const addSubHabit = document.createElement("div");
   addSubHabit.textContent = "Add Subhabit +";
+  addSubHabit.classList.add("add_sub_btn");
   subSection.append(addSubHabit);
   addSubHabit.addEventListener("click", renderSubHabitInput);
 
