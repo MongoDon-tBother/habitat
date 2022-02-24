@@ -21,6 +21,7 @@ function updateNav() {
     links = privateRoutes.map(createNavLink);
     logoutBtn = document.createElement("button");
     logoutBtn.textContent = "Logout";
+    logoutBtn.classList.add("logout_btn");
     logoutBtn.onclick = logout;
     nav.appendChild(logoutBtn);
   } else {
