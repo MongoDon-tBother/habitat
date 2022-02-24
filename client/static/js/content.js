@@ -18,7 +18,6 @@ function renderHomepage() {
   const login_book = document.createElement("div");
   login_book.id = "login_book";
 
-
   main.appendChild(login_book);
 
   const signup_book = document.createElement("div");
@@ -224,6 +223,7 @@ const createRightPage = async () => {
   rhWrapper.appendChild(habitsWrapper);
 
   const allHabits = await createHabitCards();
+  allHabits.sort((a, b) => a - b);
   allHabits.sort((a, b) => {
     if (a.classList.contains("habit_complete")) {
       a = 1;
@@ -334,20 +334,10 @@ const createCard = (name, frequency, streakNum, habitId, complete) => {
   cardBtns.append(createBtn("edit"), createBtn("done"));
 
   card.append(cardContent, cardBtns);
-  // card.querySelector(".edit_btn").addEventListener("click", handleEdit);
   card.querySelector(".done_btn").addEventListener("click", handleDone);
   card.addEventListener("click", handleEdit);
   return card;
 };
-
-// function renderSubHabitInput() {
-//   const newHabitForm = document.getElementById("newHabitForm");
-//   const subHabitName = document.createElement("input");
-//   subHabitName.name = "subHabitName";
-//   subHabitName.classList.add("subHabitName");
-//   subHabitName.placeholder = "Subhabit Name";
-//   newHabitForm.appendChild(subHabitName);
-// }
 
 function renderNewHabitForm() {
   let lhWrapper = document.querySelector(".edit_container");
