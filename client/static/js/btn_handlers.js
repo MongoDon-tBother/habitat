@@ -47,7 +47,7 @@ const handleEdit = async (e) => {
 
   const updateBtn = createBtn();
   updateBtn.addEventListener("click", handleUpdate);
-  wrapper.append(updateBtn);
+  newHabitForm.append(updateBtn);
 };
 
 const handleUpdate = async (e) => {
