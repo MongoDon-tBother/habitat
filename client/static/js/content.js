@@ -353,9 +353,8 @@ function renderNewHabitForm() {
   newHabitName.id = "newHabitName";
   newHabitName.placeholder = "Habit Name";
   newHabitForm.appendChild(newHabitName);
-  createFrequencySelect([1, 1, 1, 1, 1, 1, 1]).forEach((input) => {
-    newHabitForm.appendChild(input);
-  });
+  
+  newHabitForm.appendChild(createFrequencySelect([1, 1, 1, 1, 1, 1, 1]));
 
   const addSubHabit = document.createElement("div");
   addSubHabit.textContent = "Add Subhabit +";
