@@ -152,13 +152,17 @@ function renderLoginForm() {
   login_back_cover.id = "login_back_cover";
   main.appendChild(login_back_cover);
 
-  const login_upper_spine = document.createElement("div");
-  login_upper_spine.id = "login_upper_spine";
-  main.appendChild(login_upper_spine);
+  const login_top_spine = document.createElement("div");
+  login_top_spine.id = "login_top_spine";
+  main.appendChild(login_top_spine);
 
-  const login_lower_spine = document.createElement("div");
-  login_lower_spine.id = "login_lower_spine";
-  main.appendChild(login_lower_spine);
+  const login_middle_spine = document.createElement("div");
+  login_middle_spine.id = "login_middle_spine";
+  main.appendChild(login_middle_spine);
+
+  const login_bottom_spine = document.createElement("div");
+  login_bottom_spine.id = "login_bottom_spine";
+  main.appendChild(login_bottom_spine);
 
 
   const login_page1 = document.createElement("div");
