@@ -11,9 +11,9 @@ body {
   width: 60px;
   height: 180px;  
   position: fixed;
-  top: 44%;
+  top: 50%;
   left: 50%;
-  margin-top: -85px;
+  margin-top: -118px;
   margin-left: -65px;
   display: flex;
 }
@@ -27,13 +27,13 @@ body {
   position: fixed
 }
 
-#login_book:hover {
+/* #login_book:hover {
   position: relative;
   top: 0;
   transition: top ease 10s;
   background-color: rgb(28, 239, 250); 
-  margin-top: 110px;
-}
+  margin-top: 150px;
+} */
 
 #login_book_bottom{
   background-color: rgba(255, 255, 255, 0.408);
@@ -44,8 +44,6 @@ body {
   position: fixed;
   margin-top: 140px;
 }
-
-
 
 #signup_book {
 

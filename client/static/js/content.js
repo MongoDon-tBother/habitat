@@ -17,7 +17,7 @@ function renderHomepage() {
   main.appendChild(logo);
   const login_book = document.createElement("div");
   login_book.id = "login_book";
-  login_book.classList.add("flip-horizontal-bottom");
+ 
 
   main.appendChild(login_book);
 
