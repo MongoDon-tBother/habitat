@@ -133,9 +133,58 @@ function renderLoginForm() {
       field.setAttribute(a, v);
       form.appendChild(field);
     });
+    
   });
+  const login_form = document.createElement("div");
+  login_form.id = "login_form";
+  main.appendChild(login_form);
   form.addEventListener("submit", requestLogin);
-  main.appendChild(form);
+  login_form.appendChild(form);
+  
+
+  const login_front_cover = document.createElement("div");
+  login_front_cover.id = "login_front_cover";
+  main.appendChild(login_front_cover);
+
+
+  const login_back_cover = document.createElement("div");
+  login_back_cover.id = "login_back_cover";
+  main.appendChild(login_back_cover);
+
+  const login_top_spine = document.createElement("div");
+  login_top_spine.id = "login_top_spine";
+  main.appendChild(login_top_spine);
+
+  const login_middle_spine = document.createElement("div");
+  login_middle_spine.id = "login_middle_spine";
+  main.appendChild(login_middle_spine);
+
+  const login_bottom_spine = document.createElement("div");
+  login_bottom_spine.id = "login_bottom_spine";
+  main.appendChild(login_bottom_spine);
+ 
+ 
+  const login_page1 = document.createElement("div");
+  login_page1.id = "login_page1";
+  main.appendChild(login_page1);
+
+  const login_page2 = document.createElement("div");
+  login_page2.id = "login_page2";
+  main.appendChild(login_page2);
+
+  const login_page3 = document.createElement("div");
+  login_page3.id = "login_page3";
+  main.appendChild(login_page3);
+
+  const login_page4 = document.createElement("div");
+  login_page4.id = "login_page4"
+  main.appendChild(login_page4);
+
+  const login_page5 = document.createElement("div");
+  login_page5.id = "login_page5"
+  main.appendChild(login_page5); 
+
+
 }
 
 function renderSignupForm() {
