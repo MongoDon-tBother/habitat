@@ -134,9 +134,26 @@ function renderLoginForm() {
       field.setAttribute(a, v);
       form.appendChild(field);
     });
+  
   });
   form.addEventListener("submit", requestLogin);
   main.appendChild(form);
+  
+  const login_form = document.createElement("div");
+  login_form.id = "login_form";
+  main.appendChild(login_form);
+
+  const login_form_left = document.createElement("div");
+  login_form_left.id = "login_form_left";
+  main.appendChild(login_form_left);
+  
+  const login_form_right = document.createElement("div");
+  login_form_right.id = "login_form_right";
+  main.appendChild(login_form_right);
+
+  // need to make a div for pages and the center shadow 
+
+
 }
 
 function renderSignupForm() {
