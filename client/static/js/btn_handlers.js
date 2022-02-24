@@ -28,6 +28,10 @@ const handleEdit = async (e) => {
   const newHabitName = document.createElement("input");
   newHabitName.id = "newHabitName";
   newHabitName.value = name;
+  const habitLabel = document.createElement("label");
+  habitLabel.htmlFor = "newHabitName";
+  habitLabel.innerText = "What's your habit called?";
+  newHabitForm.appendChild(habitLabel);
   newHabitForm.appendChild(newHabitName);
 
   newHabitForm.append(createFrequencySelect(frequency));
