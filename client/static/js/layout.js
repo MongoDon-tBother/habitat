@@ -26,7 +26,6 @@ function updateNav() {
   } else {
     links = publicRoutes.map(createNavLink);
   }
-  links.forEach((l) => nav.insertBefore(l, logoutBtn));
 }
 
 function updateMain(path) {
@@ -71,6 +70,5 @@ function updateContent() {
     updateMain(path);
   }
 }
-
 
 module.exports = { updateContent };
