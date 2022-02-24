@@ -31,12 +31,9 @@ body {
   position: relative;
   top: 0;
   transition: top ease 10s;
-  background-color: rgb(28, 239, 250); 
+  background-color: rgb(28, 239, 250);
   margin-top: 150px;
 }
-
-
-
 
 #login_book_bottom {
   background-color: rgba(255, 255, 255, 0.408);

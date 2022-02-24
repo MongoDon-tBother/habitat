@@ -6,13 +6,112 @@ body {
   --btn_white: white;
 }
 
+/* START OF BOOK */
+
 .book {
+  transform-style: preserve-3d;
+  position: relative;
+  backface-visibility: visible;
   display: flex;
-  background-color: var(--bg_white);
-  border: 1px solid var(--text_black);
-  margin: 2em;
+
+  margin: 7em 10%;
   --habit_columns: 3;
+  border-radius: 0.5em;
+  height: 800px;
 }
+
+.front,
+.right_page,
+.right_mid,
+.right_last {
+  transform-style: preserve-3d;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 0;
+  transform-origin: left center;
+  transition: transform 0.5s ease-in-out, box-shadow 0.35s ease-in-out;
+}
+.back,
+.left_page,
+.left_mid,
+.left_last {
+  transform-style: preserve-3d;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform-origin: right center;
+  transition: transform 0.5s ease-in-out, box-shadow 0.35s ease-in-out;
+}
+
+.front {
+  transform: rotateY(-10deg) scale(1.1);
+  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+}
+.right_mid {
+  transform: rotateY(-12deg) scale(1.1);
+  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--bg_white);
+  width: 50%;
+}
+.right_last {
+  transform: rotateY(-14deg) scale(1.1);
+  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--bg_white);
+  width: 50%;
+}
+.right_page {
+  transform: rotateY(-16deg) scale(1.1);
+  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--bg_white);
+}
+
+.left_page {
+  transform: rotateY(22deg) scale(1.1);
+  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--bg_white);
+}
+.left_mid {
+  transform: rotateY(18deg) scale(1.1);
+  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--bg_white);
+  width: 50%;
+}
+.left_last {
+  transform: rotateY(14deg) scale(1.1);
+  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--bg_white);
+  width: 50%;
+}
+.back {
+  transform: rotateY(10deg) scale(1.1);
+}
+
+.front,
+.back {
+  width: 50%;
+  background-color: navy;
+  z-index: -1;
+}
+
+.back,
+.left_page,
+.left_mid,
+.left_last {
+  border-bottom-left-radius: 1em;
+  border-top-left-radius: 1em;
+}
+
+.front,
+.right_page,
+.right_mid,
+.right_last {
+  border-bottom-right-radius: 1em;
+  border-top-right-radius: 1em;
+}
+
+/* END OF BOOK */
 
 .book_page {
   width: 50%;
@@ -35,10 +134,10 @@ body {
 }
 
 .left_page {
-  border-right: 1em var(--bg_black) solid;
+  border-right: 0.2em var(--bg_black) solid;
 }
 .right_page {
-  border-left: 1em var(--bg_black) solid;
+  border-left: 0.2em var(--bg_black) solid;
 }
 
 .habits_wrapper {

@@ -265,7 +265,31 @@ async function createHabitCards() {
 async function renderHabitPage() {
   const main = document.querySelector("main");
   const book = createBook();
-  book.append(createLeftPage(), await createRightPage());
+
+  const leftCover = document.createElement("div");
+  leftCover.classList.add("front");
+  const leftMid = document.createElement("div");
+  leftMid.classList.add("left_mid");
+  const leftLast = document.createElement("div");
+  leftLast.classList.add("left_last");
+
+  const rightCover = document.createElement("div");
+  rightCover.classList.add("back");
+  const rightMid = document.createElement("div");
+  rightMid.classList.add("right_mid");
+  const rightLast = document.createElement("div");
+  rightLast.classList.add("right_last");
+
+  book.append(
+    leftCover,
+    leftMid,
+    leftLast,
+    createLeftPage(),
+    await createRightPage(),
+    rightLast,
+    rightMid,
+    rightCover
+  );
   main.appendChild(book);
   addCard();
 }
