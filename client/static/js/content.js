@@ -361,6 +361,9 @@ function renderNewHabitForm() {
   const newHabitForm = document.createElement("form");
   newHabitForm.id = "newHabitForm";
   lhWrapper.appendChild(newHabitForm);
+
+  const nameWrap = document.createElement("div");
+  nameWrap.classList.add("form_control");
   const newHabitName = document.createElement("input");
   newHabitName.id = "newHabitName";
   newHabitName.placeholder = "Habit Name";
@@ -368,8 +371,9 @@ function renderNewHabitForm() {
   const habitLabel = document.createElement("label");
   habitLabel.htmlFor = "newHabitName";
   habitLabel.innerText = "What's your habit called?";
-  newHabitForm.appendChild(habitLabel);
-  newHabitForm.appendChild(newHabitName);
+  nameWrap.appendChild(habitLabel);
+  nameWrap.appendChild(newHabitName);
+  newHabitForm.appendChild(nameWrap);
 
   newHabitForm.appendChild(createFrequencySelect([1, 1, 1, 1, 1, 1, 1]));
 
