@@ -6,6 +6,8 @@ const {
 const { getItem, deleteHabit, updateHabit } = require("./requests");
 
 const handleEdit = async (e) => {
+  document.querySelector(".left_page").classList.add("show_me");
+  document.querySelector(".right_page").classList.add("hide_me");
   const wrapper = document.querySelector(".edit_container");
   wrapper.innerHTML = "";
   const habitId = e.currentTarget.id.slice(9);
@@ -59,6 +61,8 @@ const handleEdit = async (e) => {
 
 const handleUpdate = async (e) => {
   e.preventDefault();
+  document.querySelector(".left_page").classList.remove("show_me");
+  document.querySelector(".right_page").classList.remove("hide_me");
   const form = document.querySelector("#newHabitForm");
   const habitId = parseInt(form.classList[0]);
 

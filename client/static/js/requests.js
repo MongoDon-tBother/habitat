@@ -52,6 +52,8 @@ async function getAllUserHabits() {
 
 async function postHabit(e) {
   e.preventDefault();
+  document.querySelector(".left_page").classList.remove("show_me");
+  document.querySelector(".right_page").classList.remove("hide_me");
   try {
     const sarray = [];
     document.querySelectorAll(".subHabitName").forEach((h) => {

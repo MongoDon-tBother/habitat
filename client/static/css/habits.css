@@ -370,6 +370,7 @@ h1 {
     -o-transition: none !important;
     -ms-transition: none !important;
     transition: none !important;
+    transform: none !important;
   }
   .book {
     --habit_columns: 3;
@@ -381,8 +382,7 @@ h1 {
     width: 100%;
     border-left: none;
     border-radius: 0px;
-    overflow: visible;
-    box-shadow: none;
+    position: relative !important;
   }
   .back,
   .left_page,
@@ -395,6 +395,21 @@ h1 {
   }
   .habits_wrapper {
     background-color: white;
+  }
+
+  .show_me {
+    display: block;
+  }
+  .hide_me {
+    display: none;
+  }
+  .left_page {
+    border-right: none;
+    border-radius: 0px;
+    z-index: 1;
+  }
+  .book_page {
+    width: 100%;
   }
 }
 
