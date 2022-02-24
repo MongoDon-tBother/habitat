@@ -378,4 +378,17 @@ margin-top: -300px;
   z-index: -1;
   }
 
+  #login_spine {
+    background-color: rgb(175, 104, 104);
+    height: 600px;
+    width: 50px;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    box-shadow: 1px 1px 10px gray;
+    margin-left: -350px;
+    margin-top: -300px;
+    /* transform: rotate(-1deg); */
+    }
+  
 
