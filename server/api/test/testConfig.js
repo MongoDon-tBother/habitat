@@ -10,12 +10,14 @@ const initDatabase = () => {
     try {
       const db = new Pool();
       await db.query(testSeed);
+      console.log(testSeed)
       resolve("Test DB has been reset");
     } catch (err) {
       reject(`Test DB could not be reset`);
     }
   });
 };
+
 
 global.request = request;
 global.app = app;

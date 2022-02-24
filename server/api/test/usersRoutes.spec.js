@@ -30,3 +30,35 @@ describe("GET /", () => {
   });
 });
 
+describe("GET /:id", () => {
+  let api;
+
+  beforeAll(async () => {
+    api = app.listen(5000, () =>
+      console.log("Test server running on port 5000")
+    );
+  });
+
+  afterAll((done) => {
+    console.log("Gracefully stopping test server");
+    api.close(done);
+  });
+
+  test("responds with status code 200", (done) => {
+    request(api).get("/users/1").expect(200, done);
+  });
+
+  test("responds with error code 400", (done) => {
+    request(api).get("/users/100").expect(400, done);
+  });
+
+  test("responds with user's info", (done) => {
+    request(api).get("/users/1").expect({id: 1, username: "test", email: "test@gmail.com", passwordDigest: "$2a$10$6/QsmWu3WpesdoIN9t/RKehqdVW9Kd6p1RV2LPAtxRKNFJjVo.8.m"},done);
+  });
+
+  test("responds with json", (done) => {
+    request(api).get("/users/").expect("Content-Type", /json/, done);
+  });
+});
+
+
