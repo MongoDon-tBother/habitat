@@ -384,6 +384,7 @@ function renderNewHabitForm() {
   const newHabitSubmit = document.createElement("input");
   newHabitSubmit.type = "submit";
   newHabitSubmit.value = "Create";
+  newHabitSubmit.classList.add("btn", "lh_btn", "create_btn");
   newHabitForm.appendChild(newHabitSubmit);
   addEventListener("submit", postHabit);
 }
