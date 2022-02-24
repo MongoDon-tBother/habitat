@@ -18,7 +18,6 @@ function renderHomepage() {
   const login_book = document.createElement("div");
   login_book.id = "login_book";
 
-
   main.appendChild(login_book);
 
   const signup_book = document.createElement("div");
@@ -224,6 +223,7 @@ const createRightPage = async () => {
   rhWrapper.appendChild(habitsWrapper);
 
   const allHabits = await createHabitCards();
+  allHabits.sort((a, b) => a - b);
   allHabits.sort((a, b) => {
     if (a.classList.contains("habit_complete")) {
       a = 1;
@@ -265,7 +265,31 @@ async function createHabitCards() {
 async function renderHabitPage() {
   const main = document.querySelector("main");
   const book = createBook();
-  book.append(createLeftPage(), await createRightPage());
+
+  const leftCover = document.createElement("div");
+  leftCover.classList.add("front");
+  const leftMid = document.createElement("div");
+  leftMid.classList.add("left_mid");
+  const leftLast = document.createElement("div");
+  leftLast.classList.add("left_last");
+
+  const rightCover = document.createElement("div");
+  rightCover.classList.add("back");
+  const rightMid = document.createElement("div");
+  rightMid.classList.add("right_mid");
+  const rightLast = document.createElement("div");
+  rightLast.classList.add("right_last");
+
+  book.append(
+    leftCover,
+    leftMid,
+    leftLast,
+    createLeftPage(),
+    await createRightPage(),
+    rightLast,
+    rightMid,
+    rightCover
+  );
   main.appendChild(book);
   addCard();
 }
@@ -334,20 +358,10 @@ const createCard = (name, frequency, streakNum, habitId, complete) => {
   cardBtns.append(createBtn("edit"), createBtn("done"));
 
   card.append(cardContent, cardBtns);
-  // card.querySelector(".edit_btn").addEventListener("click", handleEdit);
   card.querySelector(".done_btn").addEventListener("click", handleDone);
   card.addEventListener("click", handleEdit);
   return card;
 };
-
-// function renderSubHabitInput() {
-//   const newHabitForm = document.getElementById("newHabitForm");
-//   const subHabitName = document.createElement("input");
-//   subHabitName.name = "subHabitName";
-//   subHabitName.classList.add("subHabitName");
-//   subHabitName.placeholder = "Subhabit Name";
-//   newHabitForm.appendChild(subHabitName);
-// }
 
 function renderNewHabitForm() {
   let lhWrapper = document.querySelector(".edit_container");

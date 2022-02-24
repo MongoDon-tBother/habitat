@@ -97,11 +97,10 @@ const handleDone = async (e) => {
   if (habit.classList.contains("habit_complete")) {
     const newStreak = streak + 1;
     await updateHabit(habitId, { complete: true, streak: newStreak });
-    // need to increment the streak
   } else {
-    const newStreak = streak - 1;
+    let newStreak = streak - 1;
+    if (newStreak < 0) newStreak = 0;
     await updateHabit(habitId, { complete: "100", streak: newStreak });
-    // need to decrement the streak
   }
   window.location.reload();
 };
