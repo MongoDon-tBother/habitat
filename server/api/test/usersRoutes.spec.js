@@ -20,9 +20,7 @@ describe("GET /", () => {
   });
 
   test("responds with Missing Token message", (done) => {
-    request(api)
-      .get("/users/")
-      .expect({ msg: "User created" }, done);
+    request(api).get("/users/").expect({ err: "Missing token" }, done);
   });
 
   test("responds with json", (done) => {
