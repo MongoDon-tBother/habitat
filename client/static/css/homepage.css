@@ -379,7 +379,7 @@ margin-top: -300px;
 
 
     #login_bottom_spine {
-      background-color: rgba(0, 0, 0);
+      background-color: rgb(91, 29, 29);
       height: 600px;
       width: 38px;
       top: 50%;
@@ -390,12 +390,12 @@ margin-top: -300px;
       margin-top: -308px;
       transform: skewY(-10deg);
       z-index: -1;
-      border-radius: 10%;
+      
       }
 
 
       #login_middle_spine {
-        background-color: rgba(27, 65, 255);
+        background-color: rgb(110, 36, 36);
         height: 600px;
         width: 20px;
         top: 50%;
@@ -404,20 +404,21 @@ margin-top: -300px;
         box-shadow: -40px 10px 40px  rgb(95, 63, 63);
         margin-left: -340px;
         margin-top: -300px;
-        border-radius: 20%;
+        border-radius: 10%;
+        transform: skewY(10deg);
     
         }
 
         
       #login_top_spine {
-        background-color: rgb(59, 216, 45);
+        background-color: rgb(154, 53, 53);
         height: 600px;
         width: 20px;
         top: 50%;
         left: 50%;
         position: fixed;
         box-shadow: -40px 10px 40px  rgb(95, 63, 63);
-        border-radius: 10%;
+    
         margin-left: -320px;
         margin-top: -300px;
   
@@ -456,7 +457,7 @@ margin-top: -300px;
       #login_page3 {
         background-color: rgb(152, 152, 152);
         height: 600px;
-        width: 460px;
+        width: 465px;
         top: 50%;
         left: 50%;
         border-radius: 2px 5px 5px 2px;
@@ -471,7 +472,7 @@ margin-top: -300px;
       #login_page4 {
         background-color: rgb(126, 126, 126);
         height: 600px;
-        width: 470px;
+        width: 480px;
         top: 50%;
         left: 50%;
         border-radius: 2px 5px 5px 2px;
@@ -482,6 +483,23 @@ margin-top: -300px;
         z-index: -1;
          
       }
+
+      #login_page5 {
+        background-color: rgb(103, 103, 103);
+        height: 600px;
+        width: 500px;
+        top: 50%;
+        left: 50%;
+        border-radius: 2px 5px 5px 2px;
+        position: fixed;
+        margin-left: -320px;
+        margin-top: -303px;
+        transform: skewY(0deg);
+        z-index: -1;
+         
+      }
+
+
 
       
 
