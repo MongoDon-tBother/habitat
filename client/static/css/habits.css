@@ -98,10 +98,6 @@ body {
   color: var(--text_black);
   border-radius: 50%;
 }
-.left_page .active_day {
-  color: var(--text_white);
-  background-color: var(--bg_black);
-}
 
 .btn {
   background: none;
@@ -138,6 +134,15 @@ body {
   font-size: 11rem;
   display: flex;
   text-align: center;
+}
+.days {
+  display: none;
+}
+
+.days:checked + .f_day {
+  background-color: var(--bg_black);
+  color: var(--text_white);
+  border-radius: 50%;
 }
 
 @media screen and (max-width: 1500px) {

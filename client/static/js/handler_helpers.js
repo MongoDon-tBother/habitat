@@ -39,8 +39,8 @@ const createFrequencySelect = (frequency) => {
     label.classList.add("f_day");
     label.htmlFor = `f_label_${index + 1}`;
     if (num) label.classList.add("active_day");
-    f_container.append(label);
     f_container.append(input);
+    f_container.append(label);
   });
   return f_container;
 };
