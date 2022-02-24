@@ -77,7 +77,7 @@ function renderSubHabitInput(subhabit) {
 
 const createBtn = () => {
   const btn = document.createElement("input");
-  btn.classList.add("btn", "update_btn");
+  btn.classList.add("btn", "update_btn", "lh_btn");
   btn.type = "submit";
   btn.value = "Update";
 
