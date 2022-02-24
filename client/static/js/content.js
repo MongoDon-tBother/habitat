@@ -146,10 +146,18 @@ function renderLoginForm() {
   const login_form_left = document.createElement("div");
   login_form_left.id = "login_form_left";
   main.appendChild(login_form_left);
+
+  const login_form_left_cover = document.createElement("div");
+  login_form_left_cover.id = "login_form_left_cover";
+  main.appendChild(login_form_left_cover);
   
   const login_form_right = document.createElement("div");
   login_form_right.id = "login_form_right";
   main.appendChild(login_form_right);
+
+  const login_form_right_cover = document.createElement("div");
+  login_form_right_cover.id = "login_form_right_cover";
+  main.appendChild(login_form_right_cover);
 
   // need to make a div for pages and the center shadow 
 
