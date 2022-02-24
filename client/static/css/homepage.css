@@ -358,9 +358,20 @@ border-radius: 2px 20px 20px 2px;
 position: absolute;
 box-shadow: 1px 1px 10px gray;
 }
-/* 
-.page1{
+
+#login_form_pages {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  
+}
+
+.page1, .page2 , .page3,
+ .page4, .page5, .page6, .page7{
   background-color: white;
-  height: 100px;
-  width: 200px;
-} */
+  height: 300px;
+  width: 500px;
+  position: absolute;
+  z-index: 2;
+
+}
