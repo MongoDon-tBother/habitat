@@ -27,39 +27,16 @@ body {
   position: fixed;
 }
 
-/* #login_book:hover {
+#login_book:hover {
   position: relative;
   top: 0;
   transition: top ease 10s;
-<<<<<<< HEAD
-<<<<<<< HEAD
   background-color: rgb(28, 239, 250); 
   margin-top: 150px;
-} */
+}
 
 
-/* #login_book_hover{
-  background-color: rgb(38, 216, 219);
-  width: 60px;
-  height: 180px;  
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -118px;
-  margin-left: -65px;
-  display: flex;
-  z-index: 10;
-} */
 
-/* #login_book_hover:hover {
-  background-color: rgb(163, 171, 19);
-  position: relative;
-  top: 0;
-  transition: top ease 10s;
-  margin-top: 150px;
-  background-color: rgb(28, 239, 250);
-  margin-top: 110px;
-} */
 
 #login_book_bottom {
   background-color: rgba(255, 255, 255, 0.408);
@@ -76,11 +53,11 @@ body {
   width: 50px;
   height: 200px;
   position: fixed;
-  top: 44%;
+  top: 50%;
   left: 50%;
-  margin-top: -100px;
-  margin-left: 25px;
-  display: flex;
+  margin-top: -140px;
+  margin-left: 26px;
+  /* display: flex; */
 }
 
 #signup_book_top {
@@ -108,7 +85,7 @@ body {
   top: 0;
   transition: top ease 10s;
   background-color: rgb(28, 239, 250);
-  margin-top: 90px;
+  margin-top: 130px;
 }
 
 #extra_book {
@@ -116,11 +93,11 @@ body {
   width: 25px;
   height: 210px;
   position: fixed;
-  top: 44%;
+  top: 50%;
   left: 50%;
-  margin-top: -115px;
+  margin-top: -150px;
   margin-left: 0px;
-  display: flex;
+  /* display: flex; */
 }
 
 #extra_book_top {
@@ -148,7 +125,7 @@ body {
   top: 0;
   transition: top ease 10s;
   background-color: rgb(28, 239, 250);
-  margin-top: 80px;
+  margin-top: 120px;
 }
 
 #tilted_book {
@@ -156,12 +133,13 @@ body {
   width: 30px;
   height: 200px;
   position: fixed;
-  top: 44%;
+  top: 50%;
   left: 50%;
-  margin-top: -105px;
-  margin-left: 100px;
-  display: flex;
+  margin-top: -140px;
+  margin-left: 101px;
+  /* display: flex; */
   transform: rotate(-15deg);
+  z-index: 1;
 }
 
 #tilted_book_top {
@@ -188,7 +166,7 @@ body {
   top: 0;
   transition: top ease 10s;
   background-color: rgb(28, 239, 250);
-  margin-top: 90px;
+  margin-top: 130px;
 }
 
 #pot_top {
@@ -273,7 +251,6 @@ body {
   margin-left: -225px;
   width: 18px;
   height: 35px;
-
   z-index: -1;
   /* background: -webkit-gradient(linear, left top, left bottom, from(#6a3315), to(#ffc3aa));
   background: -o-linear-gradient(top, #6a3315 0%, #ffc3aa 100%);
@@ -289,7 +266,6 @@ body {
   margin-left: 225px;
   width: 18px;
   height: 35px;
-
   z-index: -1;
   /* background: -webkit-gradient(linear, left top, left bottom, from(#6a3315), to(#ffc3aa));
   background: -o-linear-gradient(top, #6a3315 0%, #ffc3aa 100%);
