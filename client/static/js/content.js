@@ -1,6 +1,10 @@
 const { requestLogin, requestRegistration } = require("./auth");
 const { handleEdit, handleDone, handleDelete } = require("./btn_handlers");
-const { dateCheck, createFrequencySelect } = require("./handler_helpers");
+const {
+  dateCheck,
+  createFrequencySelect,
+  renderSubHabitInput
+} = require("./handler_helpers");
 const { getAllUserHabits, postHabit } = require("./requests");
 
 function renderHomepage() {
@@ -13,8 +17,8 @@ function renderHomepage() {
   main.appendChild(logo);
   const login_book = document.createElement("div");
   login_book.id = "login_book";
-  login_book.classList.add("flip-horizontal-bottom")
-  
+  login_book.classList.add("flip-horizontal-bottom");
+
   main.appendChild(login_book);
 
   const signup_book = document.createElement("div");
@@ -49,8 +53,7 @@ function renderHomepage() {
   flower_stem.id = "flower_stem";
   main.appendChild(flower_stem);
 
-
-  // for the book details 
+  // for the book details
   const login_book_top = document.createElement("div");
   login_book_top.id = "login_book_top";
   login_book.appendChild(login_book_top);
@@ -83,7 +86,7 @@ function renderHomepage() {
   tilted_book_bottom.id = "tilted_book_bottom";
   tilted_book.appendChild(tilted_book_bottom);
 
-  // shelf section 
+  // shelf section
   const shelf = document.createElement("div");
   shelf.id = "shelf";
   main.appendChild(shelf);
@@ -337,14 +340,14 @@ const createCard = (name, frequency, streakNum, habitId, complete) => {
   return card;
 };
 
-function renderSubHabitInput() {
-  const newHabitForm = document.getElementById("newHabitForm");
-  const subHabitName = document.createElement("input");
-  subHabitName.name = "subHabitName";
-  subHabitName.classList.add("subHabitName");
-  subHabitName.placeholder = "Subhabit Name";
-  newHabitForm.appendChild(subHabitName);
-}
+// function renderSubHabitInput() {
+//   const newHabitForm = document.getElementById("newHabitForm");
+//   const subHabitName = document.createElement("input");
+//   subHabitName.name = "subHabitName";
+//   subHabitName.classList.add("subHabitName");
+//   subHabitName.placeholder = "Subhabit Name";
+//   newHabitForm.appendChild(subHabitName);
+// }
 
 function renderNewHabitForm() {
   let lhWrapper = document.querySelector(".edit_container");
@@ -361,8 +364,13 @@ function renderNewHabitForm() {
   const newHabitName = document.createElement("input");
   newHabitName.id = "newHabitName";
   newHabitName.placeholder = "Habit Name";
+  newHabitName.required = "true";
+  const habitLabel = document.createElement("label");
+  habitLabel.htmlFor = "newHabitName";
+  habitLabel.innerText = "What's your habit called?";
+  newHabitForm.appendChild(habitLabel);
   newHabitForm.appendChild(newHabitName);
-  
+
   newHabitForm.appendChild(createFrequencySelect([1, 1, 1, 1, 1, 1, 1]));
 
   const addSubHabit = document.createElement("div");

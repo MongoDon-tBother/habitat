@@ -28,12 +28,18 @@ const handleEdit = async (e) => {
   const newHabitName = document.createElement("input");
   newHabitName.id = "newHabitName";
   newHabitName.value = name;
+  newHabitName.placeholder = "Habit Name";
+  newHabitName.required = "true";
+  const habitLabel = document.createElement("label");
+  habitLabel.htmlFor = "newHabitName";
+  habitLabel.innerText = "What's your habit called?";
+  newHabitForm.appendChild(habitLabel);
   newHabitForm.appendChild(newHabitName);
 
   newHabitForm.append(createFrequencySelect(frequency));
 
   const addSubHabit = document.createElement("div");
-  addSubHabit.textContent = "Add Subhabit +";
+  addSubHabit.textContent = "Add a subhabit? +";
   newHabitForm.append(addSubHabit);
   addSubHabit.addEventListener("click", renderSubHabitInput);
   if (subhabits)
@@ -42,8 +48,8 @@ const handleEdit = async (e) => {
     });
 
   const updateBtn = createBtn();
-  updateBtn.addEventListener("click", handleUpdate);
-  wrapper.append(updateBtn);
+  newHabitForm.addEventListener("submit", handleUpdate);
+  newHabitForm.append(updateBtn);
 };
 
 const handleUpdate = async (e) => {
