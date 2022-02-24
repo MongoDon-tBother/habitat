@@ -377,9 +377,13 @@ function renderNewHabitForm() {
 
   newHabitForm.appendChild(createFrequencySelect([1, 1, 1, 1, 1, 1, 1]));
 
+  const subSection = document.createElement("div");
+  subSection.classList.add("sub_section");
+  newHabitForm.append(subSection);
+
   const addSubHabit = document.createElement("div");
   addSubHabit.textContent = "Add Subhabit +";
-  newHabitForm.append(addSubHabit);
+  subSection.append(addSubHabit);
   addSubHabit.addEventListener("click", renderSubHabitInput);
 
   const newHabitSubmit = document.createElement("input");
