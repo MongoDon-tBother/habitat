@@ -343,8 +343,8 @@ body {
   z-index: -1;
 }
 
-#login_form {
-  background-color: rgb(206, 7, 7);
-  height: 300px;
-  width: 500px;
+#login_form_cover {
+background-color: red;
+height: 500px;
+width: 500px;
 }
