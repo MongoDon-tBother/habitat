@@ -36,10 +36,23 @@ body {
 } */
 
 #login_book_hover{
+  background-color: rgb(38, 216, 219);
+  width: 60px;
+  height: 180px;  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -118px;
+  margin-left: -65px;
+  display: flex;
+  z-index: 10;
+}
+
+#login_book_hover:hover {
+  background-color: rgb(163, 171, 19);
   position: relative;
   top: 0;
   transition: top ease 10s;
-  background-color: rgb(28, 239, 250); 
   margin-top: 150px;
 }
 
