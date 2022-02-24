@@ -7,3 +7,4 @@ router.get("/", verifyToken, usersController.index);
 router.get("/:id", usersController.show);
 
 module.exports = router;
+

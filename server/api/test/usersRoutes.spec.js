@@ -53,7 +53,7 @@ describe("GET /:id", () => {
   });
 
   test("responds with user's info", (done) => {
-    request(api).get("/users/1").expect({id: 1, username: "test", email: "test@gmail.com", passwordDigest: "yestest"},done);
+    request(api).get("/users/1").expect({id: 1, username: "test1", email: "test1@gmail.com", passwordDigest: "yestest"},done);
   });
 
   test("responds with json", (done) => {
