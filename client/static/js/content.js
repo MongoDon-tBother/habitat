@@ -134,14 +134,14 @@ function renderLoginForm() {
       field.setAttribute(a, v);
       form.appendChild(field);
     });
-  
+    
   });
-  form.addEventListener("submit", requestLogin);
-  main.appendChild(form);
-  
   const login_form = document.createElement("div");
   login_form.id = "login_form";
   main.appendChild(login_form);
+  form.addEventListener("submit", requestLogin);
+  login_form.appendChild(form);
+  
 
   const login_front_cover = document.createElement("div");
   login_front_cover.id = "login_front_cover";
@@ -180,11 +180,10 @@ function renderLoginForm() {
   const login_page4 = document.createElement("div");
   login_page4.id = "login_page4"
   main.appendChild(login_page4);
-  
+
   const login_page5 = document.createElement("div");
   login_page5.id = "login_page5"
-  main.appendChild(login_page5);
-  // need to make a div for pages and the center shadow 
+  main.appendChild(login_page5); 
 
 
 }

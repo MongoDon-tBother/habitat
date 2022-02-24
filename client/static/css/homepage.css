@@ -340,14 +340,6 @@ body {
   z-index: -1;
 }
 
-/* where the form will be inside of */
-#login_form {
-  background-color: white;
-  height: 100px;
-  width: 100px;
-  
-}
-
 #login_front_cover {
 background-color: rgb(182, 16, 16);
 height: 600px;
@@ -502,6 +494,14 @@ margin-top: -300px;
         z-index: -1;
          
       }
+
+      /* where the form will be inside of */
+#login_form {
+  background-color: white;
+  height: 100px;
+  width: 100px;
+  
+}
 
 
 
