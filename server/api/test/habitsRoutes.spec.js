@@ -17,9 +17,17 @@ describe("GET /:user_id", () => {
     api.close(done);
   });
 
-  
+  test("responds with status code 200", (done) => {
+    request(api).get("/habits/1").expect(200, done);
+  });
 
+  test("responds with json", (done) => {
+    request(api).get("/habits/1").expect("Content-Type", /json/, done);
+  });
 
+  test("responds with error code 404", (done) => {
+    request(api).get("/habits/100").expect(404, done);
+  });
 
   
 })
