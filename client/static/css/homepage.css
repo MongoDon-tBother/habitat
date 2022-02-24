@@ -347,11 +347,14 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
-  background-color: red;
+  
 }
 .cover, 
 .back_cover {
 background-color: rgb(182, 16, 16);
 height: 300px;
 width: 500px;
+border-radius: 2px 20px 20px 2px;
+position: absolute;
+box-shadow: 1px 1px 10px gray;
 }
