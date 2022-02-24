@@ -366,7 +366,8 @@ const createCard = (name, frequency, streakNum, habitId, complete) => {
 function renderNewHabitForm() {
   let lhWrapper = document.querySelector(".edit_container");
   lhWrapper.innerHTML = "";
-
+  document.querySelector(".left_page").classList.add("show_me");
+  document.querySelector(".right_page").classList.add("hide_me");
   const title = document.createElement("h2");
   title.innerText = `New Habit`;
   title.classList.add("title", "left_title");
@@ -406,7 +407,7 @@ function renderNewHabitForm() {
   newHabitSubmit.value = "Create";
   newHabitSubmit.classList.add("btn", "lh_btn", "create_btn");
   newHabitForm.appendChild(newHabitSubmit);
-  addEventListener("submit", postHabit);
+  newHabitForm.addEventListener("submit", postHabit);
 }
 
 // creating a new card for habits - the plus card

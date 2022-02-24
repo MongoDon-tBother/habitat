@@ -27,14 +27,18 @@
   "scripts": {
     "test": "jest --watch --coverage",
     "watch": "watchify ./static/js/main.js -o ./static/js/bundle.js -v",
-    "build": "browserify ./static/js/main.js -o ./static/js/bundle.js"
+    "build": "browserify ./static/js/main.js -o ./static/js/bundle.js && npx postcss --use cssnano autoprefixer -d ./static/css/output ./static/css/*.css",
+    "buildCss": "npx postcss --use cssnano autoprefixer -d ./static/css/output ./static/css/*.css"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^7.0.0",
+    "cssnano": "^5.0.17",
     "jest": "^27.5.1",
+    "postcss": "^8.4.6",
+    "postcss-cli": "^9.1.0",
     "prettier": "^2.5.1",
     "watchify": "^4.0.0"
   },
