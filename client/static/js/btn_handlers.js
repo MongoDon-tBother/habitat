@@ -37,7 +37,7 @@ const handleEdit = async (e) => {
   newHabitForm.append(createFrequencySelect(frequency));
 
   const addSubHabit = document.createElement("div");
-  addSubHabit.textContent = "Add Subhabit +";
+  addSubHabit.textContent = "Add a subhabit? +";
   newHabitForm.append(addSubHabit);
   addSubHabit.addEventListener("click", renderSubHabitInput);
   if (subhabits)
