@@ -343,10 +343,11 @@ body {
   z-index: -1;
 }
 
+/* where the form will be inside of */
 #login_form {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+  background-color: white;
+  height: 100px;
+  width: 100px;
   
 }
 
@@ -375,7 +376,6 @@ margin-top: -300px;
   margin-left: -280px;
   margin-top: -300px;
   z-index: -1;
-
   }
 
 
