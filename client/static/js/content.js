@@ -38,8 +38,17 @@ function renderHomepage() {
   main.appendChild(pot_top_shadow);
 
   const pot_bottom = document.createElement("div");
-  pot_bottom .id = "pot_bottom";
+  pot_bottom.id = "pot_bottom";
   main.appendChild(pot_bottom);
+
+  const flower = document.createElement("span");
+  flower.classList = "flower";
+  main.appendChild(flower);
+
+  const flower_stem = document.createElement("div");
+  flower_stem.id = "flower_stem";
+  main.appendChild(flower_stem);
+
 
   // for the book details 
   const login_book_top = document.createElement("div");
