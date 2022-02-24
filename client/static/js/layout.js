@@ -21,12 +21,12 @@ function updateNav() {
     links = privateRoutes.map(createNavLink);
     logoutBtn = document.createElement("button");
     logoutBtn.textContent = "Logout";
+    logoutBtn.classList.add("logout_btn");
     logoutBtn.onclick = logout;
     nav.appendChild(logoutBtn);
   } else {
     links = publicRoutes.map(createNavLink);
   }
-  links.forEach((l) => nav.insertBefore(l, logoutBtn));
 }
 
 function updateMain(path) {
@@ -71,6 +71,5 @@ function updateContent() {
     updateMain(path);
   }
 }
-
 
 module.exports = { updateContent };

@@ -233,10 +233,10 @@ body {
     left top,
     left bottom,
     from(#6a3315),
-    to(#ffc3aa)
+    to(#c6c8ee)
   );
-  background: -o-linear-gradient(top, #6a3315 0%, #ffc3aa 100%);
-  background: linear-gradient(to bottom, #6a3315 0%, #ffc3aa 100%);
+  background: -o-linear-gradient(top, #6a3315 0%, #c6c8ee 100%);
+  background: linear-gradient(to bottom, #6a3315 0%, #c6c8ee 100%);
 }
 
 #shelf_bottom_left {
