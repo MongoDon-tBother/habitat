@@ -432,7 +432,7 @@ margin-top: -300px;
         border-radius: 2px 5px 5px 2px;
         position: fixed;
         margin-left: -300px;
-        margin-top: -315px;
+        margin-top: -320px;
         transform: skewY(-4deg);
         z-index: -1;
         
@@ -449,6 +449,21 @@ margin-top: -300px;
         margin-left: -320px;
         margin-top: -315px;
         transform: skewY(-3deg);
+        z-index: -1;
+        
+      }
+
+      #login_page3 {
+        background-color: rgb(152, 152, 152);
+        height: 600px;
+        width: 460px;
+        top: 50%;
+        left: 50%;
+        border-radius: 2px 5px 5px 2px;
+        position: fixed;
+        margin-left: -320px;
+        margin-top: -310px;
+        transform: skewY(-2deg);
         z-index: -1;
         
       }
