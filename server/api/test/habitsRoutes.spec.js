@@ -69,6 +69,10 @@ describe("GET /hab_id/:habit_id", () => {
     request(api).get("/habits/hab_id/1").expect(200, done);
   });
 
+  test("responds with error code 404", (done) => {
+    request(api).get("/habits/hab_id/rooo").expect(404, done);
+  });
+
   test("responds with json", (done) => {
     request(api).get("/habits/hab_id/1").expect("Content-Type", /json/, done);
   });
@@ -144,3 +148,65 @@ describe("POST /", () => {
   });
 });
 
+// PATCH
+
+describe("PATCH /:habit_id", () => {
+  let api;
+
+  beforeAll(async () => {
+    await initDatabase();
+    api = app.listen(5000, () =>
+      console.log("Test server running on port 5000")
+    );
+  });
+
+  afterAll((done) => {
+    console.log("Gracefully stopping test server");
+    api.close(done);
+  });
+
+  test("responds with status code 204", (done) => {
+    request(api).patch("/habits/1").expect(204, done);
+  });
+
+  test("responds with user's habit change", (done) => {
+    request(api)
+      .post("/habits/1")
+      .send({ name: "Drink Apple Juice" })
+      .expect({}, done);
+  });
+
+  test("responds with error message 204", (done) => {
+    request(api).patch("/habits/1").send({}).expect(204, done);
+  });
+});
+
+// DELETE
+
+describe("DELETE /:habit_id", () => {
+  let api;
+
+  beforeAll(async () => {
+    await initDatabase();
+    api = app.listen(5000, () =>
+      console.log("Test server running on port 5000")
+    );
+  });
+
+  afterAll((done) => {
+    console.log("Gracefully stopping test server");
+    api.close(done);
+  });
+
+  test("responds with status code 204", (done) => {
+    request(api).delete("/habits/1").expect(204, done);
+  });
+
+  test("responds with user's habit change", (done) => {
+    request(api).delete("/habits/1").expect({}, done);
+  });
+
+  test("responds with json", (done) => {
+    request(api).delete("/habits/1").expect("Content-Type", /json/, done);
+  });
+});
