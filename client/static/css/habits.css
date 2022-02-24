@@ -145,6 +145,10 @@ body {
   border-radius: 50%;
 }
 
+.f_container {
+  display: flex;
+}
+
 @media screen and (max-width: 1500px) {
   .book {
     --habit_columns: 2;
