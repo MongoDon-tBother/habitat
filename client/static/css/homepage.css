@@ -7,9 +7,9 @@ body {
 }
 
 #login_book {
-  background-color:rgb(206, 7, 7);
+  background-color: rgb(206, 7, 7);
   width: 60px;
-  height: 180px;  
+  height: 180px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -24,16 +24,13 @@ body {
   width: 60px;
   margin-top: 40px;
   display: block;
-  position: fixed
+  position: fixed;
 }
 
 /* #login_book:hover {
   position: relative;
   top: 0;
   transition: top ease 10s;
-  background-color: rgb(28, 239, 250); 
-  margin-top: 150px;
-} */
 
 #login_book_hover{
   background-color: rgb(38, 216, 219);
@@ -54,9 +51,11 @@ body {
   top: 0;
   transition: top ease 10s;
   margin-top: 150px;
+  background-color: rgb(28, 239, 250);
+  margin-top: 110px;
 }
 
-#login_book_bottom{
+#login_book_bottom {
   background-color: rgba(255, 255, 255, 0.408);
   height: 15px;
   width: 60px;
@@ -67,18 +66,16 @@ body {
 }
 
 #signup_book {
-
-  background-color:rgb(21, 21, 108);
+  background-color: rgb(21, 21, 108);
   width: 50px;
   height: 200px;
   position: fixed;
   top: 44%;
   left: 50%;
   margin-top: -100px;
-  margin-left: 25px; 
+  margin-left: 25px;
   display: flex;
 }
-
 
 #signup_book_top {
   background-color: rgba(255, 255, 255, 0.408);
@@ -87,10 +84,9 @@ body {
   margin-top: 40px;
   display: block;
   position: fixed;
-  
 }
 
-#signup_book_bottom{
+#signup_book_bottom {
   background-color: rgba(255, 255, 255, 0.408);
   height: 15px;
   /* height: 30px; */
@@ -110,8 +106,7 @@ body {
 }
 
 #extra_book {
-
-  background-color:rgb(55, 152, 59);
+  background-color: rgb(55, 152, 59);
   width: 25px;
   height: 210px;
   position: fixed;
@@ -120,7 +115,6 @@ body {
   margin-top: -115px;
   margin-left: 0px;
   display: flex;
-
 }
 
 #extra_book_top {
@@ -130,14 +124,13 @@ body {
   margin-top: 40px;
   display: block;
   position: fixed;
- 
 }
 
-#extra_book_bottom{
+#extra_book_bottom {
   background-color: rgba(255, 255, 255, 0.408);
   height: 15px;
   /* height: 30px; */
-  width: 25px; 
+  width: 25px;
   padding: 10px;
   display: block;
   position: fixed;
@@ -153,19 +146,17 @@ body {
 }
 
 #tilted_book {
-
-  background-color:rgb(165, 172, 32);
+  background-color: rgb(165, 172, 32);
   width: 30px;
   height: 200px;
   position: fixed;
   top: 44%;
   left: 50%;
   margin-top: -105px;
-  margin-left: 100px; 
+  margin-left: 100px;
   display: flex;
   transform: rotate(-15deg);
 }
-
 
 #tilted_book_top {
   background-color: rgba(255, 255, 255, 0.408);
@@ -174,10 +165,9 @@ body {
   margin-top: 10px;
   display: block;
   position: fixed;
- 
 }
 
-#tilted_book_bottom{
+#tilted_book_bottom {
   background-color: rgba(255, 255, 255, 0.408);
   height: 10px;
   width: 30px;
@@ -195,7 +185,7 @@ body {
   margin-top: 90px;
 }
 
-#pot_top{
+#pot_top {
   width: 58px;
   height: 15px;
   background-color: #c05c40;
@@ -204,15 +194,14 @@ body {
   position: fixed;
   margin-left: -140px;
   z-index: 10;
-
 }
-#pot_bottom{
+#pot_bottom {
   width: 50px;
-  height: 20px; 
+  height: 20px;
   position: fixed;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 50px solid #c05c40 ;
+  border-top: 50px solid #c05c40;
   top: 50%;
   left: 50%;
   position: fixed;
@@ -220,19 +209,18 @@ body {
   margin-top: 15px;
 }
 
-#pot_top_shadow{
+#pot_top_shadow {
   width: 55px;
   height: 0px;
   position: fixed;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 10px solid #9f4d36 ;
+  border-top: 10px solid #9f4d36;
   top: 50%;
   left: 50%;
   z-index: 10;
   margin-left: -138px;
   margin-top: 15px;
-
 }
 
 #shelf {
@@ -250,34 +238,37 @@ body {
 }
 
 #shelf_shadow {
-  
   display: block;
   position: fixed;
   top: 50%;
   left: 50%;
   margin-top: 90px;
   margin-left: -210px;
-  width: 450px; 
+  width: 450px;
   height: 5px;
   padding: 15px;
   z-index: -1;
-  background: -webkit-gradient(linear, left top, left bottom, from(#6a3315), to(#ffc3aa));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#6a3315),
+    to(#ffc3aa)
+  );
   background: -o-linear-gradient(top, #6a3315 0%, #ffc3aa 100%);
   background: linear-gradient(to bottom, #6a3315 0%, #ffc3aa 100%);
 }
 
-
 #shelf_bottom_left {
-  
   background-color: #45220e;
   position: fixed;
   top: 50%;
   left: 50%;
-  margin-top: 90px; 
+  margin-top: 90px;
   margin-left: -225px;
-  width: 18px; 
+  width: 18px;
   height: 35px;
-  
+
   z-index: -1;
   /* background: -webkit-gradient(linear, left top, left bottom, from(#6a3315), to(#ffc3aa));
   background: -o-linear-gradient(top, #6a3315 0%, #ffc3aa 100%);
@@ -285,16 +276,15 @@ body {
 }
 
 #shelf_bottom_right {
-  
   background-color: #45220e;
   position: fixed;
   top: 50%;
   left: 50%;
-  margin-top: 90px; 
+  margin-top: 90px;
   margin-left: 225px;
-  width: 18px; 
+  width: 18px;
   height: 35px;
-  
+
   z-index: -1;
   /* background: -webkit-gradient(linear, left top, left bottom, from(#6a3315), to(#ffc3aa));
   background: -o-linear-gradient(top, #6a3315 0%, #ffc3aa 100%);
@@ -307,23 +297,23 @@ body {
     -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-    -moz-box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
-    -webkit-box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
-    box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
+    -moz-box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px,
+      #fd8 12px -12px 0 4px, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
+    -webkit-box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px,
+      #fd8 12px -12px 0 4px, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
+    box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px,
+      #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
   }
   50% {
     -moz-transform: rotate(1080deg);
     -ms-transform: rotate(1080deg);
     -webkit-transform: rotate(1080deg);
     transform: rotate(1080deg);
-    
   }
 }
 
-
 /* Styles for old versions of IE */
 .flower {
-
   top: 50%;
   left: 50%;
   position: fixed;
@@ -336,28 +326,31 @@ body {
 .flower:not(:required) {
   overflow: hidden;
   position: absolute;
-  
+
   display: inline-block;
   width: 16px;
   height: 16px;
   background: #e96;
   border-radius: 100%;
-  -moz-box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
-  -webkit-box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
-  box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
-   -webkit-animation: flower 5s infinite ease-in-out;
+  -moz-box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px,
+    #fd8 12px -12px 0 4px, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
+  -webkit-box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px,
+    #fd8 12px -12px 0 4px, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
+  box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px,
+    #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
+  -webkit-animation: flower 5s infinite ease-in-out;
   -khtml-animation: flower 5s infinite ease-in-out;
   -moz-animation: flower 5s infinite ease-in-out;
   -ms-animation: flower 5s infinite ease-in-out;
-  -o-animation: flower 5s infinite ease-in-out; 
-  animation: flower 5s infinite ease-in-out; 
+  -o-animation: flower 5s infinite ease-in-out;
+  animation: flower 5s infinite ease-in-out;
   -moz-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   -webkit-transform-origin: 50% 50%;
-  transform-origin: 50% 50%; 
+  transform-origin: 50% 50%;
 }
 
-#flower_stem{
+#flower_stem {
   background-color: green;
   width: 8px;
   height: 40px;

@@ -17,12 +17,14 @@ const dateCheck = (doneDate, frequency) => {
  * @param  {arr} frequency - An array of 1s and 0s to say which day it is repeated on
  */
 const createFrequencySelect = (frequency) => {
-  const f_container = document.createElement("div");
-  f_container.classList.add("f_container");
-
+  const fBlock = document.createElement("div");
+  fBlock.classList.add("f_block");
   const FreqLabel = document.createElement("div");
   FreqLabel.textContent = "Frequency";
-  f_container.append(FreqLabel);
+  fBlock.append(FreqLabel);
+
+  const f_container = document.createElement("div");
+  f_container.classList.add("f_container");
 
   frequency.forEach((num, index) => {
     const input = document.createElement("input");
@@ -42,7 +44,10 @@ const createFrequencySelect = (frequency) => {
     f_container.append(input);
     f_container.append(label);
   });
-  return f_container;
+
+  fBlock.append(f_container);
+
+  return fBlock;
 };
 
 function renderSubHabitInput(subhabit) {
@@ -72,7 +77,7 @@ function renderSubHabitInput(subhabit) {
 
 const createBtn = () => {
   const btn = document.createElement("input");
-  btn.classList.add("btn", "update_btn");
+  btn.classList.add("btn", "update_btn", "lh_btn");
   btn.type = "submit";
   btn.value = "Update";
 
