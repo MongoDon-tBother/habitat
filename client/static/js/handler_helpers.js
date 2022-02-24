@@ -54,7 +54,7 @@ function renderSubHabitInput(subhabit) {
   const subWrap = document.createElement("div");
   subWrap.classList.add("sub_wrap");
 
-  const newHabitForm = document.getElementById("newHabitForm");
+  const newHabitForm = document.querySelector(".sub_section");
   const subHabitName = document.createElement("input");
   subHabitName.name = "subHabitName";
   subHabitName.classList.add("subHabitName");

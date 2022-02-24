@@ -6,6 +6,8 @@ const {
 const { getItem, deleteHabit, updateHabit } = require("./requests");
 
 const handleEdit = async (e) => {
+  document.querySelector(".left_page").classList.add("show_me");
+  document.querySelector(".right_page").classList.add("hide_me");
   const wrapper = document.querySelector(".edit_container");
   wrapper.innerHTML = "";
   const habitId = e.currentTarget.id.slice(9);
@@ -38,9 +40,14 @@ const handleEdit = async (e) => {
 
   newHabitForm.append(createFrequencySelect(frequency));
 
+  const subSection = document.createElement("div");
+  subSection.classList.add("sub_section");
+  newHabitForm.append(subSection);
+
   const addSubHabit = document.createElement("div");
-  addSubHabit.textContent = "Add a subhabit? +";
-  newHabitForm.append(addSubHabit);
+  addSubHabit.textContent = "Add a subhabit +";
+  addSubHabit.classList.add("add_sub_btn");
+  subSection.append(addSubHabit);
   addSubHabit.addEventListener("click", renderSubHabitInput);
   if (subhabits)
     subhabits.forEach((subhabit) => {
@@ -54,6 +61,8 @@ const handleEdit = async (e) => {
 
 const handleUpdate = async (e) => {
   e.preventDefault();
+  document.querySelector(".left_page").classList.remove("show_me");
+  document.querySelector(".right_page").classList.remove("hide_me");
   const form = document.querySelector("#newHabitForm");
   const habitId = parseInt(form.classList[0]);
 
@@ -92,11 +101,10 @@ const handleDone = async (e) => {
   if (habit.classList.contains("habit_complete")) {
     const newStreak = streak + 1;
     await updateHabit(habitId, { complete: true, streak: newStreak });
-    // need to increment the streak
   } else {
-    const newStreak = streak - 1;
+    let newStreak = streak - 1;
+    if (newStreak < 0) newStreak = 0;
     await updateHabit(habitId, { complete: "100", streak: newStreak });
-    // need to decrement the streak
   }
   window.location.reload();
 };

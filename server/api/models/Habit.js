@@ -120,7 +120,7 @@ module.exports = class Habit {
       try {
         const { name, frequency, subhabits, complete, streak } = data;
         if (name) this.name = name;
-        if (streak) this.streak = streak;
+        if (streak || streak === 0) this.streak = streak;
         if (complete) this.complete = Date.now();
         if (complete === "100") this.complete = 0;
         if (frequency) this.frequency = frequency;
