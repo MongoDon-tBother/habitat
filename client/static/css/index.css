@@ -11,3 +11,18 @@ body {
   --text_black: #303633;
   font-family: "Poppins", sans-serif;
 }
+
+.logout_btn {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #4a0026;
+  font-family: inherit;
+  font-weight: bold;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.logout_btn:hover {
+  transform: scale(1.2);
+}
