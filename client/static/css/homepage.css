@@ -35,9 +35,6 @@ body {
   margin-top: 150px;
 }
 
-
-
-
 #login_book_bottom {
   background-color: rgba(255, 255, 255, 0.408);
   height: 15px;
@@ -372,13 +369,11 @@ margin-top: -300px;
   left: 50%;
   border-radius: 2px 5px 5px 2px;
   position: fixed;
-  box-shadow: -88px 25px 30px  rgb(149, 101, 101);
+  box-shadow: -88px 25px 10px  rgb(149, 101, 101);
   margin-left: -350px;
   margin-top: -315px;
   z-index: -1;
   transform: skewY(-4deg);
-
-  
   }
 
   #login_upper_spine {
@@ -401,7 +396,7 @@ margin-top: -300px;
       top: 50%;
       left: 50%;
       position: fixed;
-      box-shadow: -40px 10px 40px 10px rgb(95, 63, 63);
+      box-shadow: -40px 10px 40px  rgb(95, 63, 63);
       margin-left: -350px;
       margin-top: -300px;
       /* transform: rotate(-1deg); */
@@ -410,3 +405,4 @@ margin-top: -300px;
     
   
 
+     
