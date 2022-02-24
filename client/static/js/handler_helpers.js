@@ -62,6 +62,7 @@ function renderSubHabitInput(subhabit) {
 
   const x_btn = document.createElement("button");
   x_btn.innerText = "x";
+  x_btn.type = "button";
   x_btn.classList.add("rm_subhabit");
   subWrap.appendChild(x_btn);
 
