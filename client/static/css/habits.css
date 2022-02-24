@@ -17,7 +17,7 @@ body {
   margin: 7em 10%;
   --habit_columns: 3;
   border-radius: 0.5em;
-  height: 800px;
+  min-height: 810px;
 }
 
 .front,
@@ -138,6 +138,10 @@ body {
 }
 .right_page {
   border-left: 0.2em var(--bg_black) solid;
+  overflow: auto;
+}
+::-webkit-scrollbar {
+  border-radius: 50%;
 }
 
 .habits_wrapper {
@@ -145,6 +149,7 @@ body {
   grid-template-columns: repeat(var(--habit_columns), 1fr);
   justify-items: center;
   margin-bottom: 2em;
+  padding: 1em;
 }
 
 /* Style when the subtask has been complete */
@@ -321,13 +326,13 @@ body {
   background-color: var(--bg_black);
   color: var(--text_white);
 }
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1686px) {
   .book {
     --habit_columns: 2;
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1180px) {
   .book {
     --habit_columns: 1;
   }
