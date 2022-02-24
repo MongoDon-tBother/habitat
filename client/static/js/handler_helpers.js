@@ -53,6 +53,7 @@ function renderSubHabitInput(subhabit) {
   const subHabitName = document.createElement("input");
   subHabitName.name = "subHabitName";
   subHabitName.classList.add("subHabitName");
+  subHabitName.required = "true";
   if (subhabit.name) {
     subHabitName.value = subhabit.name;
   } else {
