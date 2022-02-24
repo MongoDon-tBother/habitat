@@ -418,7 +418,6 @@ margin-top: -300px;
         left: 50%;
         position: fixed;
         box-shadow: -40px 10px 40px  rgb(95, 63, 63);
-    
         margin-left: -320px;
         margin-top: -300px;
   
@@ -426,6 +425,7 @@ margin-top: -300px;
 
       #login_page1 {
         background-color: white;
+        box-shadow: 0 2px 3px 0 rgba(0, 0, 0);
         height: 600px;
         width: 420px;
         top: 50%;
@@ -440,7 +440,8 @@ margin-top: -300px;
       }
 
       #login_page2 {
-        background-color: rgb(226, 226, 226);
+        background-color: white;
+        box-shadow: 0 4px 30px 0 rgba(0, 0, 0);
         height: 600px;
         width: 450px;
         top: 50%;
@@ -455,7 +456,8 @@ margin-top: -300px;
       }
 
       #login_page3 {
-        background-color: rgb(152, 152, 152);
+        background-color: white;
+        box-shadow: 0 4px 20px 0 rgba(0, 0, 0);
         height: 600px;
         width: 465px;
         top: 50%;
@@ -470,7 +472,8 @@ margin-top: -300px;
       }
 
       #login_page4 {
-        background-color: rgb(126, 126, 126);
+        background-color: white;
+        box-shadow: 0 4px 10px 0 rgba(0, 0, 0);
         height: 600px;
         width: 480px;
         top: 50%;
@@ -485,7 +488,8 @@ margin-top: -300px;
       }
 
       #login_page5 {
-        background-color: rgb(103, 103, 103);
+        background-color: white;
+        box-shadow: 0 4px 5px 0 rgba(0, 0, 0);
         height: 600px;
         width: 500px;
         top: 50%;
