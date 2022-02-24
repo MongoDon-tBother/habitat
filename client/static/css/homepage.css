@@ -116,11 +116,11 @@ body {
   width: 25px;
   height: 210px;
   position: fixed;
-  top: 44%;
+  top: 50%;
   left: 50%;
-  margin-top: -115px;
+  margin-top: -150px;
   margin-left: 0px;
-  display: flex;
+  /* display: flex; */
 }
 
 #extra_book_top {
@@ -148,7 +148,7 @@ body {
   top: 0;
   transition: top ease 10s;
   background-color: rgb(28, 239, 250);
-  margin-top: 80px;
+  margin-top: 120px;
 }
 
 #tilted_book {
