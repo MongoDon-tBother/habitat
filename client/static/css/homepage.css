@@ -492,16 +492,56 @@ margin-top: -300px;
         margin-top: -303px;
         transform: skewY(0deg);
         z-index: -1;
-         
+    
       }
 
-      /* where the form will be inside of */
-#login_form {
-  background-color: white;
-  height: 100px;
-  width: 100px;
-  
-}
+      #login_form {
+        width: 420px;
+        height: 200px;
+        background: radial-gradient(110% 50% at bottom, transparent 50%, rgb(197, 84, 84) 51%);
+        top: 50%;
+        left: 50%;
+        margin-left: -260px;
+        margin-top: -270px;
+        z-index:100; 
+        position: fixed;
+        transform: skewY(-1deg);
+        
+        
+      }
+
+      #login_form > form > input{
+        background-color: rgb(197, 84, 84);
+        border: none;
+        display:block; 
+        width: 390px;
+        height: 50px;
+        margin-top: 10px;
+        margin-right: 50px;
+        margin-left: 15px;
+        transform: skewY(-1deg);
+        color: black;
+        
+      }
+      
+
+       input:focus, textarea:focus, select:focus{
+        outline: none;
+      }
+
+     #login_form > form > input:hover {
+        background-color: rgb(165, 71, 71);
+        outline: dotted rgb(220, 96, 96);
+      }
+
+      ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: black;
+    
+      }
+
+      
+      
+    
 
 
 
