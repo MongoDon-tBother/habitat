@@ -1,4 +1,3 @@
-const { doc } = require("prettier");
 const { requestLogin, requestRegistration } = require("./auth");
 const { handleEdit, handleDone, handleDelete } = require("./btn_handlers");
 const {
