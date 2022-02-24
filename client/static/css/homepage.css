@@ -343,8 +343,14 @@ body {
   z-index: -1;
 }
 
-#login_form_cover {
-background-color: red;
-height: 500px;
+#login_form {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+#login_form_cover, 
+#login_form_backcover {
+background-color: rgb(182, 16, 16);
+height: 300px;
 width: 500px;
 }
