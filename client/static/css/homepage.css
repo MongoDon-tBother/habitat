@@ -361,49 +361,52 @@ margin-left: -300px;
 margin-top: -300px;
 }
 
+
 #login_back_cover {
-  background-color: rgb(133, 17, 17);
+  background-color: rgb(137, 45, 45);
   height: 600px;
-  width: 450px;
+  width: 400px;
   top: 50%;
   left: 50%;
   border-radius: 2px 5px 5px 2px;
   position: fixed;
   box-shadow: -88px 25px 10px  rgb(149, 101, 101);
-  margin-left: -350px;
-  margin-top: -315px;
+  margin-left: -300px;
+  margin-top: -325px;
   z-index: -1;
   transform: skewY(-4deg);
   }
 
-  #login_top_spine {
-    background-color: rgb(133, 17, 17);
-    height: 600px;
-    width: 50px;
-    top: 50%;
-    left: 50%;
-    position: fixed;
-    /* box-shadow: -10px 1px 20px  rgb(95, 63, 63); */
-    margin-left: -350px;
-    margin-top: -300px;
-    /* transform: rotate(-1deg); */
-    }
 
     #login_bottom_spine {
-      background-color: rgba(111, 15, 15, 0.769);
+      background-color: rgba(0, 0, 0);
       height: 600px;
-      width: 20px;
+      width: 30px;
       top: 50%;
       left: 50%;
       position: fixed;
       box-shadow: -40px 10px 40px  rgb(95, 63, 63);
-      margin-left: -350px;
-      margin-top: -300px;
-      /* transform: rotate(-1deg); */
-      
-    
+      margin-left: -330px;
+      margin-top: -310px;
+      transform: skewY(-5deg);
+      z-index: -1;
       }
-    
+
+
+      #login_middle_spine {
+        background-color: rgba(27, 65, 255);
+        height: 600px;
+        width: 10px;
+        top: 50%;
+        left: 50%;
+        position: fixed;
+        box-shadow: -40px 10px 40px  rgb(95, 63, 63);
+        margin-left: -330px;
+        margin-top: -300px;
+        
+        z-index: 1;
+        }
+
       #login_page1 {
         background-color: white;
         height: 600px;
