@@ -367,16 +367,16 @@ margin-top: -300px;
 #login_back_cover {
   background-color: rgb(133, 17, 17);
   height: 600px;
-  width: 500px;
+  width: 450px;
   top: 50%;
   left: 50%;
   border-radius: 2px 5px 5px 2px;
   position: fixed;
   box-shadow: -88px 25px 30px  rgb(149, 101, 101);
-  margin-left: -280px;
-  margin-top: -300px;
+  margin-left: -350px;
+  margin-top: -315px;
   z-index: -1;
-  /* transform: rotate(18deg); */
+  transform: skewY(-4deg);
 
   
   }
