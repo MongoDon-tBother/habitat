@@ -141,11 +141,13 @@ function renderLoginForm() {
   
   const login_form = document.createElement("div");
   login_form.id = "login_form";
-  login_form.classList = "cover";
-  login_form.classList = "back_cover";
-  
+  login_form.classList.add("cover","back_cover")
   main.appendChild(login_form);
 
+  const login_form_pages = document.createElement("div");
+  login_form_pages.id = "login_form_pages";
+  login_form_pages.classList.add("page1","page2", "page3", "page4", "page5", "page6", "page7")
+  main.appendChild(login_form_pages);
   // const login_form_cover = document.createElement("div");
   // login_form_cover.id = "login_form_cover";
   // main.appendChild(login_form_cover);
