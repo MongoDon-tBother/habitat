@@ -392,16 +392,17 @@ margin-top: -300px;
     }
 
     #login_lower_spine {
-      background-color: rgba(133, 17, 17, 0.769);
+      background-color: rgba(111, 15, 15, 0.769);
       height: 600px;
       width: 20px;
       top: 50%;
       left: 50%;
       position: fixed;
-      box-shadow: 1px 1px 100px gray;
+      box-shadow: -10px 1px 6px rgb(149, 101, 101);
       margin-left: -350px;
       margin-top: -300px;
       /* transform: rotate(-1deg); */
+    
       }
     
   
