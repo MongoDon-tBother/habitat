@@ -163,8 +163,8 @@ function renderLoginForm() {
   const login_bottom_spine = document.createElement("div");
   login_bottom_spine.id = "login_bottom_spine";
   main.appendChild(login_bottom_spine);
-
-
+ 
+ 
   const login_page1 = document.createElement("div");
   login_page1.id = "login_page1";
   main.appendChild(login_page1);
