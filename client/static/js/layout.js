@@ -30,8 +30,6 @@ function updateNav() {
 }
 
 function updateMain(path) {
-  const main = document.querySelector("main");
-  main.innerHTML = "";
   if (path) {
     switch (path) {
       case "#login":
@@ -44,7 +42,7 @@ function updateMain(path) {
         renderHabitPage();
         break;
       default:
-        render404();
+        renderHomepage();
         break;
     }
   } else {
@@ -61,6 +59,8 @@ function createNavLink(route) {
 }
 
 function updateContent() {
+  const main = document.querySelector("main");
+  main.innerHTML = "";
   const path = window.location.hash;
   if (privateRoutes.includes(path) && !currentUser()) {
     window.location.hash = "#";
