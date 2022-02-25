@@ -131,7 +131,8 @@ function renderLoginForm() {
         name: "email",
         placeholder: "Email",
         pattern: ".+@gmail.com",
-        title: "Email incorrect or incomplete"
+        title: "Email incorrect or incomplete",
+        class: "login_form_input"
       }
     },
     {
@@ -139,10 +140,14 @@ function renderLoginForm() {
       attributes: {
         type: "password",
         name: "password",
-        placeholder: "Password"
+        placeholder: "Password",
+        class: "login_form_input"
       }
     },
-    { tag: "input", attributes: { type: "submit", value: "Login" } }
+    {
+      tag: "input",
+      attributes: { type: "submit", value: "Login", class: "lh_btn btn" }
+    }
   ];
   const form = document.createElement("form");
   fields.forEach((f) => {
