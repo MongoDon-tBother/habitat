@@ -240,16 +240,6 @@ function renderSignupForm() {
     {
       tag: "input",
       attributes: {
-        type: "password",
-        name: "passwordConfirmation",
-        placeholder: "Confirm Password",
-        id: "passwordConfirmation",
-        class: "login_form_input"
-      }
-    },
-    {
-      tag: "input",
-      attributes: {
         type: "submit",
         value: "Create Account",
         class: "btn lh_btn"
