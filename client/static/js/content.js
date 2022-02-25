@@ -423,11 +423,11 @@ const addCard = () => {
   wrapper.prepend(addDiv);
 };
 
-function render404() {
-  const error = document.createElement("h2");
-  error.textContent = "Oops, we can't find that page sorry!";
-  main.appendChild(error);
-}
+// function render404() {
+//   const error = document.createElement("h2");
+//   error.textContent = "Oops, we can't find that page sorry!";
+//   main.appendChild(error);
+// }
 
 /**
  * Creates a btn with an id matching it's text
@@ -448,5 +448,8 @@ module.exports = {
   createBook,
   createLeftPage,
   renderHabitPage,
-  addCard
+  addCard,
+  createRightPage,
+  createHabitCards,
+  renderNewHabitForm
 };

@@ -3,7 +3,7 @@
  */
 
 
- const {renderHomepage} = require("../static/js/content");
+ const {renderHomepage} = require("../content");
 describe("the homepage", () => {
     let logo;
       beforeEach(() => {
@@ -45,7 +45,7 @@ describe("the homepage", () => {
 });
 
 
-const {renderLoginForm} = require("../static/js/content");
+const {renderLoginForm} = require("../content");
 describe("the login in form", () => {
     let fields;
       beforeEach(() => {
@@ -71,7 +71,7 @@ describe("the login in form", () => {
   
 });
 
-const {renderSignupForm} = require("../static/js/content");
+const {renderSignupForm} = require("../content");
 describe("the signup form", () => {
     let fields;
       beforeEach(() => {
@@ -97,7 +97,7 @@ describe("the signup form", () => {
   
 });
  
-const {createBook} = require("../static/js/content");
+const {createBook} = require("../content");
 describe("creates the element that creates the book", () => {
     let book;
       beforeEach(() => {
@@ -116,10 +116,16 @@ describe("creates the element that creates the book", () => {
       
     })
 
+     test("the book is a div", () => {
+       book = document.getElementsByClassName(".book");
+       expect(book).toBeTruthy();
+     });
+  
+
   
 });
  
-const {createLeftPage} = require("../static/js/content");
+const {createLeftPage} = require("../content");
 describe("generates the container and welcome text for left hand of page", () => {
     let lhWrapper;
       beforeEach(() => {
@@ -135,18 +141,105 @@ describe("generates the container and welcome text for left hand of page", () =>
       
     })
 
-      let left_title;
-      test("there is title for left page", () => {
-         left_title = document.querySelector("h1");
-         expect(left_title).toBe("title");
-      });
-  
+
+
       // redo these tests 
 
-      
+
   
 });
  
+const { createRightPage } = require("../content");
+describe("generates the container and welcome text for right hand of page", () => {
+
+let rhWrapper;
+beforeEach(() => {
+  document.body.innerHTML = "<main> </main>";
+
+  createRightPage();
+  rhWrapper = document.querySelector("div");
+});
+
+test("this will create the div for right pages", () => {
+  expect(rhWrapper).toBe(null);
+});
+
+test("this will check for the habitsWrapper", () => {
+  habitsWrapper = document.getElementsByClassName('.habits_wrapper')
+  expect(habitsWrapper).toBeTruthy()
+});
+
+});
+
+const { renderHabitPage } = require("../content");
+describe("check renderHabitPage", () => {
+  beforeEach(() => {
+    document.body.innerHTML = "<main> </main>";
+
+    renderHabitPage();
+  });
+  let leftCover
+  test("this will create the div for left cover", () => {
+    leftCover = document.getElementsByClassName('.front')
+    expect(leftCover).toBeTruthy();
+  });
+
+  let habitName;
+  test("this will create the div for left cover", () => {
+    habitName = document.getElementsByClassName(".habit_name");
+    expect(habitName).toBeTruthy();
+  });
+
+
+
+
+});
+
+const {renderNewHabitForm} = require("../content");
+describe("check renderHabitPage", () => {
+  beforeEach(() => {
+    document.body.innerHTML = "<main> </main>";
+
+    renderNewHabitForm();
+  });
+  let lhWrapper;
+  test("this will check for lhWrapper", () => {
+    lhWrapper = document.querySelector(".edit_container")
+    expect(lhWrapper).toBeTruthy()
+  });
+
+  let title;
+  test("this will check for title", () => {
+    title = document.querySelector("h2");
+    expect(title).toBeTruthy();
+  });
+
+  let newHabitForm
+  test("check for newHabitForm", () => {
+     newHabitForm = document.querySelector("form");
+    expect(newHabitForm).toBeTruthy();
+  });
+
+
+  let nameWrap
+  test("check for nameWrap", () => {
+    nameWrap = document.getElementsByClassName('.form_control')
+    expect(nameWrap).toBeTruthy();
+    expect(nameWrap).toBe('form');
+  });
+
+  let newHabitName
+  test("check for newHabitName", () => {
+    newHabitName = document.getElementById("newHabitName");
+    expect(nameWrap).toBeTruthy();
+  });
+
+
+});
+
+
+
+
 
 // describe("creating left page", () => {
 //   describe("creating the div for left page", () => {
