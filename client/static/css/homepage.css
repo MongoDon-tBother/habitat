@@ -497,28 +497,34 @@
   transform: skewY(-1deg);
 }
 
-#login_form > form > input {
-  background-color: rgb(197, 84, 84);
+.login_form_input {
   border: none;
+  color: #000;
   display: block;
-  width: 390px;
   height: 50px;
-  margin-top: 10px;
-  margin-right: 50px;
   margin-left: 17px;
+  margin-right: 50px;
+  margin-top: 10px;
   transform: skewY(-1deg);
+  width: 390px;
+  padding: 1em;
+  font-family: inherit;
+  font-size: inherit;
+  border-radius: 10px;
+  opacity: 0.8;
+}
+#login_form .lh_btn {
+  background-color: white;
   color: black;
+  transform: skewY(-1deg);
+  margin: 1em 0 0 11em;
+  opacity: 0.9;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-}
-
-#login_form > form > input:hover {
-  background-color: rgb(165, 71, 71);
-  outline: dotted rgb(220, 96, 96);
 }
 
 ::placeholder {
