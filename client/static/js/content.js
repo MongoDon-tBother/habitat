@@ -21,21 +21,21 @@ function renderHomepage() {
 
 
 
-   const login_link = document.createTextNode("Login");
+   const login_link = document.createElement("a")
    login_book.appendChild(login_link); 
-   login_book.title = "Login"; 
-   login_book.href = "renderLoginForm"; 
+   login_link.innerText = "Login"; 
+   login_link.href = "#login"; 
    document.body.appendChild(login_book); 
 
   const signup_book = document.createElement("div");
   signup_book.id = "signup_book";
   main.appendChild(signup_book);
 
-  const signup_link = document.createTextNode("signup");
-  signup_book.appendChild(signup_link); 
-  signup_book.title = "signup"; 
-  signup_book.href = "rendersignupForm"; 
-  document.body.appendChild(signup_book); 
+  const signup_link = document.createElement("a")
+   signup_book.appendChild(signup_link); 
+   signup_link.innerText = "signup"; 
+   signup_link.href = "#register"; 
+   document.body.appendChild(signup_book);  
 
   const extra_book = document.createElement("div");
   extra_book.id = "extra_book";
