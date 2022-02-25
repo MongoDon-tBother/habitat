@@ -17,23 +17,31 @@ function renderHomepage() {
   main.appendChild(logo);
   const login_book = document.createElement("div");
   login_book.id = "login_book";
-  main.appendChild(login_book);
+  // main.appendChild(login_book);
+
+  const p_login = document.createElement("p");
+  p_login.classList.add("login_text", "link_text");
+  p_login.innerText = "Login";
+  login_book.appendChild(p_login);
 
   const login_link = document.createElement("a");
-  login_book.appendChild(login_link);
-  login_link.innerText = "Login";
   login_link.href = "#login";
-  main.appendChild(login_book);
+  login_link.appendChild(login_book);
+  main.appendChild(login_link);
 
   const signup_book = document.createElement("div");
   signup_book.id = "signup_book";
-  main.appendChild(signup_book);
+  // main.appendChild(signup_book);
+
+  const signup = document.createElement("p");
+  signup.classList.add("signup_text", "link_text");
+  signup.innerText = "Sign up";
+  signup_book.appendChild(signup);
 
   const signup_link = document.createElement("a");
-  signup_book.appendChild(signup_link);
-  signup_link.innerText = "signup";
   signup_link.href = "#register";
-  main.appendChild(signup_book);
+  signup_link.appendChild(signup_book);
+  main.appendChild(signup_link);
 
   const extra_book = document.createElement("div");
   extra_book.id = "extra_book";
