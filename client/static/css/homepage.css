@@ -520,6 +520,13 @@
   margin: 1em 0 0 11em;
   opacity: 0.9;
 }
+#signup_form .lh_btn {
+  background-color: white;
+  color: black;
+  transform: skewY(-1deg);
+  margin: 1em 0 0 8.5em;
+  opacity: 0.9;
+}
 
 input:focus,
 textarea:focus,
@@ -708,28 +715,10 @@ select:focus {
   transform: skewY(-1deg);
 }
 
-#signup_form > form > input {
-  background-color: rgb(27, 27, 120);
-  border: none;
-  display: block;
-  width: 390px;
-  height: 50px;
-  margin-top: 10px;
-  margin-right: 50px;
-  margin-left: 17px;
-  transform: skewY(-1deg);
-  color: black;
-}
-
 input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-}
-
-#signup_form > form > input:hover {
-  background-color: rgb(18, 18, 86);
-  outline: dotted rgb(26, 26, 117);
 }
 
 ::placeholder {
@@ -868,28 +857,10 @@ select:focus {
   transform: skewY(-1deg);
 }
 
-#signup_form > form > input {
-  background-color: rgb(27, 27, 120);
-  border: none;
-  display: block;
-  width: 390px;
-  height: 50px;
-  margin-top: 10px;
-  margin-right: 50px;
-  margin-left: 17px;
-  transform: skewY(-1deg);
-  color: black;
-}
-
 input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-}
-
-#signup_form > form > input:hover {
-  background-color: rgb(18, 18, 86);
-  outline: dotted rgb(26, 26, 117);
 }
 
 ::placeholder {
