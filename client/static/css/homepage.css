@@ -540,7 +540,7 @@ margin-top: -300px;
       }
       
       #signup_front_cover {
-        background-color: rgb(182, 16, 16);
+        background-color: rgb(18, 18, 86);
         height: 600px;
         width: 500px;
         top: 50%;
@@ -554,7 +554,7 @@ margin-top: -300px;
         
         
         #signup_back_cover {
-          background-color: rgb(137, 45, 45);
+          background-color: rgb(18, 18, 86);
           height: 600px;
           width: 400px;
           top: 50%;
@@ -570,7 +570,7 @@ margin-top: -300px;
         
         
             #signup_bottom_spine {
-              background-color: rgb(91, 29, 29);
+              background-color: rgb(12, 12, 51);
               height: 600px;
               width: 38px;
               top: 50%;
@@ -586,7 +586,7 @@ margin-top: -300px;
         
         
               #signup_middle_spine {
-                background-color: rgb(110, 36, 36);
+                background-color: rgb(15, 15, 69);
                 height: 600px;
                 width: 20px;
                 top: 50%;
@@ -602,7 +602,7 @@ margin-top: -300px;
         
                 
               #signup_top_spine {
-                background-color: rgb(154, 53, 53);
+                background-color: rgb(21, 21, 95);
                 height: 600px;
                 width: 20px;
                 top: 50%;
@@ -697,7 +697,7 @@ margin-top: -300px;
               #signup_form {
                 width: 420px;
                 height: 200px;
-                background: radial-gradient(110% 50% at bottom, transparent 50%, rgb(197, 84, 84) 51%);
+                background: radial-gradient(110% 50% at bottom, transparent 50%, rgb(26, 26, 123) 51%);
                 top: 50%;
                 left: 50%;
                 margin-left: -260px;
@@ -710,7 +710,7 @@ margin-top: -300px;
               }
         
               #signup_form > form > input{
-                background-color: rgb(197, 84, 84);
+                background-color: rgb(27, 27, 120);
                 border: none;
                 display:block; 
                 width: 390px;
@@ -729,8 +729,8 @@ margin-top: -300px;
               }
         
              #signup_form > form > input:hover {
-                background-color: rgb(165, 71, 71);
-                outline: dotted rgb(220, 96, 96);
+                background-color: rgb(18, 18, 86);
+                outline: dotted rgb(26, 26, 117);
               }
         
               ::placeholder { 
