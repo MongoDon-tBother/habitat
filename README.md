@@ -28,3 +28,17 @@ Create your own account, add all of your habits and start tracking!
 - To run tests in the client folder, navigate to the client folder and run `npm run test` to launch the jest test suite
 - To run tests in the server folder, navigate to the api folder inside the server folder and run `npm run test`
 - To stop tests in the server folder, run `npm run stop`
+
+## Changelog
+
+- To see a our changelog, run `git log --pretty="- %s"` in the command line
+
+## Wins & Challenges
+
+### Wins
+
+* Successfully created a functional habit tracking website and implemented CRUD
+
+### Challenges
+
+* No challenges as of 10:35am 25/02/22
