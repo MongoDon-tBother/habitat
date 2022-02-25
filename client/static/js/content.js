@@ -213,7 +213,8 @@ function renderSignupForm() {
         type: "text",
         name: "username",
         placeholder: "Username",
-        id: "username"
+        id: "username",
+        class: "login_form_input"
       }
     },
     {
@@ -222,7 +223,8 @@ function renderSignupForm() {
         type: "email",
         name: "email",
         placeholder: "Email",
-        id: "email"
+        id: "email",
+        class: "login_form_input"
       }
     },
     {
@@ -231,7 +233,8 @@ function renderSignupForm() {
         type: "password",
         name: "password",
         placeholder: "Password",
-        id: "password"
+        id: "password",
+        class: "login_form_input"
       }
     },
     {
@@ -240,10 +243,18 @@ function renderSignupForm() {
         type: "password",
         name: "passwordConfirmation",
         placeholder: "Confirm Password",
-        id: "passwordConfirmation"
+        id: "passwordConfirmation",
+        class: "login_form_input"
       }
     },
-    { tag: "input", attributes: { type: "submit", value: "Create Account" } }
+    {
+      tag: "input",
+      attributes: {
+        type: "submit",
+        value: "Create Account",
+        class: "btn lh_btn"
+      }
+    }
   ];
   const form = document.createElement("form");
   fields.forEach((f) => {
