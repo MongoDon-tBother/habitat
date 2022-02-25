@@ -14,26 +14,33 @@ function renderHomepage() {
   logo.src =
     "https://images-platform.99static.com//n7liZzsSMdHX6uDJpYOA2QTUVeA=/163x13:1335x1185/fit-in/500x500/99designs-contests-attachments/116/116335/attachment_116335822";
   logo.alt = "habitat logo";
-  main.appendChild(logo);
   const login_book = document.createElement("div");
   login_book.id = "login_book";
-  main.appendChild(login_book);
+  // main.appendChild(login_book);
+
+  const p_login = document.createElement("p");
+  p_login.classList.add("login_text", "link_text");
+  p_login.innerText = "Login";
+  login_book.appendChild(p_login);
 
   const login_link = document.createElement("a");
-  login_book.appendChild(login_link);
-  login_link.innerText = "Login";
   login_link.href = "#login";
-  main.appendChild(login_book);
+  login_link.appendChild(login_book);
+  main.appendChild(login_link);
 
   const signup_book = document.createElement("div");
   signup_book.id = "signup_book";
-  main.appendChild(signup_book);
+  // main.appendChild(signup_book);
+
+  const signup = document.createElement("p");
+  signup.classList.add("signup_text", "link_text");
+  signup.innerText = "Sign up";
+  signup_book.appendChild(signup);
 
   const signup_link = document.createElement("a");
-  signup_book.appendChild(signup_link);
-  signup_link.innerText = "signup";
   signup_link.href = "#register";
-  main.appendChild(signup_book);
+  signup_link.appendChild(signup_book);
+  main.appendChild(signup_link);
 
   const extra_book = document.createElement("div");
   extra_book.id = "extra_book";
@@ -124,7 +131,8 @@ function renderLoginForm() {
         name: "email",
         placeholder: "Email",
         pattern: ".+@gmail.com",
-        title: "Email incorrect or incomplete"
+        title: "Email incorrect or incomplete",
+        class: "login_form_input"
       }
     },
     {
@@ -132,10 +140,14 @@ function renderLoginForm() {
       attributes: {
         type: "password",
         name: "password",
-        placeholder: "Password"
+        placeholder: "Password",
+        class: "login_form_input"
       }
     },
-    { tag: "input", attributes: { type: "submit", value: "Login" } }
+    {
+      tag: "input",
+      attributes: { type: "submit", value: "Login", class: "lh_btn btn" }
+    }
   ];
   const form = document.createElement("form");
   fields.forEach((f) => {
@@ -201,7 +213,8 @@ function renderSignupForm() {
         type: "text",
         name: "username",
         placeholder: "Username",
-        id: "username"
+        id: "username",
+        class: "login_form_input"
       }
     },
     {
@@ -210,7 +223,8 @@ function renderSignupForm() {
         type: "email",
         name: "email",
         placeholder: "Email",
-        id: "email"
+        id: "email",
+        class: "login_form_input"
       }
     },
     {
@@ -219,7 +233,8 @@ function renderSignupForm() {
         type: "password",
         name: "password",
         placeholder: "Password",
-        id: "password"
+        id: "password",
+        class: "login_form_input"
       }
     },
     {
@@ -228,10 +243,18 @@ function renderSignupForm() {
         type: "password",
         name: "passwordConfirmation",
         placeholder: "Confirm Password",
-        id: "passwordConfirmation"
+        id: "passwordConfirmation",
+        class: "login_form_input"
       }
     },
-    { tag: "input", attributes: { type: "submit", value: "Create Account" } }
+    {
+      tag: "input",
+      attributes: {
+        type: "submit",
+        value: "Create Account",
+        class: "btn lh_btn"
+      }
+    }
   ];
   const form = document.createElement("form");
   fields.forEach((f) => {

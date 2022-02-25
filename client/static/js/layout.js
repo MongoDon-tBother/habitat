@@ -26,7 +26,15 @@ function updateNav() {
     nav.appendChild(logoutBtn);
   } else {
     links = publicRoutes.map(createNavLink);
+    homeBtn = document.createElement("button");
+    homeBtn.textContent = "Home";
+    homeBtn.classList.add("logout_btn");
+    homeBtn.onclick = home;
+    nav.appendChild(homeBtn);
   }
+}
+function home() {
+  window.location.hash = "#";
 }
 
 function updateMain(path) {
