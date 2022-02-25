@@ -143,18 +143,19 @@ function renderSignupForm() {
   const fields = [
     {
       tag: "input",
-      attributes: { type: "text", name: "username", placeholder: "Username" }
+      attributes: { type: "text", name: "username", placeholder: "Username", id: "username" }
     },
     {
       tag: "input",
-      attributes: { type: "email", name: "email", placeholder: "Email" }
+      attributes: { type: "email", name: "email", placeholder: "Email", id: "email" }
     },
     {
       tag: "input",
       attributes: {
         type: "password",
         name: "password",
-        placeholder: "Password"
+        placeholder: "Password",
+        id: "password"
       }
     },
     {
@@ -162,7 +163,8 @@ function renderSignupForm() {
       attributes: {
         type: "password",
         name: "passwordConfirmation",
-        placeholder: "Confirm Password"
+        placeholder: "Confirm Password",
+        id: "passwordConfirmation"
       }
     },
     { tag: "input", attributes: { type: "submit", value: "Create Account" } }
