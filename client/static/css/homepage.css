@@ -736,13 +736,15 @@ margin-top: -300px;
               ::placeholder { 
                 color: black;
             
-              }
+              } 
                a {
-                color: yellow;
+                color: black;
                 text-decoration: none;
                 top: 50%;
                 left: 50%;
-                margin-top: -50px;
+                margin-top: 100px;
+                text-orientation: mixed;
+                
 
 
               }
