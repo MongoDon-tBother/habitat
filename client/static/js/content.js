@@ -224,8 +224,54 @@ function renderSignupForm() {
       form.appendChild(field);
     });
   });
+  const signup_form = document.createElement("div");
+  signup_form.id = "signup_form";
+  main.appendChild(signup_form);
   form.addEventListener("submit", requestRegistration);
-  main.appendChild(form);
+  signup_form.appendChild(form);
+
+  const signup_front_cover = document.createElement("div");
+  signup_front_cover.id = "signup_front_cover";
+  main.appendChild(signup_front_cover);
+
+
+  const signup_back_cover = document.createElement("div");
+  signup_back_cover.id = "signup_back_cover";
+  main.appendChild(signup_back_cover);
+
+  const signup_top_spine = document.createElement("div");
+  signup_top_spine.id = "signup_top_spine";
+  main.appendChild(signup_top_spine);
+
+  const signup_middle_spine = document.createElement("div");
+  signup_middle_spine.id = "signup_middle_spine";
+  main.appendChild(signup_middle_spine);
+
+  const signup_bottom_spine = document.createElement("div");
+  signup_bottom_spine.id = "signup_bottom_spine";
+  main.appendChild(signup_bottom_spine);
+ 
+ 
+  const signup_page1 = document.createElement("div");
+  signup_page1.id = "signup_page1";
+  main.appendChild(signup_page1);
+
+  const signup_page2 = document.createElement("div");
+  signup_page2.id = "signup_page2";
+  main.appendChild(signup_page2);
+
+  const signup_page3 = document.createElement("div");
+  signup_page3.id = "signup_page3";
+  main.appendChild(signup_page3);
+
+  const signup_page4 = document.createElement("div");
+  signup_page4.id = "signup_page4"
+  main.appendChild(signup_page4);
+
+  const signup_page5 = document.createElement("div");
+  signup_page5.id = "signup_page5"
+  main.appendChild(signup_page5); 
+  
 }
 /**
  * Creates the book element

@@ -44,7 +44,7 @@ function updateMain(path) {
         renderHabitPage();
         break;
       default:
-        render404();
+        renderHomepage();
         break;
     }
   } else {
