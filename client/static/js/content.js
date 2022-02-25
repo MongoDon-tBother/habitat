@@ -17,12 +17,25 @@ function renderHomepage() {
   main.appendChild(logo);
   const login_book = document.createElement("div");
   login_book.id = "login_book";
+   main.appendChild(login_book);
 
-  main.appendChild(login_book);
+
+
+   const login_link = document.createTextNode("Login");
+   login_book.appendChild(login_link); 
+   login_book.title = "Login"; 
+   login_book.href = "renderLoginForm"; 
+   document.body.appendChild(login_book); 
 
   const signup_book = document.createElement("div");
   signup_book.id = "signup_book";
   main.appendChild(signup_book);
+
+  const signup_link = document.createTextNode("signup");
+  signup_book.appendChild(signup_link); 
+  signup_book.title = "signup"; 
+  signup_book.href = "rendersignupForm"; 
+  document.body.appendChild(signup_book); 
 
   const extra_book = document.createElement("div");
   extra_book.id = "extra_book";
