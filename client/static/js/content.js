@@ -17,25 +17,23 @@ function renderHomepage() {
   main.appendChild(logo);
   const login_book = document.createElement("div");
   login_book.id = "login_book";
-   main.appendChild(login_book);
+  main.appendChild(login_book);
 
-
-
-   const login_link = document.createElement("a")
-   login_book.appendChild(login_link); 
-   login_link.innerText = "Login"; 
-   login_link.href = "#login"; 
-   document.body.appendChild(login_book); 
+  const login_link = document.createElement("a");
+  login_book.appendChild(login_link);
+  login_link.innerText = "Login";
+  login_link.href = "#login";
+  main.appendChild(login_book);
 
   const signup_book = document.createElement("div");
   signup_book.id = "signup_book";
   main.appendChild(signup_book);
 
-  const signup_link = document.createElement("a")
-   signup_book.appendChild(signup_link); 
-   signup_link.innerText = "signup"; 
-   signup_link.href = "#register"; 
-   document.body.appendChild(signup_book);  
+  const signup_link = document.createElement("a");
+  signup_book.appendChild(signup_link);
+  signup_link.innerText = "signup";
+  signup_link.href = "#register";
+  main.appendChild(signup_book);
 
   const extra_book = document.createElement("div");
   extra_book.id = "extra_book";
@@ -146,19 +144,16 @@ function renderLoginForm() {
       field.setAttribute(a, v);
       form.appendChild(field);
     });
-    
   });
   const login_form = document.createElement("div");
   login_form.id = "login_form";
   main.appendChild(login_form);
   form.addEventListener("submit", requestLogin);
   login_form.appendChild(form);
-  
 
   const login_front_cover = document.createElement("div");
   login_front_cover.id = "login_front_cover";
   main.appendChild(login_front_cover);
-
 
   const login_back_cover = document.createElement("div");
   login_back_cover.id = "login_back_cover";
@@ -175,8 +170,7 @@ function renderLoginForm() {
   const login_bottom_spine = document.createElement("div");
   login_bottom_spine.id = "login_bottom_spine";
   main.appendChild(login_bottom_spine);
- 
- 
+
   const login_page1 = document.createElement("div");
   login_page1.id = "login_page1";
   main.appendChild(login_page1);
@@ -190,14 +184,12 @@ function renderLoginForm() {
   main.appendChild(login_page3);
 
   const login_page4 = document.createElement("div");
-  login_page4.id = "login_page4"
+  login_page4.id = "login_page4";
   main.appendChild(login_page4);
 
   const login_page5 = document.createElement("div");
-  login_page5.id = "login_page5"
-  main.appendChild(login_page5); 
-
-
+  login_page5.id = "login_page5";
+  main.appendChild(login_page5);
 }
 
 function renderSignupForm() {
@@ -205,11 +197,21 @@ function renderSignupForm() {
   const fields = [
     {
       tag: "input",
-      attributes: { type: "text", name: "username", placeholder: "Username", id: "username" }
+      attributes: {
+        type: "text",
+        name: "username",
+        placeholder: "Username",
+        id: "username"
+      }
     },
     {
       tag: "input",
-      attributes: { type: "email", name: "email", placeholder: "Email", id: "email" }
+      attributes: {
+        type: "email",
+        name: "email",
+        placeholder: "Email",
+        id: "email"
+      }
     },
     {
       tag: "input",
@@ -249,7 +251,6 @@ function renderSignupForm() {
   signup_front_cover.id = "signup_front_cover";
   main.appendChild(signup_front_cover);
 
-
   const signup_back_cover = document.createElement("div");
   signup_back_cover.id = "signup_back_cover";
   main.appendChild(signup_back_cover);
@@ -265,8 +266,7 @@ function renderSignupForm() {
   const signup_bottom_spine = document.createElement("div");
   signup_bottom_spine.id = "signup_bottom_spine";
   main.appendChild(signup_bottom_spine);
- 
- 
+
   const signup_page1 = document.createElement("div");
   signup_page1.id = "signup_page1";
   main.appendChild(signup_page1);
@@ -280,13 +280,12 @@ function renderSignupForm() {
   main.appendChild(signup_page3);
 
   const signup_page4 = document.createElement("div");
-  signup_page4.id = "signup_page4"
+  signup_page4.id = "signup_page4";
   main.appendChild(signup_page4);
 
   const signup_page5 = document.createElement("div");
-  signup_page5.id = "signup_page5"
-  main.appendChild(signup_page5); 
-  
+  signup_page5.id = "signup_page5";
+  main.appendChild(signup_page5);
 }
 /**
  * Creates the book element
