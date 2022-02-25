@@ -367,10 +367,6 @@ h1 {
 }
 
 @media screen and (max-width: 1000px) {
-  * {
-    transition: none !important;
-    transform: none !important;
-  }
   .book {
     --habit_columns: 3;
     position: relative;
