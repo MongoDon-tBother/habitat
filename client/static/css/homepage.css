@@ -732,8 +732,6 @@ select:focus {
 ::placeholder {
   color: black;
 }
-a {
-}
 
 #signup_bottom_spine {
   background-color: rgb(12, 12, 51);
